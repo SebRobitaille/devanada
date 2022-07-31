@@ -1,22 +1,20 @@
 /* CSS Custom Properties */
 :root {
-    --main-bg-color: grey;
-    --main-text-color: red;
-    --secondary-bg-color: black;
-    --secondary-text-color: rebeccapurple;
-    --header-font: arial; 
-    --paragraph-font: arial;
+  --main-bg-color: grey;
+  --main-text-color: red;
+  --secondary-bg-color: black;
+  --secondary-text-color: rebeccapurple;
+  --header-font: "Roboto Condensed", sans-serif, arial;
+  --paragraph-font: "Montserrat", sans-serif;
 }
 
 /* Main CSS for Homepage */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 /* Mobile View Start */
 @media (max-width: 950px) {
-
 }
