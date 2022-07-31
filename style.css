@@ -4,6 +4,8 @@
     --main-text-color: red;
     --secondary-bg-color: black;
     --secondary-text-color: rebeccapurple;
+    --header-font: arial; 
+    --paragraph-font: arial;
 }
 
 /* Main CSS for Homepage */
