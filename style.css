@@ -1,11 +1,19 @@
 /* CSS Custom Properties */
 :root {
-  --main-bg-color: grey;
   --main-text-color: red;
-  --secondary-bg-color: black;
   --secondary-text-color: rebeccapurple;
+  --color-grey0: #f8f8f8;
+  --color-grey-1: #dbe1e8;
+  --color-grey-2: #b2becd;
+  --color-grey-3: #6c7983;
+  --color-grey-4: #454e56;
+  --color-grey-5: #2a2e35;
+  --color-grey-6: #12181b;
+  --main-bg-color: grey;
+  --secondary-bg-color: black;
   --header-font: "Roboto Condensed", sans-serif, arial;
   --paragraph-font: "Montserrat", sans-serif;
+  --transition-default: all 0.4 ease-in-out;
 }
 
 /* Main CSS for Homepage */
@@ -15,6 +23,98 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: var(--main-bg-color);
+  font-family: var(--paragraph-font);
+  font-size: 1.1rem;
+  color: white;
+  transition: var(--transition-default);
+}
+
+header {
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+section {
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3rem 18rem;
+}
+
+/* Sections  */
+.section {
+  transform: translateY(-100%) scale(0);
+  transition: var(--transition-default);
+  background-color: var(--main-bg-color);
+}
+
+/* Feel free to change colours of pages */
+.sec1 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: var(--secondary-bg-color);
+}
+.sec2 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: var(--secondary-bg-color);
+}
+.sec3 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: var(--secondary-bg-color);
+}
+.sec4 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: var(--secondary-bg-color);
+}
+.sec5 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: var(--secondary-bg-color);
+}
+
+.active {
+  display: block;
+  animation: scaleAnim 1s ease-in-out;
+  @keyframes scaleAnim {
+    0% {
+      transform: translateY(-100%) scaleY(0);
+    }
+    100% {
+      transform: translateY(0) scaleY(1);
+    }
+  }
+}
+
 /* Mobile View Start */
 @media (max-width: 950px) {
 }
+
+/* Main title */
+
+/* .right-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  display: block;
+}
+
+.right-header h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+.right-header span {
+  color: var(--main-text-color);
+} */
