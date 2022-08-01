@@ -1,7 +1,8 @@
 /* CSS Custom Properties */
 :root {
-  --main-text-color: red;
-  --secondary-text-color: rebeccapurple;
+  --highlight-color: #E63946;
+  --light-main-text-color: #1D3557;
+  --dark-main-text-color:  #F1FAEE;
   --color-grey0: #f8f8f8;
   --color-grey-1: #dbe1e8;
   --color-grey-2: #b2becd;
@@ -9,7 +10,8 @@
   --color-grey-4: #454e56;
   --color-grey-5: #2a2e35;
   --color-grey-6: #12181b;
-  --main-bg-color: grey;
+  --light-bg-color: #F1FAEE;
+  --dark--bg-color: #1D3557;
   --secondary-bg-color: black;
   --header-font: "Roboto Condensed", sans-serif, arial;
   --paragraph-font: "Montserrat", sans-serif;
@@ -24,10 +26,10 @@
 }
 
 body {
-  background-color: var(--main-bg-color);
+  background-color: var(--dark--bg-color);
   font-family: var(--paragraph-font);
   font-size: 1.1rem;
-  color: white;
+  color: var(--dark-main-text-color);
   transition: var(--transition-default);
 }
 
@@ -46,11 +48,25 @@ section {
   padding: 3rem 18rem;
 }
 
+.controls {
+  position: fixed;
+  top: 5%;
+  right: 3%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  content: "";              /* this is just so I can see where it is */
+  background-color: var(--highlight-color);  /* this is just so I can see where it is */
+  width: 70px; 
+  height: 70%;
+}
+
 /* Sections  */
 .section {
   transform: translateY(-100%) scale(0);
   transition: var(--transition-default);
-  background-color: var(--main-bg-color);
+  background-color: var(--light-bg-color);
 }
 
 /* Feel free to change colours of pages */
@@ -93,28 +109,90 @@ section {
   }
 }
 
-/* Mobile View Start */
-@media (max-width: 950px) {
+/* Header Display */
+
+.header-content {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  background-color: var(--dark--bg-color);
 }
 
-/* Main title */
+/* Left Header section */
 
-/* .right-header {
+.header-content .left-header {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.header-content .left-header .h-shape {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--highlight-color);
+  height: 100%;
+  width: 65%;
+  clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+}
+
+.header-content .left-header .image  {
+  position: relative;
+  height: 100%;
+  z-index: 5;
   display: flex;
   justify-content: center;
-  align-items: center;
+  overflow: hidden;
 }
 
-.right-header h1 {
+.header-content .left-header .image .imageEl {
+  width: 150%;
+  align-self: center;
+  margin-left: -5em;
+}
+
+/* Right Header section */
+
+.header-content .right-header {
+  width: 100%;
+  padding-right: 13em;
+  padding-left: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+
+.header-content .right-header h1 {
   font-size: 4rem;
   font-weight: 700;
   display: block;
 }
 
-.right-header h2 {
+.header-content .right-header h2 {
   font-size: 2.5rem;
   font-weight: 400;
 }
-.right-header span {
-  color: var(--main-text-color);
-} */
+.header-content .right-header span {
+  color: var(--highlight-color);
+}
+
+
+
+
+
+
+
+
+
+
+/* Mobile View Start */
+@media (max-width: 950px) {
+  .imageEl {
+    display: none;
+  }
+}
