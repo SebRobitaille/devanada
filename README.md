@@ -35,3 +35,18 @@ I like the fonts, the logo and the colors. We can start with these and adjust as
 
 > ReadMe:
 - Added 3 images of our brand logo, using the highlight color (red), the light blue, and the dark blue. 
+
+
+ **02 Aug - KH:**
+
+> HTML:
+- I found an image with the same color as the highlight color we have (the light red), so I swapped out the image for th left-hand side.
+- Added the logo to the right-side header section, with the idea of adding an animation to the right of the logo. The end goal is to see a typing animation of "HTML", and then backspacing to add "CSS", and then backspacing to add "Javascript", and continue with all the languages we offer services for. The link below covers what the typing animation could look like:
+- https://codepen.io/CheeseTurtle/pen/AYJYqE
+- I added the code from the CodePen link above to see how it would look, and I like it. I looked over the code, and I think it would be a good idea to re-build this from stratch so we can explain exactly how it's functioning. Overall, I like the idea of adding the languages we offer this section. 
+
+> CSS:
+- Added the animation of the hover effect for the image. Also added some box-shadow on the image to make it pop a big more.
+
+> JS:
+- Added in the code for the typing animation, and I like how it looks. We can go over the code to make sure we understand it, and when we meet next time, we can try to re-build it from scratch. Wanted to make it easy for you to understand what the end goal I was looking for.
