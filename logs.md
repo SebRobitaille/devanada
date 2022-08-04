@@ -38,3 +38,16 @@ I like the fonts, the logo and the colors. We can start with these and adjust as
 
 > JS:
 - Added in the code for the typing animation, and I like how it looks. We can go over the code to make sure we understand it, and when we meet next time, we can try to re-build it from scratch. Wanted to make it easy for you to understand what the end goal I was looking for.
+
+**** 04 Aug - SR ****
+
+HTML:
+-Linked FontAwesome kit code to head section of HTML
+
+CSS: 
+-Styled control buttons
+
+JS:
+-Finished control buttons, disabled theme btn for now.
+
+
