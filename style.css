@@ -47,7 +47,36 @@ section {
   position: absolute;
   left: 0;
   top: 0;
-  padding: 3rem 18rem;
+  padding: 3rem 10rem;
+  background-color: var(--dark--bg-color) !important;
+  text-align: center;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+section .section-title {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  grid-column-start:  span 3;
+  font-size: 2em;
+}
+
+section .section-title span {
+  color: var(--highlight-color);
+}
+
+.section-title .section-title-background {
+  position: absolute;
+  z-index: -1;
+  font-size: 3.5em;
+  font-weight: 900;
+  color: var(--color-grey-1);
+  opacity: 0.05;
+  margin-top: -0.15em;
+  line-height: 80%;
 }
 
 /* Controls */
@@ -307,7 +336,7 @@ section {
 }
 
 .header-content .right-header .cta .cta-txt {
-  padding: 0.4em 0.5em;
+  padding: 0.3em 0.3em;
   margin-left: 1em;
   font-weight: bolder;
   color: var(--highlight-color);
