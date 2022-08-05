@@ -120,9 +120,9 @@ section {
   padding: 0.2em 2em 0.2em 0.4em;
   z-index: -1;
   border-radius: 50px;
-  transform: rotate(-90deg) scale(0);
+  transform: rotate(-90deg) scale(0.2);
   transform-origin: right;
-  cursor: default;
+  pointer-events: none;
 }
 
 .control:hover .tooltip {
