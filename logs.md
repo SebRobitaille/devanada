@@ -51,3 +51,14 @@ JS:
 -Finished control buttons, disabled theme btn for now.
 
 
+ **05 Aug - KH:**
+
+> HTML:
+- Added in the slogan "We design, develop, and deliver to ignite your business."
+- Added in the call-to-action button
+
+> CSS:
+- Created the animation for the button on hover
+
+> JS:
+- Added notes to the typing animation, and will talk about the typing animation when we hang out next. 
