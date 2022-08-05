@@ -17,6 +17,7 @@
   --paragraph-font: "Montserrat", sans-serif;
   --transition-default: all 0.4s ease-in-out;
   --box-shadow: 3px 3px 15px 0px black;
+  --box-shadow-on-hover: 5px 5px 15px 0px black;
 }
 
 /* Main CSS for Homepage */
@@ -105,6 +106,34 @@ section {
   margin: 0.2rem;
   color: var(--secondary-bg-color);
 }
+
+/* Tooltip */
+.control .tooltip {
+  opacity: 0;
+  display: none;
+  position: absolute;
+  margin-right: 4em;
+  display: flex;
+  justify-content: right;
+  transition: var(--transition-default);
+  background-color: var(--secondary-bg-color);
+  padding: 0.2em 2em 0.2em 0.4em;
+  z-index: -1;
+  border-radius: 50px;
+  transform: rotate(-90deg) scale(0);
+  transform-origin: right;
+  cursor: default;
+}
+
+.control:hover .tooltip {
+  opacity: 1;
+  margin-right: 105px;
+  transform: rotate(0deg) scale(1);
+  padding: 0.2em 2em 0.2em 0.4em;
+  display: block;
+}
+
+
 /* Sections  */
 .section {
   transform: translateY(-100%) scale(0);
@@ -209,6 +238,7 @@ section {
 
 .header-content .left-header .image .imageEl:hover {
   filter: grayscale(0);
+  box-shadow: var(--box-shadow);
 }
 
 /* Right Header section */
@@ -320,7 +350,7 @@ section {
 
 .header-content .right-header .cta:hover .arrow {
   opacity: 1;
-  margin-left: 1em;
+  margin-left: 0.8em;
 }
 
 /* Mobile View Start */

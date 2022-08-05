@@ -11,3 +11,6 @@
 
 - secondary font family
     - https://fonts.google.com/specimen/Montserrat
+
+- icon list from Font Awesome
+    - https://fontawesome.com/icons

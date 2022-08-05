@@ -56,9 +56,11 @@ JS:
 > HTML:
 - Added in the slogan "We design, develop, and deliver to ignite your business."
 - Added in the call-to-action button
+- Added the tooltips on the controls
 
 > CSS:
 - Created the animation for the button on hover
+- Added the animation for the tooltip on hover
 
 > JS:
 - Added notes to the typing animation, and will talk about the typing animation when we hang out next. 
