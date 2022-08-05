@@ -334,7 +334,7 @@ section {
 
 /* Start of the button hover section */
 .header-content .right-header .cta:hover {
-  background-color: var(--color-grey-1);
+  background-color: var(--highlight-color);
   padding-left: 0.2em;
 }
 
