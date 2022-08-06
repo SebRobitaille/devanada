@@ -60,7 +60,7 @@ section .section-title {
   display: flex;
   justify-content: center;
   text-align: center;
-  grid-column-start:  span 3;
+  grid-column-start: span 3;
   font-size: 2em;
 }
 
@@ -161,7 +161,6 @@ section .section-title span {
   padding: 0.2em 2em 0.2em 0.4em;
   display: block;
 }
-
 
 /* Sections  */
 .section {
@@ -451,6 +450,8 @@ section .section-title span {
   color: var(--highlight-color);
   transition: var(--transition-default);
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-content .right-header .cta .cta-icon {
@@ -465,7 +466,7 @@ section .section-title span {
 
 .header-content .right-header .cta .cta-txt .arrow {
   opacity: 0;
-  color: var( --secondary-bg-color);
+  color: var(--secondary-bg-color);
   margin-left: 0em;
   transition: var(--transition-default);
 }
@@ -481,7 +482,7 @@ section .section-title span {
 }
 
 .header-content .right-header .cta:hover .cta-icon {
-  background-color: var(--secondary-bg-color); 
+  background-color: var(--secondary-bg-color);
   color: var(--highlight-color);
   transform: rotate(1080deg);
 }
@@ -491,11 +492,9 @@ section .section-title span {
   margin-left: 0.8em;
 }
 
-
 /* Mobile View Start */
 
 @media only screen and (max-width: 650px) {
-
   /* Header section */
   .header-content .right-header {
     max-width: 29em;
@@ -522,7 +521,7 @@ section .section-title span {
   }
 
   .control {
-   margin: 0.5rem;
+    margin: 0.5rem;
   }
 
   .control:hover .tooltip {
@@ -557,4 +556,3 @@ section .section-title span {
     display: block;
   }
 }
-
