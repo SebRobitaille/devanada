@@ -64,3 +64,11 @@ JS:
 
 > JS:
 - Added notes to the typing animation, and will talk about the typing animation when we hang out next. 
+
+ **05 Aug - KH:**
+
+> HTML:
+- Added in the header for the about us section
+
+> CSS:
+- homepage is now mobile friendly
