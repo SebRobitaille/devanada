@@ -65,10 +65,14 @@ JS:
 > JS:
 - Added notes to the typing animation, and will talk about the typing animation when we hang out next. 
 
- **05 Aug - KH:**
+ **06 Aug - KH:**
 
 > HTML:
 - Added in the header for the about us section
+- Developed 60% of the About Us section, adding the data point section and the "Our work" section going over which languages we offer with the percent bar
+- added the titles for the other pages with the backgrounds
 
 > CSS:
 - homepage is now mobile friendly
+- formatted the layout for the about us page and the title of all other pages
+- will add animations on the bars to go from 0% to the percent displayed on scroll later on.

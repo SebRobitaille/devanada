@@ -167,34 +167,143 @@ section .section-title span {
 .section {
   transform: translateY(-100%) scale(0);
   transition: var(--transition-default);
-  background-color: var(--light-bg-color);
+  overflow: hidden;
+  padding-bottom: 3em;
 }
 
 /* Feel free to change colours of pages */
 .sec1 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: var(--secondary-bg-color);
+  background-color: var(--light-bg-color);
 }
+
 .sec2 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: var(--secondary-bg-color);
+  background-color: var(--light-bg-color);
 }
+
+.sec2 .section-info .grid-container {
+  margin-top: 5em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+
+.section-info .divider {
+  content: "";
+  margin: 5em auto;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 3px;
+  background-color: var(--color-grey-6);
+  max-width: 30em;
+  opacity: 0.3;
+}
+
+.sec2 .section-info .grid-container .item1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  text-align: left;
+}
+
+.sec2 .section-info .grid-container .item1 h1 {
+  font-size: 2em;
+}
+
+.sec2 .section-info .grid-container .data-point {
+  border: solid 1px var(--color-grey-6);
+  transition: var(--transition-default);
+  padding: 1em;
+  border-radius: 5px;
+  margin-top: 2em;
+  text-align: left;
+}
+
+.sec2 .section-info .grid-container .data-point:hover {
+  border: solid 2px var(--highlight-color);
+  transform: translateY(-0.5em);
+}
+
+.sec2 .section-info .grid-container .data-point h1 {
+  color: var(--highlight-color);
+  font-size: 2.5em;
+}
+
+.sec2 .section-info .our-skills {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  display: grid;
+  grid-gap: 1.5em;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.sec2 .section-info .our-skills h1 {
+  grid-column: 1 / span 2;
+  margin-bottom: 3em;
+}
+
+.sec2 .section-info .our-skills .language-bars {
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.sec2 .section-info .our-skills .language-bar {
+  display: flex;
+}
+
+.sec2 .section-info .our-skills .language-bar .bar {
+  width: 100%;
+  height: 5px;
+  background-color: var(--color-grey-5);
+  display: flex;
+  justify-content: left;
+  align-self: center;
+  margin-left: 0.2em;
+}
+
+.sec2 .section-info .our-skills .language-bar .bar .progress {
+  height: 5px;
+  background-color: var(--highlight-color);
+}
+
+.sec2 .section-info .our-skills .language-bar .bar .JSprogress {
+  width: 60%;
+}
+
+.sec2 .section-info .our-skills .language-bar .bar .HTMLprogress {
+  width: 70%;
+}
+
+.sec2 .section-info .our-skills .language-bar .bar .CSSprogress {
+  width: 70%;
+}
+.sec2 .section-info .our-skills .language-bar .bar .REACTprogress {
+  width: 30%;
+}
+.sec2 .section-info .our-skills .language-bar .bar .PYprogress {
+  width: 20%;
+}
+.sec2 .section-info .our-skills .language-bar .bar .NJSprogress {
+  width: 10%;
+}
+
 .sec3 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: var(--secondary-bg-color);
+  background-color: var(--light-bg-color);
 }
 .sec4 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: var(--secondary-bg-color);
+  background-color: var(--light-bg-color);
 }
 .sec5 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: var(--secondary-bg-color);
+  background-color: var(--light-bg-color);
 }
 
 .active {
@@ -387,6 +496,7 @@ section .section-title span {
 
 @media only screen and (max-width: 650px) {
 
+  /* Header section */
   .header-content .right-header {
     max-width: 29em;
     padding-left: 0em;
@@ -436,5 +546,15 @@ section .section-title span {
     width: 6.5em;
     margin-left: -0.3em;
   }
-};
+
+  /* About us page - sec2 */
+
+  section {
+    padding: 3rem 4rem;
+  }
+
+  .sec2 .section-info .grid-container {
+    display: block;
+  }
+}
 
