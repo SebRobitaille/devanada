@@ -492,6 +492,24 @@ section .section-title span {
   margin-left: 0.8em;
 }
 
+/* Contact section */
+
+.contact-container {
+  display: flex;
+  padding-top: 3.5rem;
+}
+
+.left-contact {
+  flex: 2;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.right-contact {
+  flex: 3;
+}
+
 /* Mobile View Start */
 
 @media only screen and (max-width: 650px) {
@@ -555,4 +573,28 @@ section .section-title span {
   .sec2 .section-info .grid-container {
     display: block;
   }
+}
+
+
+/* Independant Components */
+
+
+.section-title {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+
+
+.bg-text {
+  position: absolute;
+  left: 50%;
+  color: var(--color-grey-5);
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  font-weight: 800;
+  font-size: 6.3rem;
+  width: 100%;
 }
