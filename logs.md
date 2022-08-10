@@ -1,4 +1,11 @@
-Lets write our change logs here to keep readme more focused on project goals
+** Let's start writing the latest entry at the top so we don't have to scroll to the bottom every time (delete this when seen).
+
+** 9 Aug - SR ** 
+-Worked on contact page.
+-> Tasks to complete for contact page:
+  1. Fix css on submit button
+  2. Complete JS for submit button
+
 
 **31 Jul - SR:**
 I like the fonts, the logo and the colors. We can start with these and adjust as it comes together if needed. If you liked the style of my portfolio page we can start with something like that? It's plain JS with some SCSS but I'm sure we can make it with regular CSS. We can also upgrade to a React website as our knowledge develops.
