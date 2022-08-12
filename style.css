@@ -639,8 +639,10 @@ section .section-title span {
   color: var(--color-grey-1);
 }
 
+
 #submit-btn:hover {
   cursor: pointer;
+
 }
 
 

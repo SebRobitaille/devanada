@@ -4,6 +4,7 @@ const sectBtn = document.querySelectorAll(".control");
 const allSections = document.querySelector(".main-content");
 const ctaBtn = document.querySelector(".cta-btn");
 const contactSec = document.getElementById("contact");
+const contactBtn = document.querySelector(".control-5");
 
 function PageTransitions() {
   //button click active class
@@ -44,6 +45,10 @@ function PageTransitions() {
       section.classList.remove("active");
     });
     contactSec.classList.add("active");
+
+    let currentBtn = document.querySelectorAll(".active-btn");
+    currentBtn[0].className = currentBtn[0].className.replace("active-btn", "");
+    contactBtn.classList += " active-btn";
   });
 
   // // Toggle theme
