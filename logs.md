@@ -1,5 +1,9 @@
 ** Let's start writing the latest entry at the top so we don't have to scroll to the bottom every time (delete this when seen).
 
+** 11 Aug - SR **
+-More work on contact page. Still need to add hover and click effects. Maybe an effect after submit -> "Your form has been submitted" kind of thing.
+-Added functionality to CTA button on homepage -> displays Contact section when clicked.
+
 ** 9 Aug - SR ** 
 -Worked on contact page.
 -> Tasks to complete for contact page:
