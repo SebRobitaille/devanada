@@ -538,7 +538,7 @@ section .section-title span {
   padding: 0.8rem 1.1rem;
   outline: none;
   border: none;
-  background-color: var(--color-grey-5);
+  background-color: var(--color-grey-3);
   width: 100%;
   color: white;
   resize: none;
@@ -621,51 +621,17 @@ section .section-title span {
 
 /* Submit Btn */
 
-.submit-btn {
-  font-size: larger;
-  border: 1.5px solid var(--highlight-color);
+#submit-btn {
+  border: 1px solid var(--highlight-color);
+  padding: 0.5rem 1.5rem;
   border-radius: 30px;
+  width: 40%;
+  position: relative;
+  left: 60%;
 }
 
 .main-btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin: 0.8em 0.6em;
-  transition: var(--transition-default);
-  /* overflow: hidden; */
-  position: relative;
-}
-
-.main-btn:hover::before {
-  width: 100%;
-  height: 100%;
-  background-color: var(--secondary-bg-color);
-  transform: translateX(0);
-  transition: var(--transition-default);
-}
-
-/* .main-btn::after {
-  content: "";
-  top: 0;
-  right: 0;
-  position: aboslute;
-  transform: translateX(100%);
-} */
-
-.submit-btn .btn-text {
-  padding: 0 2rem;
-  color: var(--highlight-color);
-  text-decoration: none;
-}
-
-.btn-icon i {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 50px;
-  font-weight: 700;
-  margin: 0.5rem;
-  padding: 0.5rem;
 }
