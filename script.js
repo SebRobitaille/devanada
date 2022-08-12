@@ -2,6 +2,8 @@ const sections = document.querySelectorAll(".section");
 const sectBtns = document.querySelectorAll(".controls");
 const sectBtn = document.querySelectorAll(".control");
 const allSections = document.querySelector(".main-content");
+const ctaBtn = document.querySelector(".cta-btn");
+const contactSec = document.getElementById("contact");
 
 function PageTransitions() {
   //button click active class
@@ -36,6 +38,14 @@ function PageTransitions() {
     }
   });
 
+  // Makes clicking the CTA button switch to contact screen
+  ctaBtn.addEventListener("click", (e) => {
+    sections.forEach((section) => {
+      section.classList.remove("active");
+    });
+    contactSec.classList.add("active");
+  });
+
   // // Toggle theme
   // const themeBtn = document.querySelector(".theme-btn");
   // themeBtn.addEventListener("click", () => {
@@ -47,20 +57,19 @@ function PageTransitions() {
 PageTransitions();
 
 // Start of the typing animation within the header
-const TypeWriter = function(txtElement, words, wait=3000) {
-  this.txtElement = txtElement; //the span for the element holding the word 
-  this.words = words; // The variable for the array of words 
-  this.txt = ''; // variable for the animation of the typing
+const TypeWriter = function (txtElement, words, wait = 3000) {
+  this.txtElement = txtElement; //the span for the element holding the word
+  this.words = words; // The variable for the array of words
+  this.txt = ""; // variable for the animation of the typing
   this.wordIndex = 0; //starting with the first word at the index of 0
-  this.wait = parseInt(wait, 10);  //check it's an integer for the wait time
+  this.wait = parseInt(wait, 10); //check it's an integer for the wait time
   this.type(); //method of type that's associated with the typewriter
-  this.isDeleting = false; //represents the state if it's deleting or not  
+  this.isDeleting = false; //represents the state if it's deleting or not
 };
 
 // Type Method
 // a way we add a method to the typeWriter is by using prototypes
-TypeWriter.prototype.type = function() {
-  
+TypeWriter.prototype.type = function () {
   //current index of the word (counting down from 1)
   // use the modulus operator "%" to get the remainder of the division
   const currentWord = this.wordIndex % this.words.length;
@@ -71,63 +80,62 @@ TypeWriter.prototype.type = function() {
   //Check if the words are deleting
   // The substring() method extracts characters from start to end
   if (this.isDeleting) {
-      //removing letters
-      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    //removing letters
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
   } else {
-      //add letters
-      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    //add letters
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
   }
 
   //insert txt into elements
   //use template leteral `${}` to interpolate variables
   this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-  
+
   //type speed
   // type speed changes (stop, faster deleting, etc), so use let
   let typeSpeed = 200;
 
   // if isDeleting is true, cut the speed by half
   if (this.isDeleting) {
-      typeSpeed /= 2;
+    typeSpeed /= 2;
   }
 
   // check to see if the words are complete
   if (!this.isDeleting && this.txt === fullTxt) {
-      // this will make the animation pause at the end 
-      typeSpeed = this.wait;
+    // this will make the animation pause at the end
+    typeSpeed = this.wait;
 
-      // set isDeleting back to true
-      this.isDeleting = true;
+    // set isDeleting back to true
+    this.isDeleting = true;
 
-      // this is the "if" once it's completes typing out the word
-  } else if (this.isDeleting && this.txt === '') {
-      this.isDeleting = false;
+    // this is the "if" once it's completes typing out the word
+  } else if (this.isDeleting && this.txt === "") {
+    this.isDeleting = false;
 
-      // move to the next word indrumenting by 1 
-      this.wordIndex++;
+    // move to the next word indrumenting by 1
+    this.wordIndex++;
 
-      // pause before starting the next word
-      typeSpeed = 300;
+    // pause before starting the next word
+    typeSpeed = 300;
   }
 
   // timer for each letter that is added or deleted
   setTimeout(() => this.type(), typeSpeed); // 2 words per second
-}
+};
 
 // initializing on DOM load
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-
-  // getting the h2 element on the DOM 
-  const txtElement = document.querySelector('.txt-type');
+  // getting the h2 element on the DOM
+  const txtElement = document.querySelector(".txt-type");
 
   // getting the text attributes using "data-"
   // need to use JSON.parse() method to turn string into an array
-  const words = JSON.parse(txtElement.getAttribute('data-words'));
+  const words = JSON.parse(txtElement.getAttribute("data-words"));
 
   // getting the wait attribute using "data-"
-  const wait = txtElement.getAttribute('data-wait');
+  const wait = txtElement.getAttribute("data-wait");
 
   //initialize the typewriter function
   new TypeWriter(txtElement, words, wait);

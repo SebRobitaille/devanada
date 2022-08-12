@@ -492,65 +492,7 @@ section .section-title span {
   margin-left: 0.8em;
 }
 
-/* Contact section */
 
-.main-contact-con {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.contact-left {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  padding: 3rem 1rem;
-  flex: 2;
-}
-
-.contact-left-header {
-  font-size: 3rem;
-  margin-top: 1rem;
-  text-transform: uppercase;
-}
-
-.contact-left-text {
-  margin: 1rem 0;
-  line-height: 2rem;
-}
-
-.contact-right {
-  display: flex;
-  flex: 3;
-  margin-left: 3rem;
-}
-
-.input-control {
-  margin: 1.5rem 0;
-}
-
-.input-control textarea,
-.input-control input {
-  border-radius: 30px;
-  font-weight: inherit;
-  font-size: inherit;
-  font-family: inherit;
-  padding: 0.8rem 1.1rem;
-  outline: none;
-  border: none;
-  background-color: var(--color-grey-3);
-  width: 100%;
-  color: white;
-  resize: none;
-}
-
-.input-control-2 {
-  display: flex;
-}
-
-.input-control-2:last-child {
-  margin-left: 1.5rem;
-}
 
 /* Mobile View Start */
 
@@ -617,6 +559,72 @@ section .section-title span {
   }
 }
 
+/* Contact section */
+
+.main-contact-con {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  flex: 2;
+}
+
+.contact-left-header {
+  font-size: 3rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.contact-left-text {
+  margin: 1rem 0;
+  line-height: 2rem;
+}
+
+.contact-right {
+  display: flex;
+  flex: 3;
+  margin-left: 3rem;
+  margin-top: 3rem;
+}
+
+.input-control {
+  margin: 1.5rem 0;
+}
+
+.input-control textarea,
+.input-control input {
+  border-radius: 30px;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 1.1rem 1.1rem;
+  margin: 0.1rem 0.3rem;
+  outline: none;
+  border: none;
+  background-color: var(--color-grey-4);
+  width: 100%;
+  color: rgba(255, 255, 255, 0.8);
+  resize: none;
+}
+
+.input-control-2 {
+  display: flex;
+}
+
+.input-control-2:last-child {
+  margin-left: 1.5rem;
+}
+
+.contact-form ::placeholder {
+  color: var(--color-grey-2);
+  opacity: 0.9;
+}
 /* ***Independant Components*** */
 
 /* Submit Btn */
@@ -628,7 +636,14 @@ section .section-title span {
   width: 40%;
   position: relative;
   left: 60%;
+  color: var(--color-grey-1);
 }
+
+#submit-btn:hover {
+  cursor: pointer;
+}
+
+
 
 .main-btn {
   display: flex;
