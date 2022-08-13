@@ -156,7 +156,7 @@ section .section-title span {
 
 .control:hover .tooltip {
   opacity: 1;
-  margin-right: 105px;
+  margin-right: 120px;
   transform: rotate(0deg) scale(1);
   padding: 0.2em 2em 0.2em 0.4em;
   display: block;
@@ -237,6 +237,8 @@ section .section-title span {
   display: grid;
   grid-gap: 1.5em;
   grid-template-columns: repeat(2, 1fr);
+  max-width: 55em;
+  margin: 0 auto;
 }
 
 .sec2 .section-info .our-skills h1 {
@@ -299,6 +301,86 @@ section .section-title span {
   transform: translateY(0) scale(1);
   background-color: var(--light-bg-color);
 }
+
+.sec4 .section-info {
+  padding-top: 6em;
+}
+
+.sec4 .section-info .approach-steps {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 5em;
+}
+
+.sec4 .section-info .approach-steps i {
+  align-self: center;
+  font-size: xxx-large;
+  color: var(--highlight-color);
+}
+
+.sec4 .section-info .approach-step {
+  padding: 0.2em 2em;
+  margin: 0em 1em;
+}
+
+.sec4 .section-info .approach-step h1 {
+  margin-bottom: 0.2em;
+  color: var(--highlight-color);
+}
+
+.sec4 .section-info .approach-descriptions {
+  max-width: 50em;
+  margin: 0 auto;
+  margin-bottom: 5em;
+}
+
+.sec4 .section-info .approach-desc {
+  display: flex;
+  margin-bottom: 2em;
+  padding: 1em;
+  transition: var(--transition-default);
+  border-radius: 5px;
+  outline: 1px solid var(--dark--bg-color);
+}
+
+.sec4 .section-info .approach-desc:hover {
+  outline: 1px solid var(--highlight-color);
+}
+
+.sec4 .section-info .approach-desc .steps-arrow {
+  width: 3em;
+}
+
+.sec4 .section-info .approach-desc .steps-arrow h1 {
+  width: 2em;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-grey-1);
+  margin: 0 auto;
+  color: var(--dark--bg-color);
+  margin-bottom: 1em;
+}
+
+.sec4 .section-info .approach-desc .steps-arrow i {
+  color: var(--highlight-color);
+  font-size: 3em;
+  height: 100%;
+}
+
+.sec4 .section-info .approach-desc .desc  {
+  text-align: left;
+  margin-left: 1.5em;
+  padding: 0.5em 1em 1em 1em;
+}
+
+.sec4 .section-info .approach-desc .desc h1  {
+  color: var(--highlight-color);
+}
+
 .sec5 {
   display: none;
   transform: translateY(0) scale(1);
@@ -492,9 +574,111 @@ section .section-title span {
   margin-left: 0.8em;
 }
 
+/* Contact section */
 
+.main-contact-con {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  flex: 2;
+}
+
+.contact-left-header {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.contact-left-text {
+  margin: 1rem 0;
+  line-height: 2rem;
+}
+
+.contact-right {
+  display: flex;
+  flex: 3;
+  margin-left: 3rem;
+  margin-top: 3rem;
+}
+
+.input-control {
+  margin: 1.5rem 0;
+}
+
+.input-control textarea,
+.input-control input {
+  border-radius: 30px;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 1.1rem 1.1rem;
+  margin: 0.1rem 0.3rem;
+  outline: none;
+  border: none;
+  background-color: var(--color-grey-4);
+  width: 100%;
+  color: rgba(255, 255, 255, 0.8);
+  resize: none;
+}
+
+.input-control-2 {
+  display: flex;
+}
+
+.input-control-2:last-child {
+  margin-left: 1.5rem;
+}
+
+.contact-form ::placeholder {
+  color: var(--color-grey-2);
+  opacity: 0.9;
+}
+/* ***Independant Components*** */
+
+/* Submit Btn */
+
+#submit-btn {
+  border: 1px solid var(--highlight-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  width: 40%;
+  position: relative;
+  left: 60%;
+  color: var(--color-grey-1);
+}
+
+#submit-btn:hover {
+  cursor: pointer;
+  background-color: var(--highlight-color);
+  transition: var(--transition-default);
+}
+
+}
+
+
+
+.main-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 /* Mobile View Start */
+
+@media only screen and (max-width: 1100px) {
+ 
+  /* Our approach */
+ .sec4 .section-info .approach-steps {
+  display: none;
+  }
+}
 
 @media only screen and (max-width: 650px) {
   /* Header section */
@@ -557,10 +741,14 @@ section .section-title span {
   .sec2 .section-info .grid-container {
     display: block;
   }
-}
 
-/* Contact section */
+  /* contact us page for mobile */
+  .main-contact-con {
+    display: block;
+    margin-bottom: 5em;
+  }
 
+<<<<<<< HEAD
 .main-contact-con {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -674,4 +862,9 @@ section .section-title span {
   display: flex;
   justify-content: space-around;
   align-items: center;
+=======
+  .contact-right {
+    margin-left: 0rem;
+  }
+>>>>>>> 3eaba346fffa078de1ca6677750a5cb93289e75c
 }
