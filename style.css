@@ -605,12 +605,27 @@ section .section-title span {
   font-family: inherit;
   padding: 1.1rem 1.1rem;
   margin: 0.1rem 0.3rem;
-  outline: none;
-  border: none;
+  border: 1px solid var(--dark--bg-color);
   background-color: var(--color-grey-3);
   width: 100%;
   color: rgba(255, 255, 255, 0.8);
   resize: none;
+}
+
+.input-control textarea:hover,
+.input-control input:hover {
+  outline: 1px solid var(--highlight-color);
+  transition: border 0.4s ease-in-out;
+
+}
+
+.input-control textarea::before,
+.input-control input::after {
+  position: absolute;
+  background: #eee;
+  z-index: -1;
+  transition: 1s;
+  content: '';
 }
 
 .input-control-2 {
