@@ -642,10 +642,18 @@ section .section-title span {
 
 #submit-btn:hover {
   cursor: pointer;
-
+  background-color: var(--highlight-color);
+  transition: var(--transition-default);
 }
 
+#submit-btn .btn-text:hover {
+  margin-left: 0.3rem;
+  transition: var(--transition-default);
+}
 
+#submit-btn .btn-icon:hover {
+  --fa-bounce-start-scale-x: 1;
+}
 
 .main-btn {
   display: flex;
