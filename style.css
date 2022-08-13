@@ -656,8 +656,13 @@ section .section-title span {
 
 #submit-btn:hover {
   cursor: pointer;
+  background-color: var(--highlight-color);
+  transition: var(--transition-default);
+}
 
 }
+
+
 
 .main-btn {
   display: flex;
