@@ -1,5 +1,13 @@
 ** Let's start writing the latest entry at the top so we don't have to scroll to the bottom every time (delete this when seen).
 
+**Aug 12th 2022 - KH:**
+> HTML:
+- Copied the contact us page button taken from the header page
+- Added the pulse on the call-to-actions (CTA's) for the header page and the contact us page (just by adding the class of fa-beat-fade on the i element)
+
+> CSS:
+- Edited the length of the tooltip to shorten it for the shorter words
+
 ** 11 Aug - SR **
 -More work on contact page. Still need to add hover and click effects. Maybe an effect after submit -> "Your form has been submitted" kind of thing.
 -Added functionality to CTA button on homepage -> displays Contact section when clicked.

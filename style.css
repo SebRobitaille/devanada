@@ -162,6 +162,22 @@ section .section-title span {
   display: block;
 }
 
+.control:hover .tooltip-home {
+  margin-right: 90px;
+}
+
+.control:hover .tooltip-about {
+  margin-right: 90px;
+}
+
+.control:hover .tooltip-services {
+  margin-right: 105px;
+}
+
+.control:hover .tooltip-contact {
+  margin-right: 103px;
+}
+
 /* Sections  */
 .section {
   transform: translateY(-100%) scale(0);
@@ -643,27 +659,70 @@ section .section-title span {
 /* ***Independant Components*** */
 
 /* Submit Btn */
-
-#submit-btn {
+.main-contact-con .contact-right .cta {
+  margin-top: 2.8em;
+  width: 15em;
   border: 1px solid var(--highlight-color);
-  padding: 0.5rem 1.5rem;
-  border-radius: 30px;
-  width: 40%;
-  position: relative;
-  left: 60%;
-  color: var(--color-grey-1);
+  border-radius: 50px;
+  transition: var(--transition-default);
+  cursor: pointer;
+  margin-left: 0.5em;
 }
 
-#submit-btn:hover {
-  cursor: pointer;
+.main-contact-con .contact-right .cta .cta-btn {
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+  text-decoration: none;
+}
+
+.main-contact-con .contact-right .cta .cta-txt {
+  padding: 0.3em 0.3em;
+  margin-left: 1em;
+  font-weight: bolder;
+  color: var(--highlight-color);
+  transition: var(--transition-default);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-contact-con .contact-right .cta .cta-icon {
+  font-size: 1.4rem;
+  border: 1px solid var(--highlight-color);
+  border-radius: 50%;
+  padding: 0.4em 0.6em;
   background-color: var(--highlight-color);
+  color: var(--secondary-bg-color);
   transition: var(--transition-default);
 }
 
-.main-btn {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.main-contact-con .contact-right .cta .cta-txt .arrow {
+  opacity: 0;
+  color: var(--secondary-bg-color);
+  margin-left: 0em;
+  transition: var(--transition-default);
+}
+
+/* Start of the button hover section */
+.main-contact-con .contact-right .cta:hover {
+  background-color: var(--highlight-color);
+  padding-left: 0.2em;
+}
+
+.main-contact-con .contact-right .cta:hover .cta-txt {
+  color: var(--secondary-bg-color);
+}
+
+.main-contact-con .contact-right .cta:hover .cta-icon {
+  background-color: var(--secondary-bg-color);
+  color: var(--highlight-color);
+  transform: rotate(1080deg);
+}
+
+.main-contact-con .contact-right .cta:hover .arrow {
+  opacity: 1;
+  margin-left: 0.8em;
 }
 
 /* Mobile View Start */
