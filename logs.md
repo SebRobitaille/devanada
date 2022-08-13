@@ -87,3 +87,15 @@ JS:
 - homepage is now mobile friendly
 - formatted the layout for the about us page and the title of all other pages
 - will add animations on the bars to go from 0% to the percent displayed on scroll later on.
+
+**12 Aug - KH:**
+
+> HTML:
+- Added a Favicon to the website (the icon on the Chrome tab)
+- Changed the titles of each page
+- Changed the logo on the controls to better represent each page 
+- Added content on the "Our approach" page
+
+> CSS:
+- made the contat us page mobile friendly (added a display: block to the section)
+- formatted thje "our approach" page 
