@@ -666,6 +666,7 @@ section .section-title span {
   border-radius: 50px;
   transition: var(--transition-default);
   cursor: pointer;
+  margin-left: 0.5em;
 }
 
 .main-contact-con .contact-right .cta .cta-btn {

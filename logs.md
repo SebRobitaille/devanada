@@ -3,6 +3,7 @@
 **Aug 12th 2022 - KH:**
 > HTML:
 - Copied the contact us page button taken from the header page
+- Added the pulse on the call-to-actions (CTA's) for the header page and the contact us page (just by adding the class of fa-beat-fade on the i element)
 
 > CSS:
 - Edited the length of the tooltip to shorten it for the shorter words
