@@ -1,2 +1,17 @@
 /* CSS Custom Properties */
+/* Main CSS for Homepage */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1d3557;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  color: #f1faee;
+  transition: all 0.4s ease-in-out;
+}
+
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
