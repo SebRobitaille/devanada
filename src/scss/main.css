@@ -354,7 +354,16 @@ section .section-title .section-title-background {
 
 .active {
   display: block;
-  animation: scaleAnim 1s ease-in-out;
+  -webkit-animation: scaleAnim 1s ease-in-out;
+          animation: scaleAnim 1s ease-in-out;
+}
+@-webkit-keyframes scaleAnim {
+  0% {
+    transform: translateY(-100%) scaleY(0);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
 }
 @keyframes scaleAnim {
   0% {
@@ -389,7 +398,8 @@ section .section-title .section-title-background {
   background-color: #e63946;
   height: 100%;
   width: 65%;
-  clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+          clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
 }
 .header-content .left-header .image {
   position: relative;
@@ -406,7 +416,8 @@ section .section-title .section-title-background {
 .header-content .left-header .image .imageEl {
   height: 80%;
   width: 75%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   filter: grayscale(1);
   transition: all 0.4s ease-in-out;
   box-shadow: 3px 3px 15px 0px black;
@@ -568,6 +579,16 @@ section .section-title .section-title-background {
 }
 .input-control-2:last-child {
   margin-left: 1.5rem;
+}
+
+.contact-form ::-moz-placeholder {
+  color: var(--color-grey-2);
+  opacity: 0.9;
+}
+
+.contact-form :-ms-input-placeholder {
+  color: var(--color-grey-2);
+  opacity: 0.9;
 }
 
 .contact-form ::placeholder {
@@ -755,6 +776,14 @@ section .section-title .section-title-background {
   .input-control-2 :last-child {
     margin-left: 1.5rem;
   }
+  .contact-form ::-moz-placeholder {
+    color: #b2becd;
+    opacity: 0.9;
+  }
+  .contact-form :-ms-input-placeholder {
+    color: #b2becd;
+    opacity: 0.9;
+  }
   .contact-form ::placeholder {
     color: #b2becd;
     opacity: 0.9;
@@ -790,6 +819,4 @@ section .section-title .section-title-background {
   .main-btn .contact-right {
     margin-left: 0rem;
   }
-}
-
-/*# sourceMappingURL=/main.77bb5cfd.css.map */
+}/*# sourceMappingURL=main.css.map */

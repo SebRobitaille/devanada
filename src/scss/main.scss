@@ -1,22 +1,22 @@
 /* CSS Custom Properties */
-  $highlight-color: #e63946;
-  $light-main-text-color: #1d3557;
-  $dark-main-text-color: #f1faee;
-  $color-grey0: #f8f8f8;
-  $color-grey-1: #dbe1e8;
-  $color-grey-2: #b2becd;
-  $color-grey-3: #6c7983;
-  $color-grey-4: #454e56;
-  $color-grey-5: #2a2e35;
-  $color-grey-6: #12181b;
-  $light-bg-color: #f1faee;
-  $dark-bg-color: #1d3557;
-  $secondary-bg-color: black;
-  $header-font: "Roboto Condensed", sans-serif, arial;
-  $paragraph-font: "Montserrat", sans-serif;
-  $transition-default: all 0.4s ease-in-out;
-  $box-shadow: 3px 3px 15px 0px black;
-  $box-shadow-on-hover: 5px 5px 15px 0px black;
+$highlight-color: #e63946;
+$light-main-text-color: #1d3557;
+$dark-main-text-color: #f1faee;
+$color-grey0: #f8f8f8;
+$color-grey-1: #dbe1e8;
+$color-grey-2: #b2becd;
+$color-grey-3: #6c7983;
+$color-grey-4: #454e56;
+$color-grey-5: #2a2e35;
+$color-grey-6: #12181b;
+$light-bg-color: #f1faee;
+$dark-bg-color: #1d3557;
+$secondary-bg-color: black;
+$header-font: "Roboto Condensed", sans-serif, arial;
+$paragraph-font: "Montserrat", sans-serif;
+$transition-default: all 0.4s ease-in-out;
+$box-shadow: 3px 3px 15px 0px black;
+$box-shadow-on-hover: 5px 5px 15px 0px black;
 
 /* Main CSS for Homepage */
 * {
@@ -31,4 +31,807 @@ body {
   font-size: 1.1rem;
   color: $dark-main-text-color;
   transition: $transition-default;
+}
+
+header {
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+section {
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3rem 10rem;
+  background-color: $dark-bg-color !important;
+  text-align: center;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+  .section-title {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    grid-column-start: span 3;
+    font-size: 2em;
+    span {
+      color: $highlight-color;
+    }
+    .section-title-background {
+      position: absolute;
+      z-index: -1;
+      font-size: 3.5em;
+      font-weight: 900;
+      color: $color-grey-1;
+      opacity: 0.05;
+      margin-top: -0.15em;
+      line-height: 80%;
+    }
+  }
+}
+
+/* Controls */
+.controls {
+  position: fixed;
+  top: 30%;
+  right: 3%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  .active-btn {
+    background-color: $secondary-bg-color !important;
+    transition: $transition-default;
+    border: 1px solid white;
+  }
+  i {
+    color: white;
+  }
+}
+
+.control {
+  padding: 1rem;
+  margin: 0.7rem;
+  cursor: pointer;
+  background-color: $color-grey-1;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $box-shadow;
+  i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.control-icon {
+  font-size: 1.2rem;
+  pointer-events: none;
+  z-index: 5;
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  color: $secondary-bg-color;
+}
+
+/* Tooltip */
+.control .tooltip {
+  opacity: 0;
+  display: none;
+  position: absolute;
+  margin-right: 4em;
+  display: flex;
+  justify-content: right;
+  transition: $transition-default;
+  background-color: $secondary-bg-color;
+  padding: 0.2em 2em 0.2em 0.4em;
+  z-index: -1;
+  border-radius: 50px;
+  transform: rotate(-90deg) scale(0.2);
+  transform-origin: right;
+  pointer-events: none;
+  &:hover .tooltip {
+    // .control:hover .tooltip -------- testing SASS nesting
+    opacity: 1;
+    margin-right: 120px;
+    transform: rotate(0deg) scale(1);
+    padding: 0.2em 2em 0.2em 0.4em;
+    display: block;
+  }
+  // hover test{
+  &:hover .tooltip-home,
+  &:hover .tooltip-about {
+    margin-right: 90px;
+  }
+
+  &:hover .tooltip-services {
+    margin-right: 105px;
+  }
+
+  &:hover .tooltip-contact {
+    margin-right: 103px;
+  }
+}
+
+/* Sections  */
+
+.section-info .divider {
+  content: "";
+  margin: 5em auto;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 3px;
+  background-color: $color-grey-6;
+  max-width: 30em;
+  opacity: 0.3;
+}
+
+.section {
+  transform: translateY(-100%) scale(0);
+  transition: $transition-default;
+  overflow: hidden;
+  padding-bottom: 3em;
+}
+
+.sec1 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: $light-bg-color;
+}
+
+.sec2 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: $light-bg-color;
+  .section-info {
+    .grid-container {
+      margin-top: 5em;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1em;
+      .item1 {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        text-align: left;
+        h1 {
+          font-size: 2em;
+        }
+      }
+      .data-point {
+        border: solid 1px $color-grey-6;
+        transition: $transition-default;
+        padding: 1em;
+        border-radius: 5px;
+        margin-top: 2em;
+        text-align: left;
+        //   hover test
+        &:hover {
+          border: solid 2px $highlight-color;
+          transform: translateY(-0.5em);
+        }
+        h1 {
+          color: $highlight-color;
+          font-size: 2.5em;
+        }
+      }
+    }
+    .our-skills {
+      margin-top: 2em;
+      margin-bottom: 2em;
+      display: grid;
+      grid-gap: 1.5em;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 55em;
+      margin: 0 auto;
+      h1 {
+        grid-column: 1 / span 2;
+        margin-bottom: 3em;
+      }
+      .language-bars {
+        text-align: left;
+        margin-bottom: 1em;
+      }
+      .language-bar {
+        display: flex;
+        .bar {
+          width: 100%;
+          height: 5px;
+          background-color: $color-grey-5;
+          display: flex;
+          justify-content: left;
+          align-self: center;
+          margin-left: 0.2em;
+          .progress {
+            height: 5px;
+            background-color: $highlight-color;
+          }
+          .html-progress {
+            width: 70%;
+          }
+          .js-progress {
+            width: 60%;
+          }
+          .css-progress {
+            width: 70%;
+          }
+          .react-progress {
+            width: 30%;
+          }
+          .py-progress {
+            width: 20%;
+          }
+          .njs-progress {
+            width: 10%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section-info .divider {
+  content: "";
+  margin: 5em auto;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 3px;
+  background-color: $color-grey-6;
+  max-width: 30em;
+  opacity: 0.3;
+}
+
+.sec3 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: $light-bg-color;
+}
+
+.sec4 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: $light-bg-color;
+  .section-info {
+    padding-top: 6em;
+    .approach-steps {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      padding-top: 5em;
+      i {
+        align-self: center;
+        font-size: xxx-large;
+        color: $highlight-color;
+      }
+    }
+    .approach-step {
+      padding: 0.2em 2em;
+      margin: 0em 1em;
+      h1 {
+        margin-bottom: 0.2em;
+        color: $highlight-color;
+      }
+    }
+    .approach-descriptions {
+      max-width: 50em;
+      margin: 0 auto;
+      margin-bottom: 5em;
+    }
+    .approach-desc {
+      display: flex;
+      margin-bottom: 2em;
+      padding: 1em;
+      transition: $transition-default;
+      border-radius: 5px;
+      outline: 1px solid $dark-bg-color;
+      &:hover {
+        // test
+        outline: 1px solid $highlight-color;
+      }
+      .steps-arrow {
+        width: 3em;
+        h1 {
+          width: 2em;
+          height: 2em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background-color: $color-grey-1;
+          margin: 0 auto;
+          color: $dark-bg-color;
+          margin-bottom: 1em;
+        }
+        i {
+          color: $highlight-color;
+          font-size: 3em;
+          height: 100%;
+        }
+      }
+      .desc {
+        text-align: left;
+        margin-left: 1.5em;
+        padding: 0.5em 1em 1em 1em;
+        h1 {
+          color: $highlight-color;
+        }
+      }
+    }
+  }
+}
+
+.sec5 {
+  display: none;
+  transform: translateY(0) scale(1);
+  background-color: $light-bg-color;
+}
+
+.active {
+  display: block;
+  animation: scaleAnim 1s ease-in-out;
+  @keyframes scaleAnim {
+    0% {
+      transform: translateY(-100%) scaleY(0);
+    }
+    100% {
+      transform: translateY(0) scaleY(1);
+    }
+  }
+}
+
+.header-content {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  background-color: $dark-bg-color;
+  .left-header {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    .h-shape {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: $highlight-color;
+      height: 100%;
+      width: 65%;
+      clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+    }
+    .image {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      margin-left: 3em;
+      overflow: hidden;
+      align-items: center;
+      .imageEl {
+        height: 80%;
+        width: 75%;
+        object-fit: cover;
+        filter: grayscale(1);
+        transition: $transition-default;
+        box-shadow: $box-shadow;
+        // Hover test
+        &:hover {
+          filter: grayscale(0);
+          box-shadow: $box-shadow;
+        }
+      }
+    }
+  }
+  .right-header {
+    width: 100%;
+    min-width: 37em;
+    padding-right: 13em;
+    padding-left: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    .services {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    img {
+      height: 10em;
+      width: 10em;
+    }
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      display: block;
+    }
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+    .txt {
+      border-right: 0.1em solid $highlight-color;
+    }
+    span {
+      color: $highlight-color;
+    }
+    p {
+      margin-top: 2em;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+    .cta {
+      margin-top: 2.8em;
+      width: 15em;
+      border: 1px solid $highlight-color;
+      border-radius: 50px;
+      transition: $transition-default;
+      cursor: pointer;
+      .cta-btn {
+        display: flex;
+        justify-content: space-between;
+        font-size: larger;
+        text-decoration: none;
+      }
+      .cta-txt {
+        padding: 0.3em 0.3em;
+        margin-left: 1em;
+        font-weight: bolder;
+        color: $highlight-color;
+        transition: $transition-default;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .arrow {
+          opacity: 0;
+          color: $secondary-bg-color;
+          margin-left: 0em;
+          transition: $transition-default;
+        }
+      }
+      .cta-icon {
+        font-size: 1.4rem;
+        border: 1px solid $highlight-color;
+        border-radius: 50%;
+        padding: 0.4em 0.6em;
+        background-color: $highlight-color;
+        color: $secondary-bg-color;
+        transition: $transition-default;
+      }
+      //   Hover test
+      &:hover {
+        background-color: $highlight-color;
+        padding-left: 0.2em;
+        .cta-txt {
+          color: $secondary-bg-color;
+        }
+        .cta-icon {
+          background-color: $secondary-bg-color;
+          color: $highlight-color;
+          transform: rotate(1080deg);
+        }
+        .arrow {
+          opacity: 1;
+          margin-left: 0.8em;
+        }
+      }
+    }
+  }
+}
+
+/* Contact section */
+
+.main-contact-con {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  flex: 2;
+}
+
+.contact-left-header {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.contact-left-text {
+  margin: 1rem 0;
+  line-height: 2rem;
+}
+
+.contact-right {
+  display: flex;
+  flex: 3;
+  margin-left: 3rem;
+  margin-top: 3rem;
+}
+
+.input-control {
+  margin: 1.5rem 0;
+}
+
+.input-control textarea,
+.input-control input {
+  border-radius: 30px;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 1.1rem 1.1rem;
+  margin: 0.1rem 0.3rem;
+  outline: none;
+  border: none;
+  background-color: $color-grey-4;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.8);
+  resize: none;
+}
+
+.input-control-2 {
+  display: flex;
+  // nth child test
+  &:last-child {
+    margin-left: 1.5rem;
+  }
+}
+
+.contact-form ::placeholder {
+  color: var(--color-grey-2);
+  opacity: 0.9;
+}
+
+/* Submit Btn */
+.main-contact-con .contact-right .cta {
+  margin-top: 2.8em;
+  width: 15em;
+  border: 1px solid $highlight-color;
+  border-radius: 50px;
+  transition: $transition-default;
+  cursor: pointer;
+  margin-left: 0.5em;
+  .cta-btn {
+    display: flex;
+    justify-content: space-between;
+    font-size: larger;
+    text-decoration: none;
+  }
+  .cta-txt {
+    padding: 0.3em 0.3em;
+    margin-left: 1em;
+    font-weight: bolder;
+    color: $highlight-color;
+    transition: $transition-default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .arrow {
+      opacity: 0;
+      color: $secondary-bg-color;
+      margin-left: 0em;
+      transition: $transition-default;
+    }
+  }
+  .cta-icon {
+    font-size: 1.4rem;
+    border: 1px solid $highlight-color;
+    border-radius: 50%;
+    padding: 0.4em 0.6em;
+    background-color: $highlight-color;
+    color: $secondary-bg-color;
+    transition: $transition-default;
+  }
+  // hover test
+  &:hover {
+    background-color: $highlight-color;
+    padding-left: 0.2em;
+    .cta-txt {
+      color: $secondary-bg-color;
+    }
+    .cta-icon {
+      background-color: $secondary-bg-color;
+      color: $highlight-color;
+      transform: rotate(1080deg);
+    }
+    .arrow {
+      opacity: 1;
+      margin-left: 0.8em;
+    }
+  }
+}
+
+/* Mobile View Start */
+
+@media only screen and (max-width: 1100px) {
+  /* Our approach */
+  .sec4 .section-info .approach-steps {
+    display: none;
+  }
+}
+
+// hopefully media queries work the same :^)
+@media only screen and (max-width: 650px) {
+  /* Header section */
+  .header-content {
+    align-items: flex-start;
+    justify-items: flex-start;
+    .right-header {
+      max-width: 29em;
+      padding-left: 0em;
+      padding-top: 2.5em;
+      min-width: 30em;
+      h1 {
+        font-size: 3rem;
+      }
+      .sub-title {
+        font-size: 1.7em;
+      }
+      .header-about {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .control {
+    margin: 0.5rem;
+    &:hover .tooltip {
+      opacity: 0;
+    }
+  }
+  .controls {
+    top: 93%;
+    right: 40%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .control-nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .right-header .services .logo {
+    height: 6.5em;
+    width: 6.5em;
+    margin-left: -0.3em;
+  }
+  /* About us page - sec2 */
+
+  section {
+    padding: 3rem 4rem;
+  }
+  .sec2 .section-info .grid-container {
+    display: block;
+  }
+  /* contact us page for mobile */
+  .main-contact-con {
+    display: block;
+    margin-bottom: 5em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 1rem;
+    flex: 2;
+  }
+  .contact-left-header {
+    font-size: 3rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+  .contact-left-text {
+    margin: 1rem 0;
+    line-height: 2rem;
+  }
+  .contact-right {
+    display: flex;
+    flex: 3;
+    margin-left: 3rem;
+    margin-top: 3rem;
+  }
+  .input-control {
+    margin: 1.5rem 0;
+  }
+  .input-control textarea,
+  .input-control input {
+    border-radius: 30px;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 1.1rem 1.1rem;
+    margin: 0.1rem 0.3rem;
+    border: 1px solid $dark-bg-color;
+    background-color: $color-grey-3;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    resize: none;
+  }
+  // Idk if i can nest a double hover?
+  .input-control textarea:hover,
+  .input-control input:hover {
+    outline: 1px solid $highlight-color;
+    transition: border 0.4s ease-in-out;
+  }
+  //   will look into pseudo element nesting
+  .input-control textarea::before,
+  .input-control input::after {
+    position: absolute;
+    background: #eee;
+    z-index: -1;
+    transition: 1s;
+    content: "";
+  }
+  .input-control-2 {
+    display: flex;
+    // pseudo nesting
+    :last-child {
+      margin-left: 1.5rem;
+    }
+  }
+  .contact-form ::placeholder {
+    color: $color-grey-2;
+    opacity: 0.9;
+  }
+  /* ***Independant Components*** */
+
+  /* Submit Btn */
+
+  #submit-btn {
+    border: 1px solid $highlight-color;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    width: 40%;
+    position: relative;
+    left: 60%;
+    color: $color-grey-1;
+    &:hover {
+      cursor: pointer;
+      background-color: $highlight-color;
+      transition: $transition-default;
+    }
+    .btn-text:hover {
+      margin-left: 0.3rem;
+      transition: $transition-default;
+    }
+    .btn-icon:hover {
+      --fa-bounce-start-scale-x: 1;
+    }
+  }
+  .main-btn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .contact-right {
+      margin-left: 0rem;
+    }
+  }
 }

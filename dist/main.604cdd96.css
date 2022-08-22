@@ -204,7 +204,7 @@ section .section-title .section-title-background {
   color: #e63946;
   font-size: 2.5em;
 }
-.sec2 .section-info .our-skills {
+.sec2 .section-info .grid-container .data-point .our-skills {
   margin-top: 2em;
   margin-bottom: 2em;
   display: grid;
@@ -213,18 +213,18 @@ section .section-title .section-title-background {
   max-width: 55em;
   margin: 0 auto;
 }
-.sec2 .section-info .our-skills h1 {
+.sec2 .section-info .grid-container .data-point .our-skills h1 {
   grid-column: 1/span 2;
   margin-bottom: 3em;
 }
-.sec2 .section-info .our-skills .language-bars {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bars {
   text-align: left;
   margin-bottom: 1em;
 }
-.sec2 .section-info .our-skills .language-bar {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bar {
   display: flex;
 }
-.sec2 .section-info .our-skills .language-bar .bar {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bar .bar {
   width: 100%;
   height: 5px;
   background-color: #2a2e35;
@@ -233,39 +233,29 @@ section .section-title .section-title-background {
   align-self: center;
   margin-left: 0.2em;
 }
-.sec2 .section-info .our-skills .language-bar .bar .progress {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bar .bar .progress {
   height: 5px;
   background-color: #e63946;
 }
-.sec2 .section-info .our-skills .language-bar .bar .html-progress {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bar .bar .css-progress {
   width: 70%;
 }
-.sec2 .section-info .our-skills .language-bar .bar .js-progress {
-  width: 60%;
-}
-.sec2 .section-info .our-skills .language-bar .bar .css-progress {
-  width: 70%;
-}
-.sec2 .section-info .our-skills .language-bar .bar .react-progress {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bar .bar .react-progress {
   width: 30%;
 }
-.sec2 .section-info .our-skills .language-bar .bar .py-progress {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bar .bar .py-progress {
   width: 20%;
 }
-.sec2 .section-info .our-skills .language-bar .bar .njs-progress {
+.sec2 .section-info .grid-container .data-point .our-skills .language-bar .bar .njs-progress {
   width: 10%;
 }
 
-.section-info .divider {
-  content: "";
-  margin: 5em auto;
-  display: flex;
-  justify-content: center;
+.js-progress {
+  width: 60%;
+}
+
+.html-progress {
   width: 70%;
-  height: 3px;
-  background-color: #12181b;
-  max-width: 30em;
-  opacity: 0.3;
 }
 
 .sec3 {
@@ -354,7 +344,16 @@ section .section-title .section-title-background {
 
 .active {
   display: block;
-  animation: scaleAnim 1s ease-in-out;
+  -webkit-animation: scaleAnim 1s ease-in-out;
+          animation: scaleAnim 1s ease-in-out;
+}
+@-webkit-keyframes scaleAnim {
+  0% {
+    transform: translateY(-100%) scaleY(0);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
 }
 @keyframes scaleAnim {
   0% {
@@ -389,7 +388,8 @@ section .section-title .section-title-background {
   background-color: #e63946;
   height: 100%;
   width: 65%;
-  clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+          clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
 }
 .header-content .left-header .image {
   position: relative;
@@ -406,7 +406,8 @@ section .section-title .section-title-background {
 .header-content .left-header .image .imageEl {
   height: 80%;
   width: 75%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   filter: grayscale(1);
   transition: all 0.4s ease-in-out;
   box-shadow: 3px 3px 15px 0px black;
@@ -568,6 +569,16 @@ section .section-title .section-title-background {
 }
 .input-control-2:last-child {
   margin-left: 1.5rem;
+}
+
+.contact-form ::-moz-placeholder {
+  color: var(--color-grey-2);
+  opacity: 0.9;
+}
+
+.contact-form :-ms-input-placeholder {
+  color: var(--color-grey-2);
+  opacity: 0.9;
 }
 
 .contact-form ::placeholder {
@@ -755,6 +766,14 @@ section .section-title .section-title-background {
   .input-control-2 :last-child {
     margin-left: 1.5rem;
   }
+  .contact-form ::-moz-placeholder {
+    color: #b2becd;
+    opacity: 0.9;
+  }
+  .contact-form :-ms-input-placeholder {
+    color: #b2becd;
+    opacity: 0.9;
+  }
   .contact-form ::placeholder {
     color: #b2becd;
     opacity: 0.9;
@@ -792,4 +811,4 @@ section .section-title .section-title-background {
   }
 }
 
-/*# sourceMappingURL=/main.77bb5cfd.css.map */
+/*# sourceMappingURL=/main.604cdd96.css.map */

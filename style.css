@@ -186,7 +186,6 @@ section .section-title span {
   padding-bottom: 3em;
 }
 
-/* Feel free to change colours of pages */
 .sec1 {
   display: none;
   transform: translateY(0) scale(1);
