@@ -82,7 +82,7 @@ section .section-title .section-title-background {
   padding: 1rem;
   margin: 0.7rem;
   cursor: pointer;
-  background-color: #dbe1e8;
+  background-color: #b2becd;
   width: 55px;
   height: 55px;
   border-radius: 50%;
@@ -110,6 +110,22 @@ section .section-title .section-title-background {
 }
 
 /* Tooltip */
+.control:hover .tooltip {
+  opacity: 1;
+  margin-right: 120px;
+  transform: rotate(0deg) scale(1);
+  padding: 0.2em 2em 0.2em 0.4em;
+  display: block;
+}
+.control:hover .tooltip-home, .control:hover .tooltip-about {
+  margin-right: 90px;
+}
+.control:hover .tooltip-services {
+  margin-right: 105px;
+}
+.control:hover .tooltip-contact {
+  margin-right: 103px;
+}
 .control .tooltip {
   opacity: 0;
   display: none;
@@ -125,22 +141,6 @@ section .section-title .section-title-background {
   transform: rotate(-90deg) scale(0.2);
   transform-origin: right;
   pointer-events: none;
-}
-.control .tooltip:hover .tooltip {
-  opacity: 1;
-  margin-right: 120px;
-  transform: rotate(0deg) scale(1);
-  padding: 0.2em 2em 0.2em 0.4em;
-  display: block;
-}
-.control .tooltip:hover .tooltip-home, .control .tooltip:hover .tooltip-about {
-  margin-right: 90px;
-}
-.control .tooltip:hover .tooltip-services {
-  margin-right: 105px;
-}
-.control .tooltip:hover .tooltip-contact {
-  margin-right: 103px;
 }
 
 /* Sections  */

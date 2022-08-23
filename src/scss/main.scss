@@ -101,7 +101,7 @@ section {
   padding: 1rem;
   margin: 0.7rem;
   cursor: pointer;
-  background-color: $color-grey-1;
+  background-color: $color-grey-2;
   width: 55px;
   height: 55px;
   border-radius: 50%;
@@ -129,30 +129,14 @@ section {
 }
 
 /* Tooltip */
-.control .tooltip {
-  opacity: 0;
-  display: none;
-  position: absolute;
-  margin-right: 4em;
-  display: flex;
-  justify-content: right;
-  transition: $transition-default;
-  background-color: $secondary-bg-color;
-  padding: 0.2em 2em 0.2em 0.4em;
-  z-index: -1;
-  border-radius: 50px;
-  transform: rotate(-90deg) scale(0.2);
-  transform-origin: right;
-  pointer-events: none;
+.control {
   &:hover .tooltip {
-    // .control:hover .tooltip -------- testing SASS nesting
     opacity: 1;
     margin-right: 120px;
     transform: rotate(0deg) scale(1);
     padding: 0.2em 2em 0.2em 0.4em;
     display: block;
   }
-  // hover test{
   &:hover .tooltip-home,
   &:hover .tooltip-about {
     margin-right: 90px;
@@ -161,12 +145,26 @@ section {
   &:hover .tooltip-services {
     margin-right: 105px;
   }
-
   &:hover .tooltip-contact {
     margin-right: 103px;
   }
+  .tooltip {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    margin-right: 4em;
+    display: flex;
+    justify-content: right;
+    transition: $transition-default;
+    background-color: $secondary-bg-color;
+    padding: 0.2em 2em 0.2em 0.4em;
+    z-index: -1;
+    border-radius: 50px;
+    transform: rotate(-90deg) scale(0.2);
+    transform-origin: right;
+    pointer-events: none;
+  }
 }
-
 /* Sections  */
 
 .section-info .divider {
