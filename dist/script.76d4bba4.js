@@ -124,7 +124,7 @@ var sectBtn = document.querySelectorAll(".control");
 var allSections = document.querySelector(".main-content");
 var ctaBtn = document.querySelector(".cta-btn");
 var contactSec = document.getElementById("contact");
-var contactBtn = document.querySelector(".control-5");
+var contactBtn = document.querySelector(".control-5"); // CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION
 
 function PageTransitions() {
   //button click active class
@@ -171,7 +171,8 @@ function PageTransitions() {
   // });
 }
 
-PageTransitions(); // Start of the typing animation within the header
+PageTransitions(); // TYPEWRITER FEATURE --  TYPEWRITER FEATURE -- TYPEWRITER FEATURE
+// Start of the typing animation within the header
 
 var TypeWriter = function TypeWriter(txtElement, words) {
   var wait = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
@@ -188,8 +189,7 @@ var TypeWriter = function TypeWriter(txtElement, words) {
   this.type(); //method of type that's associated with the typewriter
 
   this.isDeleting = false; //represents the state if it's deleting or not
-}; // Type Method
-// a way we add a method to the typeWriter is by using prototypes
+}; // a way we add a method to the typeWriter is by using prototypes
 
 
 TypeWriter.prototype.type = function () {
@@ -242,9 +242,9 @@ TypeWriter.prototype.type = function () {
 }; // initializing on DOM load
 
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", initializeText);
 
-function init() {
+function initializeText() {
   // getting the h2 element on the DOM
   var txtElement = document.querySelector(".txt-type"); // getting the text attributes using "data-"
   // need to use JSON.parse() method to turn string into an array
@@ -255,7 +255,7 @@ function init() {
 
   new TypeWriter(txtElement, words, wait);
 }
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -283,7 +283,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52633" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53688" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -459,5 +459,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../script.js"], null)
+},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../script.js"], null)
 //# sourceMappingURL=/script.76d4bba4.js.map

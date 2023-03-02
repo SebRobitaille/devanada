@@ -6,6 +6,7 @@ const ctaBtn = document.querySelector(".cta-btn");
 const contactSec = document.getElementById("contact");
 const contactBtn = document.querySelector(".control-5");
 
+// CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION
 function PageTransitions() {
   //button click active class
 
@@ -58,9 +59,9 @@ function PageTransitions() {
   //   element.classList.toggle("light-mode");
   // });
 }
-
 PageTransitions();
 
+  // TYPEWRITER FEATURE --  TYPEWRITER FEATURE -- TYPEWRITER FEATURE
 // Start of the typing animation within the header
 const TypeWriter = function (txtElement, words, wait = 3000) {
   this.txtElement = txtElement; //the span for the element holding the word
@@ -72,7 +73,6 @@ const TypeWriter = function (txtElement, words, wait = 3000) {
   this.isDeleting = false; //represents the state if it's deleting or not
 };
 
-// Type Method
 // a way we add a method to the typeWriter is by using prototypes
 TypeWriter.prototype.type = function () {
   //current index of the word (counting down from 1)
@@ -129,9 +129,8 @@ TypeWriter.prototype.type = function () {
 };
 
 // initializing on DOM load
-document.addEventListener("DOMContentLoaded", init);
-
-function init() {
+document.addEventListener("DOMContentLoaded", initializeText);
+function initializeText() {
   // getting the h2 element on the DOM
   const txtElement = document.querySelector(".txt-type");
 
@@ -145,3 +144,4 @@ function init() {
   //initialize the typewriter function
   new TypeWriter(txtElement, words, wait);
 }
+

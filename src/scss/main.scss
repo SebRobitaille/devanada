@@ -439,6 +439,11 @@ section {
           filter: grayscale(0);
           box-shadow: $box-shadow;
         }
+        @media screen and (max-width: 650px) {
+          & {
+            opacity: 0;
+          }
+        }
       }
     }
   }
@@ -474,6 +479,9 @@ section {
     }
     span {
       color: $highlight-color;
+    }
+    .sub-title-highlighted-text {
+      font-weight: bolder;
     }
     p {
       margin-top: 2em;
@@ -513,10 +521,11 @@ section {
         font-size: 1.4rem;
         border: 1px solid $highlight-color;
         border-radius: 50%;
-        padding: 0.4em 0.6em;
+        padding: 0.5em 0.6em;
         background-color: $highlight-color;
         color: $secondary-bg-color;
         transition: $transition-default;
+        transform: rotate(0deg) scale(1.03);
       }
       //   Hover test
       &:hover {
@@ -528,7 +537,7 @@ section {
         .cta-icon {
           background-color: $secondary-bg-color;
           color: $highlight-color;
-          transform: rotate(1080deg);
+          transform: rotate(1080deg) scale(1.03);
         }
         .arrow {
           opacity: 1;
