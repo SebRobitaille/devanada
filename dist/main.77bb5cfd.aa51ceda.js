@@ -117,145 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../script.js":[function(require,module,exports) {
-var sections = document.querySelectorAll(".section");
-var sectBtns = document.querySelectorAll(".controls");
-var sectBtn = document.querySelectorAll(".control");
-var allSections = document.querySelector(".main-content");
-var ctaBtn = document.querySelector(".cta-btn");
-var contactSec = document.getElementById("contact");
-var contactBtn = document.querySelector(".control-5"); // CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION
+})({"../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-function PageTransitions() {
-  //button click active class
-  for (var i = 0; i < sectBtn.length; i++) {
-    sectBtn[i].addEventListener("click", function () {
-      var currentBtn = document.querySelectorAll(".active-btn");
-      currentBtn[0].className = currentBtn[0].className.replace("active-btn", "");
-      this.className += " active-btn";
-    });
-  } // Sections active class
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
+  return bundleURL;
+}
 
-  allSections.addEventListener("click", function (e) {
-    var id = e.target.dataset.id;
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-    if (id) {
-      // remove selected from the other btns
-      sectBtn.forEach(function (btn) {
-        btn.classList.remove("active");
-      }); // e.target.classList.add("active"); <--- might be useless
-      // hide other sections
-
-      sections.forEach(function (section) {
-        section.classList.remove("active");
-      });
-      var element = document.getElementById(id);
-      element.classList.add("active");
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
-  }); // Makes clicking the CTA button switch to contact screen
+  }
 
-  ctaBtn.addEventListener("click", function (e) {
-    sections.forEach(function (section) {
-      section.classList.remove("active");
-    });
-    contactSec.classList.add("active");
-    var currentBtn = document.querySelectorAll(".active-btn");
-    currentBtn[0].className = currentBtn[0].className.replace("active-btn", "");
-    contactBtn.classList += " active-btn";
-  }); // // Toggle theme
-  // const themeBtn = document.querySelector(".theme-btn");
-  // themeBtn.addEventListener("click", () => {
-  //   let element = document.body;
-  //   element.classList.toggle("light-mode");
-  // });
+  return '/';
 }
 
-PageTransitions(); // TYPEWRITER FEATURE --  TYPEWRITER FEATURE -- TYPEWRITER FEATURE
-// Start of the typing animation within the header
-
-var TypeWriter = function TypeWriter(txtElement, words) {
-  var wait = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
-  this.txtElement = txtElement; //the span for the element holding the word
-
-  this.words = words; // The variable for the array of words
-
-  this.txt = ""; // variable for the animation of the typing
-
-  this.wordIndex = 0; //starting with the first word at the index of 0
-
-  this.wait = parseInt(wait, 10); //check it's an integer for the wait time
-
-  this.type(); //method of type that's associated with the typewriter
-
-  this.isDeleting = false; //represents the state if it's deleting or not
-}; // a way we add a method to the typeWriter is by using prototypes
-
-
-TypeWriter.prototype.type = function () {
-  var _this = this;
-
-  //current index of the word (counting down from 1)
-  // use the modulus operator "%" to get the remainder of the division
-  var currentWord = this.wordIndex % this.words.length; //Get the full text of of the word
-
-  var fullTxt = this.words[currentWord]; //Check if the words are deleting
-  // The substring() method extracts characters from start to end
-
-  if (this.isDeleting) {
-    //removing letters
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-    //add letters
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
-  } //insert txt into elements
-  //use template leteral `${}` to interpolate variables
-
-
-  this.txtElement.innerHTML = "<span class=\"txt\">".concat(this.txt, "</span>"); //type speed
-  // type speed changes (stop, faster deleting, etc), so use let
-
-  var typeSpeed = 200; // if isDeleting is true, cut the speed by half
-
-  if (this.isDeleting) {
-    typeSpeed /= 2;
-  } // check to see if the words are complete
-
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-    // this will make the animation pause at the end
-    typeSpeed = this.wait; // set isDeleting back to true
-
-    this.isDeleting = true; // this is the "if" once it's completes typing out the word
-  } else if (this.isDeleting && this.txt === "") {
-    this.isDeleting = false; // move to the next word indrumenting by 1
-
-    this.wordIndex++; // pause before starting the next word
-
-    typeSpeed = 300;
-  } // timer for each letter that is added or deleted
-
-
-  setTimeout(function () {
-    return _this.type();
-  }, typeSpeed); // 2 words per second
-}; // initializing on DOM load
-
-
-document.addEventListener("DOMContentLoaded", initializeText);
-
-function initializeText() {
-  // getting the h2 element on the DOM
-  var txtElement = document.querySelector(".txt-type"); // getting the text attributes using "data-"
-  // need to use JSON.parse() method to turn string into an array
-
-  var words = JSON.parse(txtElement.getAttribute("data-words")); // getting the wait attribute using "data-"
-
-  var wait = txtElement.getAttribute("data-wait"); //initialize the typewriter function
-
-  new TypeWriter(txtElement, words, wait);
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
 }
-},{}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../dist/main.77bb5cfd.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -283,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51845" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53688" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -459,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../script.js"], null)
-//# sourceMappingURL=/script.76d4bba4.js.map
+},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/main.77bb5cfd.aa51ceda.js.map
