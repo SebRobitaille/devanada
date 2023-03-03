@@ -197,84 +197,99 @@ section {
   transform: translateY(0) scale(1);
   background-color: $light-bg-color;
   .section-info {
-    .grid-container {
-      margin-top: 5em;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 1em;
-      .item1 {
-        grid-row-start: 1;
-        grid-row-end: 3;
-        text-align: left;
-        h1 {
-          font-size: 2em;
-        }
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 5em;
+    .about-section-1 {
+      display: flex;
+      justify-content: row;
+      margin-bottom: 5em;
+      .triangleDots {
+        position: absolute;
+        top: 20%;
+        right: 0;
+        height: 40%;
+        z-index: -1;
       }
-      .data-point {
-        border: solid 1px $color-grey-6;
-        transition: $transition-default;
-        padding: 1em;
-        border-radius: 5px;
-        margin-top: 2em;
-        text-align: left;
-        //   hover test
-        &:hover {
-          border: solid 2px $highlight-color;
-          transform: translateY(-0.5em);
-        }
-        h1 {
-          color: $highlight-color;
-          font-size: 2.5em;
-        }
-      }
-    }
-    .our-skills {
-      margin-top: 2em;
-      margin-bottom: 2em;
-      display: grid;
-      grid-gap: 1.5em;
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 55em;
-      margin: 0 auto;
-      h1 {
-        grid-column: 1 / span 2;
-        margin-bottom: 3em;
-      }
-      .language-bars {
-        text-align: left;
-        margin-bottom: 1em;
-      }
-      .language-bar {
+      .about-sec1-text {
+        width: 100%;
         display: flex;
-        .bar {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 2em;
+        .about-sec1-text-heading {
+          text-align: left;
+          h3 {
+            padding-left: 1rem;
+            font-size: 5vmin;
+            padding-right: 10px;
+            span {
+              color: $highlight-color;
+            }
+          }
+        }
+        .about-sec1-text-par {
+          text-align: left;
+          background-color: $color-grey-2;
+          padding: 2rem;
+          position: relative;
           width: 100%;
-          height: 5px;
-          background-color: $color-grey-5;
+          box-shadow: -10px 10px 0px 0px $highlight-color;
+          p {
+            color: $dark-bg-color;
+            font-weight: bolder;
+            z-index: 5;
+            span {
+              color: $highlight-color;
+            }
+          }
+          .about-sec1-text-chatbox {
+            position: absolute;
+            bottom: -10px;
+            right: 89px;
+            padding: 10px;
+            .background {
+              content: '';
+              position: absolute;
+              height: 0rem;
+              width: 0rem;
+              z-index: 0;
+              top: -70px;
+              right: -169px;
+              border-top: 80px solid $color-grey-2;
+              border-right: 80px solid transparent;
+              border-bottom: 80px solid transparent;
+              border-left: 80px solid transparent;
+              transform: rotate(225deg);
+              box-shadow:  -6px -6px 0px 5px $highlight-color;
+            }
+            img {
+              height: 6rem;
+              z-index: 2;
+              position: absolute;
+            }
+          }
+        }
+      }
+      .about-sec1-img {
+        width: 100%;
+        text-align-last: left;
+        position: relative;
+        display: flex;
+        div {
+          width: 100%;
           display: flex;
-          justify-content: left;
-          align-self: center;
-          margin-left: 0.2em;
-          .progress {
-            height: 5px;
-            background-color: $highlight-color;
-          }
-          .html-progress {
-            width: 70%;
-          }
-          .js-progress {
-            width: 60%;
-          }
-          .css-progress {
-            width: 70%;
-          }
-          .react-progress {
-            width: 30%;
-          }
-          .py-progress {
-            width: 20%;
-          }
-          .njs-progress {
-            width: 10%;
+          flex-shrink: 0;
+          img {
+            max-height: 500px;
+            flex-shrink: 0;
+            width: 100%;
+            object-fit: cover;
+            z-index: 10;
+            box-shadow: 10px 10px 0px 0px $highlight-color;
           }
         }
       }

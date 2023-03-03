@@ -174,86 +174,104 @@ section .section-title .section-title-background {
   transform: translateY(0) scale(1);
   background-color: #f1faee;
 }
-.sec2 .section-info .grid-container {
-  margin-top: 5em;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
-}
-.sec2 .section-info .grid-container .item1 {
-  grid-row-start: 1;
-  grid-row-end: 3;
-  text-align: left;
-}
-.sec2 .section-info .grid-container .item1 h1 {
-  font-size: 2em;
-}
-.sec2 .section-info .grid-container .data-point {
-  border: solid 1px #12181b;
-  transition: all 0.4s ease-in-out;
-  padding: 1em;
-  border-radius: 5px;
-  margin-top: 2em;
-  text-align: left;
-}
-.sec2 .section-info .grid-container .data-point:hover {
-  border: solid 2px #e63946;
-  transform: translateY(-0.5em);
-}
-.sec2 .section-info .grid-container .data-point h1 {
-  color: #e63946;
-  font-size: 2.5em;
-}
-.sec2 .section-info .our-skills {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  display: grid;
-  grid-gap: 1.5em;
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 55em;
+.sec2 .section-info {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
+  margin-top: 5em;
 }
-.sec2 .section-info .our-skills h1 {
-  grid-column: 1/span 2;
-  margin-bottom: 3em;
-}
-.sec2 .section-info .our-skills .language-bars {
-  text-align: left;
-  margin-bottom: 1em;
-}
-.sec2 .section-info .our-skills .language-bar {
+.sec2 .section-info .about-section-1 {
   display: flex;
+  justify-content: row;
+  margin-bottom: 5em;
 }
-.sec2 .section-info .our-skills .language-bar .bar {
+.sec2 .section-info .about-section-1 .triangleDots {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  height: 40%;
+  z-index: -1;
+}
+.sec2 .section-info .about-section-1 .about-sec1-text {
   width: 100%;
-  height: 5px;
-  background-color: #2a2e35;
   display: flex;
-  justify-content: left;
-  align-self: center;
-  margin-left: 0.2em;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2em;
 }
-.sec2 .section-info .our-skills .language-bar .bar .progress {
-  height: 5px;
-  background-color: #e63946;
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-heading {
+  text-align: left;
 }
-.sec2 .section-info .our-skills .language-bar .bar .html-progress {
-  width: 70%;
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-heading h3 {
+  padding-left: 1rem;
+  font-size: 5vmin;
+  padding-right: 10px;
 }
-.sec2 .section-info .our-skills .language-bar .bar .js-progress {
-  width: 60%;
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-heading h3 span {
+  color: #e63946;
 }
-.sec2 .section-info .our-skills .language-bar .bar .css-progress {
-  width: 70%;
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par {
+  text-align: left;
+  background-color: #b2becd;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
+  box-shadow: -10px 10px 0px 0px #e63946;
 }
-.sec2 .section-info .our-skills .language-bar .bar .react-progress {
-  width: 30%;
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par p {
+  color: #1d3557;
+  font-weight: bolder;
+  z-index: 5;
 }
-.sec2 .section-info .our-skills .language-bar .bar .py-progress {
-  width: 20%;
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par p span {
+  color: #e63946;
 }
-.sec2 .section-info .our-skills .language-bar .bar .njs-progress {
-  width: 10%;
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par .about-sec1-text-chatbox {
+  position: absolute;
+  bottom: -10px;
+  right: 89px;
+  padding: 10px;
+}
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par .about-sec1-text-chatbox .background {
+  content: "";
+  position: absolute;
+  height: 0rem;
+  width: 0rem;
+  z-index: 0;
+  top: -70px;
+  right: -169px;
+  border-top: 80px solid #b2becd;
+  border-right: 80px solid transparent;
+  border-bottom: 80px solid transparent;
+  border-left: 80px solid transparent;
+  transform: rotate(225deg);
+  box-shadow: -6px -6px 0px 5px #e63946;
+}
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par .about-sec1-text-chatbox img {
+  height: 6rem;
+  z-index: 2;
+  position: absolute;
+}
+.sec2 .section-info .about-section-1 .about-sec1-img {
+  width: 100%;
+  text-align-last: left;
+  position: relative;
+  display: flex;
+}
+.sec2 .section-info .about-section-1 .about-sec1-img div {
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+}
+.sec2 .section-info .about-section-1 .about-sec1-img div img {
+  max-height: 500px;
+  flex-shrink: 0;
+  width: 100%;
+  object-fit: cover;
+  z-index: 10;
+  box-shadow: 10px 10px 0px 0px #e63946;
 }
 
 .section-info .divider {
