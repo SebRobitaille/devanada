@@ -1,4 +1,81 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 /* CSS Custom Properties */
+.highlight {
+  color: #e63946;
+}
+
 /* Main CSS for Homepage */
 * {
   margin: 0;
@@ -575,68 +652,19 @@ section .section-title .section-title-background {
 }
 
 /* Contact section */
-.main-contact-con {
+.contact-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
 }
-
-.contact-left {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  padding: 3rem 1rem;
-  flex: 2;
+.contact-container .contact-header {
+  grid-column: 1/-1;
+  margin: 3rem auto;
 }
-
-.contact-left-header {
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  text-transform: uppercase;
+.contact-container .contact-header .contact-text {
+  margin-top: 1.5rem;
 }
-
-.contact-left-text {
-  margin: 1rem 0;
-  line-height: 2rem;
-}
-
-.contact-right {
-  display: flex;
-  flex: 3;
-  margin-left: 3rem;
-  margin-top: 3rem;
-}
-
-.input-control {
-  margin: 1.5rem 0;
-}
-
-.input-control textarea,
-.input-control input {
-  border-radius: 30px;
-  font-weight: inherit;
-  font-size: inherit;
-  font-family: inherit;
-  padding: 1.1rem 1.1rem;
-  margin: 0.1rem 0.3rem;
-  outline: none;
-  border: none;
-  background-color: #454e56;
-  width: 100%;
-  color: rgba(255, 255, 255, 0.8);
-  resize: none;
-}
-
-.input-control-2 {
-  display: flex;
-}
-.input-control-2:last-child {
-  margin-left: 1.5rem;
-}
-
-.contact-form ::placeholder {
-  color: var(--color-grey-2);
-  opacity: 0.9;
+.contact-container .contact-form {
+  margin-top: 5rem;
 }
 
 /* Submit Btn */
@@ -754,75 +782,6 @@ section .section-title .section-title-background {
     display: block;
   }
   /* contact us page for mobile */
-  .main-contact-con {
-    display: block;
-    margin-bottom: 5em;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .contact-left {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    padding: 3rem 1rem;
-    flex: 2;
-  }
-  .contact-left-header {
-    font-size: 3rem;
-    margin-top: 1rem;
-    text-transform: uppercase;
-  }
-  .contact-left-text {
-    margin: 1rem 0;
-    line-height: 2rem;
-  }
-  .contact-right {
-    display: flex;
-    flex: 3;
-    margin-left: 3rem;
-    margin-top: 3rem;
-  }
-  .input-control {
-    margin: 1.5rem 0;
-  }
-  .input-control textarea,
-.input-control input {
-    border-radius: 30px;
-    font-weight: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    padding: 1.1rem 1.1rem;
-    margin: 0.1rem 0.3rem;
-    border: 1px solid #1d3557;
-    background-color: #6c7983;
-    width: 100%;
-    color: rgba(255, 255, 255, 0.8);
-    resize: none;
-  }
-  .input-control textarea:hover,
-.input-control input:hover {
-    outline: 1px solid #e63946;
-    transition: border 0.4s ease-in-out;
-  }
-  .input-control textarea::before,
-.input-control input::after {
-    position: absolute;
-    background: #eee;
-    z-index: -1;
-    transition: 1s;
-    content: "";
-  }
-  .input-control-2 {
-    display: flex;
-  }
-  .input-control-2 :last-child {
-    margin-left: 1.5rem;
-  }
-  .contact-form ::placeholder {
-    color: #b2becd;
-    opacity: 0.9;
-  }
   /* ***Independant Components*** */
   /* Submit Btn */
   #submit-btn {
@@ -854,6 +813,16 @@ section .section-title .section-title-background {
   .main-btn .contact-right {
     margin-left: 0rem;
   }
+}
+.sec1,
+.sec2,
+.sec3,
+.sec4 {
+  display: none;
+}
+
+.sec5 {
+  display: block;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
