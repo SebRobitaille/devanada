@@ -207,9 +207,10 @@ section {
       display: flex;
       justify-content: row;
       margin-bottom: 5em;
+      margin-top: 5em;
       .triangleDots {
         position: absolute;
-        top: 20%;
+        top: 25%;
         right: 0;
         height: 40%;
         z-index: -1;
@@ -220,6 +221,9 @@ section {
         flex-direction: column;
         justify-content: flex-start;
         gap: 2em;
+        @media screen and (max-width: 950px) {
+          transform: translateY(-10%);
+        }
         .about-sec1-text-heading {
           text-align: left;
           h3 {
@@ -266,6 +270,16 @@ section {
               transform: rotate(225deg);
               box-shadow:  -6px -6px 0px 5px $highlight-color;
             }
+            .backgroundTwo {
+              border-top: 80px solid transparent;
+              border-left: 80px solid $dark-bg-color;
+              box-shadow: none;
+              top: -54px;
+              right: -186px;
+              top: -75px;
+              right: -169px;
+              transform: rotate(225deg) scale(1.2);
+            }
             img {
               height: 6rem;
               z-index: 2;
@@ -279,12 +293,15 @@ section {
         text-align-last: left;
         position: relative;
         display: flex;
+        flex-direction: column;
         div {
           width: 100%;
           display: flex;
           flex-shrink: 0;
+          flex-direction: column;
           img {
             max-height: 500px;
+            min-height: 500px;
             flex-shrink: 0;
             width: 100%;
             object-fit: cover;

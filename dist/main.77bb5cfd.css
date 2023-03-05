@@ -186,10 +186,11 @@ section .section-title .section-title-background {
   display: flex;
   justify-content: row;
   margin-bottom: 5em;
+  margin-top: 5em;
 }
 .sec2 .section-info .about-section-1 .triangleDots {
   position: absolute;
-  top: 20%;
+  top: 25%;
   right: 0;
   height: 40%;
   z-index: -1;
@@ -200,6 +201,11 @@ section .section-title .section-title-background {
   flex-direction: column;
   justify-content: flex-start;
   gap: 2em;
+}
+@media screen and (max-width: 950px) {
+  .sec2 .section-info .about-section-1 .about-sec1-text {
+    transform: translateY(-10%);
+  }
 }
 .sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-heading {
   text-align: left;
@@ -249,6 +255,16 @@ section .section-title .section-title-background {
   transform: rotate(225deg);
   box-shadow: -6px -6px 0px 5px #e63946;
 }
+.sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par .about-sec1-text-chatbox .backgroundTwo {
+  border-top: 80px solid transparent;
+  border-left: 80px solid #1d3557;
+  box-shadow: none;
+  top: -54px;
+  right: -186px;
+  top: -75px;
+  right: -169px;
+  transform: rotate(225deg) scale(1.2);
+}
 .sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-par .about-sec1-text-chatbox img {
   height: 6rem;
   z-index: 2;
@@ -259,14 +275,17 @@ section .section-title .section-title-background {
   text-align-last: left;
   position: relative;
   display: flex;
+  flex-direction: column;
 }
 .sec2 .section-info .about-section-1 .about-sec1-img div {
   width: 100%;
   display: flex;
   flex-shrink: 0;
+  flex-direction: column;
 }
 .sec2 .section-info .about-section-1 .about-sec1-img div img {
   max-height: 500px;
+  min-height: 500px;
   flex-shrink: 0;
   width: 100%;
   object-fit: cover;
