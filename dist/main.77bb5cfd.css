@@ -184,15 +184,20 @@ section .section-title .section-title-background {
 }
 .sec2 .section-info .about-section-1 {
   display: flex;
-  justify-content: row;
+  flex-direction: row;
   margin-bottom: 5em;
   margin-top: 5em;
+}
+@media screen and (max-width: 780px) {
+  .sec2 .section-info .about-section-1 {
+    flex-direction: column;
+  }
 }
 .sec2 .section-info .about-section-1 .triangleDots {
   position: absolute;
   top: 25%;
   right: 0;
-  height: 40%;
+  width: 40%;
   z-index: -1;
 }
 .sec2 .section-info .about-section-1 .about-sec1-text {
@@ -212,8 +217,8 @@ section .section-title .section-title-background {
 }
 .sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-heading h3 {
   padding-left: 1rem;
-  font-size: 5vmin;
   padding-right: 10px;
+  font-size: calc(12px + 5vmin);
 }
 .sec2 .section-info .about-section-1 .about-sec1-text .about-sec1-text-heading h3 span {
   color: #e63946;
@@ -291,6 +296,19 @@ section .section-title .section-title-background {
   object-fit: cover;
   z-index: 10;
   box-shadow: 10px 10px 0px 0px #e63946;
+}
+.sec2 .section-info .about-section-1 .about-sec1-img div .about-section1-mobile-background {
+  height: 0rem;
+}
+@media screen and (max-width: 780px) {
+  .sec2 .section-info .about-section-1 .about-sec1-img div .about-section1-mobile-background {
+    content: "";
+    height: 9rem;
+    width: 100%;
+    z-index: 0;
+    box-shadow: 5px 5px 0px 5px #e63946;
+    margin-top: -3rem;
+  }
 }
 
 .section-info .divider {

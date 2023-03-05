@@ -205,14 +205,17 @@ section {
     margin-top: 5em;
     .about-section-1 {
       display: flex;
-      justify-content: row;
+      flex-direction: row;
       margin-bottom: 5em;
       margin-top: 5em;
+      @media screen and (max-width: 780px) {
+        flex-direction: column;
+      }
       .triangleDots {
         position: absolute;
         top: 25%;
         right: 0;
-        height: 40%;
+        width: 40%;
         z-index: -1;
       }
       .about-sec1-text {
@@ -228,8 +231,8 @@ section {
           text-align: left;
           h3 {
             padding-left: 1rem;
-            font-size: 5vmin;
             padding-right: 10px;
+            font-size: calc(12px + 5vmin);
             span {
               color: $highlight-color;
             }
@@ -307,6 +310,17 @@ section {
             object-fit: cover;
             z-index: 10;
             box-shadow: 10px 10px 0px 0px $highlight-color;
+          }
+          .about-section1-mobile-background {
+            height: 0rem;
+            @media screen and (max-width: 780px) {
+              content: '';
+              height: 9rem;
+              width: 100%;
+              z-index: 0;
+              box-shadow:  5px 5px 0px 5px $highlight-color;
+              margin-top: -3rem;
+            }
           }
         }
       }
