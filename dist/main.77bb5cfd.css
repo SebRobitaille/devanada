@@ -651,19 +651,50 @@ section .section-title .section-title-background {
   margin-left: 0.8em;
 }
 
+html {
+  font-size: calc(15px + 0.390625vw);
+}
+
 /* Contact section */
-.contact-container {
+#contact .contact-container {
   display: grid;
   grid-template-columns: 1fr;
 }
-.contact-container .contact-header {
+#contact .contact-container .section-title {
   grid-column: 1/-1;
-  margin: 3rem auto;
 }
-.contact-container .contact-header .contact-text {
+#contact .contact-container .contact-header {
+  grid-column: 1/-1;
+  margin: 1.5rem auto;
+  font-size: 1.2rem;
+}
+#contact .contact-container .contact-text {
   margin-top: 1.5rem;
+  background-color: #b2becd;
+  color: #1d3557;
+  box-shadow: 0.4rem 0.4rem #e63946;
+  position: relative;
 }
-.contact-container .contact-form {
+#contact .contact-container .contact-text .triangle {
+  position: absolute;
+  color: white;
+  width: 0;
+  height: 0;
+  right: 0;
+  translate: 50% 50%;
+  border-left: 5em solid transparent;
+  border-right: 5em solid transparent;
+  border-bottom: 5em solid white;
+  rotate: 45deg;
+  z-index: 1000;
+}
+#contact .contact-container .social-icons {
+  margin: 1rem auto;
+}
+#contact .contact-container .social-icons i {
+  margin: 1rem 0.5rem;
+}
+#contact .contact-container .contact-form {
   margin-top: 5rem;
 }
 

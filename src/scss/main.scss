@@ -689,22 +689,74 @@ section {
   }
 }
 
+// Trying out responsive font size
+
+html {
+  font-size: calc(15px + 0.390625vw);
+}
+
 /* Contact section */
+#contact {
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
 
-.contact-container {
-  display: grid;
-  grid-template-columns: 1fr;
+    .section-title {
+      grid-column: 1 / -1;
+    }
 
-  .contact-header {
-    grid-column: 1 / -1;
-    margin: 3rem auto;
+    .contact-header {
+      grid-column: 1 / -1;
+      margin: 1.5rem auto;
+      font-size: 1.2rem;
+    }
+
     .contact-text {
       margin-top: 1.5rem;
-    }
-  }
+      background-color: $color-grey-2;
+      color: $light-main-text-color;
+      box-shadow: 0.4rem 0.4rem $highlight-color;
+      position: relative;
 
-  .contact-form {
-    margin-top: 5rem;
+      .triangle {
+        position: absolute;
+        color: white;
+        width: 0;
+        height: 0;
+
+        right: 0;
+        translate: 50% 50%;
+
+        border-left: 5em solid transparent;
+        border-right: 5em solid transparent;
+        border-bottom: 5em solid white;
+        rotate: 45deg;
+        z-index: 1000;
+      }
+
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   inset: 0;
+      //   width: 0;
+      //   height: 0;
+      //   background-color: black;
+      //   border-left: 50px solid transparent;
+      //   border-right: 50px solid black;
+      //   border-bottom: 50px solid transparent;
+      // }
+    }
+
+    .social-icons {
+      margin: 1rem auto;
+      i {
+        margin: 1rem 0.5rem;
+      }
+    }
+
+    .contact-form {
+      margin-top: 5rem;
+    }
   }
 }
 
