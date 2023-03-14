@@ -697,10 +697,16 @@ html {
 
 /* Contact section */
 #contact {
+  $width-box: 30em;
+  $offset-x: calc(-10px - 0.390625vw);
+  $offset-y: calc(10px + 0.390625vw);
+
   .contact-container {
     display: grid;
     grid-template-columns: 1fr;
-
+    @media (width > $mq-lg) {
+      grid-template-columns: 1fr 1fr;
+    }
     .section-title {
       grid-column: 1 / -1;
     }
@@ -709,15 +715,23 @@ html {
       grid-column: 1 / -1;
       margin: 1.5rem auto;
       font-size: 1.2rem;
+      max-width: 40rem;
     }
 
     .contact-text {
       margin-top: 1.5rem;
       background-color: $color-grey-2;
       color: $light-main-text-color;
-      box-shadow: 0.4rem 0.4rem $highlight-color;
+      box-shadow: $offset-x $offset-y $highlight-color;
       position: relative;
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: max(390px, $width-box);
+      width: $width-box;
+      margin: 1em;
+      padding: 1em;
+      z-index: 5;
       .triangle {
         position: absolute;
         color: white;
@@ -725,13 +739,33 @@ html {
         height: 0;
 
         right: 0;
-        translate: 50% 50%;
+        top: 0;
+        bottom: 0;
+        translate: 50% 25%;
 
-        border-left: 5em solid transparent;
-        border-right: 5em solid transparent;
-        border-bottom: 5em solid white;
+        border-bottom: calc($width-box / 5) solid $color-grey-2;
+        border-top: calc($width-box / 5) solid transparent;
+        border-left: calc($width-box / 5) solid transparent;
+        border-right: calc($width-box / 5) solid transparent;
+
         rotate: 45deg;
-        z-index: 1000;
+        z-index: 2;
+
+        filter: drop-shadow(-5px 5px red);
+      }
+      .dots {
+        position: absolute;
+        background-image: url(../assets/triangleDots.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 3;
+        right: calc($width-box / 50);
+        bottom: calc($width-box / -50);
+        // top: 0;
+        width: calc($width-box / 5);
+        height: calc($width-box / 5);
+        translate: 0 100%;
       }
 
       // &::after {
@@ -749,6 +783,8 @@ html {
 
     .social-icons {
       margin: 1rem auto;
+      // remove when done
+      margin-top: 5rem;
       i {
         margin: 1rem 0.5rem;
       }

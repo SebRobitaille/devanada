@@ -660,6 +660,11 @@ html {
   display: grid;
   grid-template-columns: 1fr;
 }
+@media (width > 62em) {
+  #contact .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 #contact .contact-container .section-title {
   grid-column: 1/-1;
 }
@@ -667,13 +672,22 @@ html {
   grid-column: 1/-1;
   margin: 1.5rem auto;
   font-size: 1.2rem;
+  max-width: 40rem;
 }
 #contact .contact-container .contact-text {
   margin-top: 1.5rem;
   background-color: #b2becd;
   color: #1d3557;
-  box-shadow: 0.4rem 0.4rem #e63946;
+  box-shadow: calc(-10px - 0.390625vw) calc(10px + 0.390625vw) #e63946;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: max(390px, 30em);
+  width: 30em;
+  margin: 1em;
+  padding: 1em;
+  z-index: 5;
 }
 #contact .contact-container .contact-text .triangle {
   position: absolute;
@@ -681,15 +695,33 @@ html {
   width: 0;
   height: 0;
   right: 0;
-  translate: 50% 50%;
-  border-left: 5em solid transparent;
-  border-right: 5em solid transparent;
-  border-bottom: 5em solid white;
+  top: 0;
+  bottom: 0;
+  translate: 50% 25%;
+  border-bottom: 6em solid #b2becd;
+  border-top: 6em solid transparent;
+  border-left: 6em solid transparent;
+  border-right: 6em solid transparent;
   rotate: 45deg;
-  z-index: 1000;
+  z-index: 2;
+  filter: drop-shadow(-5px 5px red);
+}
+#contact .contact-container .contact-text .dots {
+  position: absolute;
+  background-image: url(/triangleDots.699c8879.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 3;
+  right: 0.6em;
+  bottom: -0.6em;
+  width: 6em;
+  height: 6em;
+  translate: 0 100%;
 }
 #contact .contact-container .social-icons {
   margin: 1rem auto;
+  margin-top: 5rem;
 }
 #contact .contact-container .social-icons i {
   margin: 1rem 0.5rem;
