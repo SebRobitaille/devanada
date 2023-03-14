@@ -145,3 +145,6 @@ function initializeText() {
   new TypeWriter(txtElement, words, wait);
 }
 
+
+// parralax effect on main page titles
+// will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect. 

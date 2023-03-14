@@ -254,7 +254,8 @@ function initializeText() {
   var wait = txtElement.getAttribute("data-wait"); //initialize the typewriter function
 
   new TypeWriter(txtElement, words, wait);
-}
+} // parralax effect on main page titles
+// will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect.
 },{}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
