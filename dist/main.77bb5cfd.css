@@ -100,15 +100,11 @@ header {
 section {
   min-height: 100vh;
   width: 100%;
-  position: absolute;
   left: 0;
   top: 0;
   padding: 3rem 10rem;
   background-color: #1d3557 !important;
   text-align: center;
-  display: grid;
-  grid-gap: 1em;
-  grid-template-columns: repeat(3, 1fr);
 }
 section .section-title {
   margin: 0 auto;
@@ -659,18 +655,14 @@ html {
 #contact .contact-container {
   display: grid;
   grid-template-columns: 1fr;
-}
-@media (width > 62em) {
-  #contact .contact-container {
-    grid-template-columns: 1fr 1fr;
-  }
+  justify-content: center;
 }
 #contact .contact-container .section-title {
   grid-column: 1/-1;
 }
 #contact .contact-container .contact-header {
   grid-column: 1/-1;
-  margin: 1.5rem auto;
+  margin: 1.5rem;
   font-size: 1.2rem;
   max-width: 40rem;
 }
@@ -683,8 +675,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: max(390px, 30em);
-  width: 30em;
+  max-width: max(390px, min(30em, 90vw));
+  width: min(30em, 90vw);
   margin: 1em;
   padding: 1em;
   z-index: 5;
@@ -692,19 +684,16 @@ html {
 #contact .contact-container .contact-text .triangle {
   position: absolute;
   color: white;
-  width: 0;
-  height: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
-  translate: 50% 25%;
-  border-bottom: 6em solid #b2becd;
-  border-top: 6em solid transparent;
-  border-left: 6em solid transparent;
-  border-right: 6em solid transparent;
+  bottom: 1px;
+  translate: 50% 50%;
+  border-color: transparent;
+  border-bottom-color: #b2becd;
+  border-width: calc(min(30em, 90vw) / 6);
+  border-style: solid;
   rotate: 45deg;
-  z-index: 2;
-  filter: drop-shadow(-5px 5px red);
+  z-index: 1;
+  filter: drop-shadow(8px 8px #e63946);
 }
 #contact .contact-container .contact-text .dots {
   position: absolute;
@@ -713,21 +702,49 @@ html {
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 3;
-  right: 0.6em;
-  bottom: -0.6em;
-  width: 6em;
-  height: 6em;
+  right: calc(min(30em, 90vw) / 50);
+  bottom: calc(min(30em, 90vw) / -50);
+  width: calc(min(30em, 90vw) / 6);
+  height: calc(min(30em, 90vw) / 6);
   translate: 0 100%;
 }
-#contact .contact-container .social-icons {
-  margin: 1rem auto;
-  margin-top: 5rem;
+#contact .contact-container .contact-text .social-p {
+  position: absolute;
+  border: 1px solid yellow;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  translate: 0 100%;
+  color: #f8f8f8;
 }
-#contact .contact-container .social-icons i {
-  margin: 1rem 0.5rem;
+#contact .contact-container .contact-text .icon-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  color: white;
+  right: calc(min(30em, 90vw) / 50 + 2rem);
+  bottom: calc(min(30em, 90vw) / -50 - 2rem);
+  rotate: 45deg;
+  translate: 50% 50%;
+  z-index: 100;
+  padding-top: calc(min(30em, 90vw) / 6);
+  width: calc(min(30em, 90vw) / 2.82);
+  height: calc(min(30em, 90vw) / 2.82);
+  border: 1px solid blue;
+}
+#contact .contact-container .contact-text .icon-container i {
+  margin-top: 1rem;
+  rotate: -45deg;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+#contact .contact-container .contact-text .icon-container i:hover {
+  color: #e63946;
 }
 #contact .contact-container .contact-form {
-  margin-top: 5rem;
+  margin-top: 10rem;
 }
 
 /* Submit Btn */
