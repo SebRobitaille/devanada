@@ -730,8 +730,8 @@ html {
   translate: 50% 50%;
   z-index: 100;
   padding-top: calc(min(30em, 90vw) / 6);
-  width: calc(min(30em, 90vw) / 2.82);
-  height: calc(min(30em, 90vw) / 2.82);
+  width: calc(min(30em, 90vw) / 4.2426406871);
+  height: calc(min(30em, 90vw) / 4.2426406871);
   border: 1px solid blue;
 }
 #contact .contact-container .contact-text .icon-container i {
