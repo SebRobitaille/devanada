@@ -136,11 +136,11 @@ header {
 
 section {
   min-height: 100vh;
-  width: 100%;
+  width: 100dvw;
   // position: absolute;
-  left: 0;
-  top: 0;
-  padding: 3rem 10rem;
+  // left: 0;
+  // top: 0;
+  // padding: 3rem;
   background-color: $dark-bg-color !important;
   text-align: center;
   // display: grid;
@@ -279,18 +279,17 @@ section {
   transition: $transition-default;
   overflow: hidden;
   padding-bottom: 3em;
+  background-color: $light-bg-color;
 }
 
 .sec1 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: $light-bg-color;
 }
 
 .sec2 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: $light-bg-color;
   .section-info {
     max-width: 900px;
     display: flex;
@@ -517,7 +516,6 @@ section {
 .sec5 {
   display: none;
   transform: translateY(0) scale(1);
-  background-color: $light-bg-color;
 }
 
 .active {
@@ -697,17 +695,19 @@ html {
 
 /* Contact section */
 #contact {
-  $width-box: min(30em, 90vw);
+  $width-box: clamp(15em, min(30em, 90vw), 90vw);
   $offset-x: calc(-10px - 0.390625vw);
   $offset-y: calc(10px + 0.390625vw);
 
   .contact-container {
     display: grid;
     grid-template-columns: 1fr;
-    justify-content: center;
-    // @media (min-width: $mq-med) {
-    //   grid-template-columns: 1fr 1fr;
-    // }
+    place-items: center;
+    width: 100%;
+    // align-content: center;
+    @media (min-width: $mq-small) {
+      grid-template-columns: 1fr 1fr;
+    }
     .section-title {
       grid-column: 1 / -1;
     }
@@ -720,7 +720,7 @@ html {
     }
 
     .contact-text {
-      margin-top: 1.5rem;
+      margin: 1.5rem auto 4rem;
       background-color: $color-grey-2;
       color: $light-main-text-color;
       box-shadow: $offset-x $offset-y $highlight-color;
@@ -770,35 +770,36 @@ html {
       }
       .social-p {
         position: absolute;
-        border: 1px solid yellow;
-        inset: 0;
+        // border: 1px solid yellow;
+        bottom: -1rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        translate: 0 100%;
+        translate: -10% 100%;
         color: $color-grey0;
       }
       .icon-container {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
         position: absolute;
         color: white;
-        right: calc(calc($width-box / 50) + 2rem);
-        bottom: calc(calc($width-box / -50) - 2rem);
+        // right: calc(calc($width-box / 50) + 3rem);
+        // bottom: calc(calc($width-box / 50) - 3rem);
+        right: 6%;
+        z-index: 1000;
+        bottom: -5%;
         rotate: 45deg;
-        translate: 50% 50%;
-        z-index: 100;
-        // padding-right: 0.5rem;
-        // padding-top: 1rem;
-        padding-top: calc($width-box / 6);
-        width: calc($width-box / 4.24264068712);
-        height: calc($width-box / 4.24264068712);
-        border: 1px solid blue;
+        translate: 25% 125%;
+        // padding-top: calc($width-box / 6);
+        width: calc($width-box / 4);
+        height: calc($width-box / 4);
+        // border: 1px solid blue;
         i {
           margin-top: 1rem;
           rotate: -45deg;
           cursor: pointer;
+          font-size: calc(15px + 0.390625vw);
           transition: $transition-default;
           &:hover {
             color: $highlight-color;
@@ -807,8 +808,10 @@ html {
       }
     }
 
-    .contact-form {
-      margin-top: 10rem;
+    #contact-form {
+      margin-top: 7.5rem 1rem 1rem;
+      background-color: $color-grey-2;
+      padding: 1rem;
     }
   }
 }
@@ -1061,10 +1064,7 @@ html {
     margin-left: -0.3em;
   }
   /* About us page - sec2 */
-
-  section {
-    padding: 3rem 4rem;
-  }
+ 
   .sec2 .section-info .grid-container {
     display: block;
   }
