@@ -89,6 +89,7 @@ body {
   font-size: 1.1rem;
   color: #f1faee;
   transition: all 0.4s ease-in-out;
+  overflow-x: hidden;
 }
 
 header {
@@ -647,11 +648,14 @@ html {
 }
 
 /* Contact section */
+#contact {
+  padding-bottom: 3rem;
+}
 #contact .contact-container {
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
-  width: 100%;
+  margin: 1rem auto;
 }
 @media (min-width: 36em) {
   #contact .contact-container {
@@ -667,6 +671,9 @@ html {
   font-size: 1.2rem;
   max-width: 40rem;
 }
+#contact .contact-container .contact-header a {
+  text-decoration: none;
+}
 #contact .contact-container .contact-text {
   margin: 1.5rem auto 4rem;
   background-color: #b2becd;
@@ -681,6 +688,11 @@ html {
   margin: 1em;
   padding: 1em;
   z-index: 5;
+}
+@media (min-width: 36em) {
+  #contact .contact-container .contact-text {
+    max-width: 50%;
+  }
 }
 #contact .contact-container .contact-text .triangle {
   position: absolute;
@@ -743,9 +755,153 @@ html {
   color: #e63946;
 }
 #contact .contact-container #contact-form {
-  margin-top: 7.5rem 1rem 1rem;
+  /* reset */
+  /* border, padding, margin, width */
+  position: relative;
+  width: min(80%, 500px);
+  margin: calc(2rem + 20vw) 1rem 3rem 1rem;
   background-color: #b2becd;
   padding: 1rem;
+}
+#contact .contact-container #contact-form form input,
+#contact .contact-container #contact-form form select,
+#contact .contact-container #contact-form form textarea,
+#contact .contact-container #contact-form form fieldset,
+#contact .contact-container #contact-form form optgroup,
+#contact .contact-container #contact-form form label,
+#contact .contact-container #contact-form .StripeElement {
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+#contact .contact-container #contact-form form label,
+#contact .contact-container #contact-form form legend {
+  font-size: 0.825rem;
+  margin-bottom: 0.5rem;
+}
+#contact .contact-container #contact-form form input,
+#contact .contact-container #contact-form form select,
+#contact .contact-container #contact-form form textarea,
+#contact .contact-container #contact-form .StripeElement {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.75em 1rem;
+  margin-bottom: 1.5rem;
+}
+#contact .contact-container #contact-form form input:focus,
+#contact .contact-container #contact-form form select:focus,
+#contact .contact-container #contact-form form textarea:focus,
+#contact .contact-container #contact-form .StripeElement:focus {
+  background-color: white;
+  outline-style: solid;
+  outline-width: thin;
+  outline-color: gray;
+  outline-offset: -1px;
+}
+#contact .contact-container #contact-form form [type=text],
+#contact .contact-container #contact-form form [type=email],
+#contact .contact-container #contact-form .StripeElement {
+  width: 100%;
+}
+#contact .contact-container #contact-form form [type=button],
+#contact .contact-container #contact-form form [type=submit],
+#contact .contact-container #contact-form form [type=reset] {
+  width: auto;
+  cursor: pointer;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+#contact .contact-container #contact-form form [type=button]:focus,
+#contact .contact-container #contact-form form [type=submit]:focus,
+#contact .contact-container #contact-form form [type=reset]:focus {
+  outline: none;
+}
+#contact .contact-container #contact-form form select {
+  text-transform: none;
+}
+#contact .contact-container #contact-form::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  translate: calc(10px + 0.390625vw) calc(10px + 0.390625vw);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #e63946;
+}
+#contact .contact-container #contact-form fieldset legend {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #454e56;
+}
+#contact .contact-container #contact-form ul {
+  list-style: none;
+}
+#contact .contact-container #contact-form ul label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+#contact .contact-container #contact-form ul textarea {
+  min-height: 15rem;
+}
+#contact .contact-container #contact-form ul textarea,
+#contact .contact-container #contact-form ul input {
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+}
+#contact .contact-container #contact-form ul li + li {
+  margin-top: 1em;
+}
+#contact .contact-container #contact-form ul input:focus,
+#contact .contact-container #contact-form ul textarea:focus {
+  border: 2px solid #000;
+}
+#contact .contact-container #contact-form ul .btn {
+  font-size: larger;
+}
+#contact .contact-container #contact-form ul .btn button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem auto;
+  width: min(80%, 300px);
+  padding: 0.5rem 1rem;
+  background-color: #1d3557;
+  border: 2px solid #e63946;
+  border-radius: 50px;
+}
+#contact .contact-container #contact-form ul .btn button .cta-text {
+  padding: 0.3em 0.3em;
+  font-weight: bolder;
+  color: #e63946;
+  transition: all 0.4s ease-in-out;
+}
+#contact .contact-container #contact-form ul .btn button .arrow {
+  border: 1px solid #e63946;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+  display: none;
+}
+#contact .contact-container #contact-form ul .btn button .cta-icon {
+  font-size: 1.4rem;
+  border: 1px solid #e63946;
+  border-radius: 50%;
+  padding: 0.4em 0.6em;
+  background-color: #e63946;
+  color: black;
+  transition: all 0.4s ease-in-out;
 }
 
 /* Submit Btn */
@@ -859,7 +1015,6 @@ html {
   .sec2 .section-info .grid-container {
     display: block;
   }
-  /* contact us page for mobile */
   /* ***Independant Components*** */
   /* Submit Btn */
   #submit-btn {

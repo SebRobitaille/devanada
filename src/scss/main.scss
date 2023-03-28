@@ -126,6 +126,7 @@ body {
   font-size: 1.1rem;
   color: $dark-main-text-color;
   transition: $transition-default;
+  overflow-x: hidden;
 }
 
 header {
@@ -696,15 +697,17 @@ html {
 /* Contact section */
 #contact {
   $width-box: clamp(15em, min(30em, 90vw), 90vw);
-  $offset-x: calc(-10px - 0.390625vw);
-  $offset-y: calc(10px + 0.390625vw);
+  $offset-x-left: calc(-10px - 0.390625vw);
+  $offset-x-right: calc(10px + 0.390625vw);
+  $offset-y-down: calc(10px + 0.390625vw);
+  $offset-y-up: calc(-10px - 0.390625vw);
+  padding-bottom: 3rem;
 
   .contact-container {
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
-    width: 100%;
-    // align-content: center;
+    margin: 1rem auto;
     @media (min-width: $mq-small) {
       grid-template-columns: 1fr 1fr;
     }
@@ -717,13 +720,16 @@ html {
       margin: 1.5rem;
       font-size: 1.2rem;
       max-width: 40rem;
+      a {
+        text-decoration: none;
+      }
     }
 
     .contact-text {
       margin: 1.5rem auto 4rem;
       background-color: $color-grey-2;
       color: $light-main-text-color;
-      box-shadow: $offset-x $offset-y $highlight-color;
+      box-shadow: $offset-x-left $offset-y-down $highlight-color;
       position: relative;
       display: flex;
       justify-content: center;
@@ -733,6 +739,9 @@ html {
       margin: 1em;
       padding: 1em;
       z-index: 5;
+      @media (min-width: $mq-small) {
+        max-width: 50%;
+      }
       .triangle {
         position: absolute;
         color: white;
@@ -809,148 +818,162 @@ html {
     }
 
     #contact-form {
-      margin-top: 7.5rem 1rem 1rem;
+      /* reset */
+      form input,
+      form select,
+      form textarea,
+      form fieldset,
+      form optgroup,
+      form label,
+      .StripeElement {
+        font-family: inherit;
+        font-size: 100%;
+        color: inherit;
+        border: none;
+        border-radius: 0;
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      form label,
+      form legend {
+        font-size: 0.825rem;
+        margin-bottom: 0.5rem;
+      }
+      /* border, padding, margin, width */
+      form input,
+      form select,
+      form textarea,
+      .StripeElement {
+        box-sizing: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 0.75em 1rem;
+        margin-bottom: 1.5rem;
+      }
+      form input:focus,
+      form select:focus,
+      form textarea:focus,
+      .StripeElement:focus {
+        background-color: white;
+        outline-style: solid;
+        outline-width: thin;
+        outline-color: gray;
+        outline-offset: -1px;
+      }
+      form [type="text"],
+      form [type="email"],
+      .StripeElement {
+        width: 100%;
+      }
+      form [type="button"],
+      form [type="submit"],
+      form [type="reset"] {
+        width: auto;
+        cursor: pointer;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+      }
+      form [type="button"]:focus,
+      form [type="submit"]:focus,
+      form [type="reset"]:focus {
+        outline: none;
+      }
+
+      form select {
+        text-transform: none;
+      }
+
+      position: relative;
+      width: min(80%, 500px);
+      margin: calc(2rem + 20vw) 1rem 3rem 1rem;
       background-color: $color-grey-2;
       padding: 1rem;
+      &::after {
+        position: absolute;
+        content: "";
+        inset: 0;
+        translate: $offset-x-right $offset-y-down;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: $highlight-color;
+      }
+      fieldset {
+        legend {
+          font-size: 1.4rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: $color-grey-4;
+        }
+      }
+
+      ul {
+        list-style: none;
+        label {
+          font-weight: bold;
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+        textarea {
+          min-height: 15rem;
+        }
+        textarea,
+        input {
+          font-size: 1.2rem;
+          font-family: $paragraph-font;
+        }
+
+        & li + li {
+          margin-top: 1em;
+        }
+        input:focus,
+        textarea:focus {
+          border: 2px solid #000;
+        }
+        .btn {
+          font-size: larger;
+          button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem auto;
+            width: min(80%, 300px);
+            padding: 0.5rem 1rem;
+            background-color: $dark-bg-color;
+            border: 2px solid $highlight-color;
+            border-radius: 50px;
+            .cta-text {
+              padding: 0.3em 0.3em;
+              font-weight: bolder;
+              color: $highlight-color;
+              transition: $transition-default;
+            }
+            .arrow {
+              border: 1px solid $highlight-color;
+              border-radius: 50%;
+              transition: $transition-default;
+              display: none;
+            }
+            .cta-icon {
+              font-size: 1.4rem;
+              border: 1px solid $highlight-color;
+              border-radius: 50%;
+              padding: 0.4em 0.6em;
+              background-color: $highlight-color;
+              color: $secondary-bg-color;
+              transition: $transition-default;
+            }
+          }
+        }
+      }
     }
   }
 }
-
-// .sec2 {
-//   display: none;
-//   transform: translateY(0) scale(1);
-//   background-color: $light-bg-color;
-//   .section-info {
-//     max-width: 900px;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     margin: 0 auto;
-//     margin-top: 5em;
-//     .about-section-1 {
-//       display: flex;
-//       flex-direction: row;
-//       margin-bottom: 5em;
-//       margin-top: 5em;
-//       @media screen and (max-width: 780px) {
-//         flex-direction: column;
-//       }
-//       .triangleDots {
-//         position: absolute;
-//         top: 25%;
-//         right: 0;
-//         width: 40%;
-//         z-index: -1;
-//       }
-//       .about-sec1-text {
-//         width: 100%;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: flex-start;
-//         gap: 2em;
-//         @media screen and (max-width: 950px) {
-//           transform: translateY(-10%);
-//         }
-//         .about-sec1-text-heading {
-//           text-align: left;
-//           h3 {
-//             padding-left: 1rem;
-//             padding-right: 10px;
-//             font-size: calc(12px + 5vmin);
-//             span {
-//               color: $highlight-color;
-//             }
-//           }
-//         }
-//         .about-sec1-text-par {
-//           text-align: left;
-//           background-color: $color-grey-2;
-//           padding: 2rem;
-//           position: relative;
-//           width: 100%;
-//           box-shadow: -10px 10px 0px 0px $highlight-color;
-//           p {
-//             color: $dark-bg-color;
-//             font-weight: bolder;
-//             z-index: 5;
-//             span {
-//               color: $highlight-color;
-//             }
-//           }
-//           .about-sec1-text-chatbox {
-//             position: absolute;
-//             bottom: -10px;
-//             right: 89px;
-//             padding: 10px;
-//             .background {
-//               content: "";
-//               position: absolute;
-//               height: 0rem;
-//               width: 0rem;
-//               z-index: 0;
-//               top: -70px;
-//               right: -169px;
-//               border-top: 80px solid $color-grey-2;
-//               border-right: 80px solid transparent;
-//               border-bottom: 80px solid transparent;
-//               border-left: 80px solid transparent;
-//               transform: rotate(225deg);
-//               box-shadow: -6px -6px 0px 5px $highlight-color;
-//             }
-//             .backgroundTwo {
-//               border-top: 80px solid transparent;
-//               border-left: 80px solid $dark-bg-color;
-//               box-shadow: none;
-//               top: -54px;
-//               right: -186px;
-//               top: -75px;
-//               right: -169px;
-//               transform: rotate(225deg) scale(1.2);
-//             }
-//             img {
-//               height: 6rem;
-//               z-index: 2;
-//               position: absolute;
-//             }
-//           }
-//         }
-//       }
-//       .about-sec1-img {
-//         width: 100%;
-//         text-align-last: left;
-//         position: relative;
-//         display: flex;
-//         flex-direction: column;
-//         div {
-//           width: 100%;
-//           display: flex;
-//           flex-shrink: 0;
-//           flex-direction: column;
-//           img {
-//             max-height: 500px;
-//             min-height: 500px;
-//             flex-shrink: 0;
-//             width: 100%;
-//             object-fit: cover;
-//             z-index: 10;
-//             box-shadow: 10px 10px 0px 0px $highlight-color;
-//           }
-//           .about-section1-mobile-background {
-//             height: 0rem;
-//             @media screen and (max-width: 780px) {
-//               content: "";
-//               height: 9rem;
-//               width: 100%;
-//               z-index: 0;
-//               box-shadow: 5px 5px 0px 5px $highlight-color;
-//               margin-top: -3rem;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
 
 /* Submit Btn */
 .main-contact-con .contact-right .cta {
@@ -1064,83 +1087,11 @@ html {
     margin-left: -0.3em;
   }
   /* About us page - sec2 */
- 
+
   .sec2 .section-info .grid-container {
     display: block;
   }
-  /* contact us page for mobile */
-  // .main-contact-con {
-  //   display: block;
-  //   margin-bottom: 5em;
-  //   display: grid;
-  //   grid-template-columns: repeat(2, 1fr);
-  // }
-  // .contact-left {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-  //   flex-direction: column;
-  //   padding: 3rem 1rem;
-  //   flex: 2;
-  // }
-  // .contact-left-header {
-  //   font-size: 3rem;
-  //   margin-top: 1rem;
-  //   text-transform: uppercase;
-  // }
-  // .contact-left-text {
-  //   margin: 1rem 0;
-  //   line-height: 2rem;
-  // }
-  // .contact-right {
-  //   display: flex;
-  //   flex: 3;
-  //   margin-left: 3rem;
-  //   margin-top: 3rem;
-  // }
-  // .input-control {
-  //   margin: 1.5rem 0;
-  // }
-  // .input-control textarea,
-  // .input-control input {
-  //   border-radius: 30px;
-  //   font-weight: inherit;
-  //   font-size: inherit;
-  //   font-family: inherit;
-  //   padding: 1.1rem 1.1rem;
-  //   margin: 0.1rem 0.3rem;
-  //   border: 1px solid $dark-bg-color;
-  //   background-color: $color-grey-3;
-  //   width: 100%;
-  //   color: rgba(255, 255, 255, 0.8);
-  //   resize: none;
-  // }
-  // // Idk if i can nest a double hover?
-  // .input-control textarea:hover,
-  // .input-control input:hover {
-  //   outline: 1px solid $highlight-color;
-  //   transition: border 0.4s ease-in-out;
-  // }
-  // //   will look into pseudo element nesting
-  // .input-control textarea::before,
-  // .input-control input::after {
-  //   position: absolute;
-  //   background: #eee;
-  //   z-index: -1;
-  //   transition: 1s;
-  //   content: "";
-  // }
-  // .input-control-2 {
-  //   display: flex;
-  //   // pseudo nesting
-  //   :last-child {
-  //     margin-left: 1.5rem;
-  //   }
-  // }
-  // .contact-form ::placeholder {
-  //   color: $color-grey-2;
-  //   opacity: 0.9;
-  // }
+
   /* ***Independant Components*** */
 
   /* Submit Btn */

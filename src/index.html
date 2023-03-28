@@ -230,11 +230,11 @@
                 </div>
 
                 <h4 class="contact-header"> Are you ready to take your online presence to the next level?
-                    <span class="highlight">Connect with us to get started</span>
+                    <a href="#contact-form" class="highlight">Connect with us to get started</a>
                 </h4>
                 <div class="contact-text">
-                    <p>Let's start your dream project today! Fill out the form and we will contact you as soon as we
-                        can.</p>
+                    <p>Ready to turn your dream project into a reality? Fill out the form now and we'll be in touch with
+                        you shortly to get started!</p>
                     <div class="triangle">
                         <!-- Triangle  -->
                     </div>
@@ -249,8 +249,35 @@
                     </div>
                 </div>
 
-                <form action="" class="contact-form" id="contact-form">
-                    <div class="input-control input-control-2">
+                <form action="https://mailthis.to/devanada" method="POST" class="contact-form" id="contact-form">
+                    <fieldset>
+                        <legend>Contact Form</legend>
+                        <ul>
+                            <li><label for="name" type="text">Your Name:</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required>
+                            </li>
+                            <li>
+                                <label for="email" type="email">Your Email:</label>
+                                <input type="email" id="email" name="_replyto" autocomplete="email" required>
+                            </li>
+                            <li>
+                                <label for="message">Your message:</label>
+                                <textarea id="message" name="user_message" autocomplete="off" required></textarea>
+                            </li>
+                            <li class="btn">
+                                <button id="form-submit" action="submit" value="send">
+                                    <span class="cta-text">Submit</span>
+                                    <span class="arrow">➜</span>
+                                    <span class="cta-icon"><i class="fa-solid fa-beat-fade fa-paper-plane"></i></span>
+                                </button>
+                            </li>
+                        </ul>
+                        <input type="hidden" name="_subject" value="Contact Form Submitted">
+                        <input type="hidden" name="_after" value="http://localhost:1234/">
+                        <input type="hidden" name="_honeypot" value="">
+                        <input type="hidden" name="_comfirmation" value="Message submitted successfully!">
+                    </fieldset>
+                    <!-- <div class="input-control input-control-2">
                         <input type="text" required placeholder="Your name">
                         <input type="text" required placeholder="Your email">
                     </div>
@@ -259,13 +286,13 @@
                     </div>
                     <div class="input-control">
                         <textarea name="" id="" cols="15" rows="8" placeholder="Enter your message here"></textarea>
-                    </div>
-                    <div class="cta">
-                        <a class="cta-btn" href="#">
-                            <span class="cta-txt">Submit<span class="arrow">➜</span></span>
-                            <span class="cta-icon"><i class="fa-solid fa-beat-fade fa-paper-plane"></i></span>
-                        </a>
-                    </div>
+            </div>
+            <div class="cta">
+                <a class="cta-btn" href="#">
+                    <span class="cta-txt">Submit<span class="arrow">➜</span></span>
+                    <span class="cta-icon"><i class="fa-solid fa-beat-fade fa-paper-plane"></i></span>
+                </a>
+            </div> -->
                 </form>
             </div>
         </section>
