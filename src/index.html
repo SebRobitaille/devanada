@@ -23,6 +23,28 @@
         href="https://cdn.shopify.com/s/files/1/0024/9551/2691/files/rsz_hero_background_image.png?v=1660321446">
     <script src="../script.js" defer></script>
     <script src="https://kit.fontawesome.com/32317c8a5f.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init('Anet-x5r9qhsu3952');
+        })();
+    </script>
+    <!-- <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_4cmphk7', 'template_5cs8vqg', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script> -->
 </head>
 
 <body class="main-content">
@@ -249,50 +271,37 @@
                     </div>
                 </div>
 
-                <form action="https://mailthis.to/devanada" method="POST" class="contact-form" id="contact-form">
+                <form class="contact-form" id="contact-form">
                     <fieldset>
                         <legend>Contact Form</legend>
+                        <input type="hidden" name="contact_number">
                         <ul>
-                            <li><label for="name" type="text">Your Name:</label>
-                                <input type="text" id="name" name="name" autocomplete="name" required>
+                            <li><label for="name">Name</label>
+                                <input type="text" id="name" name="user_name" autocomplete="name" required>
                             </li>
                             <li>
-                                <label for="email" type="email">Your Email:</label>
-                                <input type="email" id="email" name="_replyto" autocomplete="email" required>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="user_email" autocomplete="email"
+                                    pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                                    required>
                             </li>
                             <li>
-                                <label for="message">Your message:</label>
+                                <label for="phone">Contact Number</label>
+                                <input type="tel" id="phone" name="user_phone" autocomplete="tel" required>
+                            </li>
+                            <li>
+                                <label for="message">Your message</label>
                                 <textarea id="message" name="user_message" autocomplete="off" required></textarea>
                             </li>
                             <li class="btn">
-                                <button id="form-submit" action="submit" value="send">
+                                <button id="form-submit">
                                     <span class="cta-text">Submit</span>
                                     <span class="arrow">➜</span>
                                     <span class="cta-icon"><i class="fa-solid fa-beat-fade fa-paper-plane"></i></span>
                                 </button>
                             </li>
                         </ul>
-                        <input type="hidden" name="_subject" value="Contact Form Submitted">
-                        <input type="hidden" name="_after" value="http://localhost:1234/">
-                        <input type="hidden" name="_honeypot" value="">
-                        <input type="hidden" name="_comfirmation" value="Message submitted successfully!">
                     </fieldset>
-                    <!-- <div class="input-control input-control-2">
-                        <input type="text" required placeholder="Your name">
-                        <input type="text" required placeholder="Your email">
-                    </div>
-                    <div class="input-control">
-                        <input type="text" required placeholder="Enter your subject here">
-                    </div>
-                    <div class="input-control">
-                        <textarea name="" id="" cols="15" rows="8" placeholder="Enter your message here"></textarea>
-            </div>
-            <div class="cta">
-                <a class="cta-btn" href="#">
-                    <span class="cta-txt">Submit<span class="arrow">➜</span></span>
-                    <span class="cta-icon"><i class="fa-solid fa-beat-fade fa-paper-plane"></i></span>
-                </a>
-            </div> -->
                 </form>
             </div>
         </section>

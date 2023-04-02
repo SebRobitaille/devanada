@@ -891,7 +891,7 @@ html {
 
       position: relative;
       width: min(80%, 500px);
-      margin: calc(2rem + 20vw) 1rem 3rem 1rem;
+      margin: calc($width-box / 3) 1rem 3rem 1rem;
       background-color: $color-grey-2;
       padding: 1rem;
       &::after {
@@ -948,17 +948,38 @@ html {
             background-color: $dark-bg-color;
             border: 2px solid $highlight-color;
             border-radius: 50px;
+            transition: $transition-default;
+            &:hover {
+              background-color: $highlight-color;
+              border: 2px solid #000;
+              .cta-text {
+                color: #000;
+              }
+              .arrow {
+                transform: translateX(0);
+                opacity: 1;
+              }
+              .cta-icon {
+                transform: rotate(1440deg);
+                background-color: #000;
+                color: white;
+              }
+            }
             .cta-text {
               padding: 0.3em 0.3em;
               font-weight: bolder;
               color: $highlight-color;
               transition: $transition-default;
+              z-index: 10;
             }
             .arrow {
-              border: 1px solid $highlight-color;
-              border-radius: 50%;
               transition: $transition-default;
-              display: none;
+              display: inline-block;
+              font-size: 2rem;
+              transform: translateX(-100%);
+              color: black;
+              z-index: 0;
+              opacity: 0;
             }
             .cta-icon {
               font-size: 1.4rem;

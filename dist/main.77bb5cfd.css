@@ -759,7 +759,7 @@ html {
   /* border, padding, margin, width */
   position: relative;
   width: min(80%, 500px);
-  margin: calc(2rem + 20vw) 1rem 3rem 1rem;
+  margin: calc(clamp(15em, min(30em, 90vw), 90vw) / 3) 1rem 3rem 1rem;
   background-color: #b2becd;
   padding: 1rem;
 }
@@ -882,18 +882,39 @@ html {
   background-color: #1d3557;
   border: 2px solid #e63946;
   border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+#contact .contact-container #contact-form ul .btn button:hover {
+  background-color: #e63946;
+  border: 2px solid #000;
+}
+#contact .contact-container #contact-form ul .btn button:hover .cta-text {
+  color: #000;
+}
+#contact .contact-container #contact-form ul .btn button:hover .arrow {
+  transform: translateX(0);
+  opacity: 1;
+}
+#contact .contact-container #contact-form ul .btn button:hover .cta-icon {
+  transform: rotate(1440deg);
+  background-color: #000;
+  color: white;
 }
 #contact .contact-container #contact-form ul .btn button .cta-text {
   padding: 0.3em 0.3em;
   font-weight: bolder;
   color: #e63946;
   transition: all 0.4s ease-in-out;
+  z-index: 10;
 }
 #contact .contact-container #contact-form ul .btn button .arrow {
-  border: 1px solid #e63946;
-  border-radius: 50%;
   transition: all 0.4s ease-in-out;
-  display: none;
+  display: inline-block;
+  font-size: 2rem;
+  transform: translateX(-100%);
+  color: black;
+  z-index: 0;
+  opacity: 0;
 }
 #contact .contact-container #contact-form ul .btn button .cta-icon {
   font-size: 1.4rem;

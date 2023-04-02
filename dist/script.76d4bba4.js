@@ -254,7 +254,41 @@ function initializeText() {
   var wait = txtElement.getAttribute("data-wait"); //initialize the typewriter function
 
   new TypeWriter(txtElement, words, wait);
+} // Form script
+
+
+var formSubmit = document.getElementById("form-submit");
+var inputSubmit = document.getElementById("input-submit");
+
+function sendMail() {
+  var params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    message: document.getElementById("message").value
+  };
+  var serviceID = "service_cz2czxg";
+  var templateID = "template_g39s1td";
+  emailjs.send(serviceID, templateID, params).then(function (res) {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("message").value = "";
+    console.log(res);
+    alert("Thank you, your message has been successfully submitted");
+  }).catch(function (error) {
+    return console.log(error);
+  });
 }
+
+formSubmit.addEventListener("click", function (event) {
+  event.preventDefault();
+  sendMail();
+});
+inputSubmit.addEventListener("submit", function (event) {
+  event.preventDefault();
+  sendMail();
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -283,7 +317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60309" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
