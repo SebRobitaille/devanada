@@ -166,7 +166,6 @@ function moveServicePagePhone() {
         let boundingClientY = boundingClient.y;
         let scrollFromTop = windowHeight - boundingClientY;
         let moveAmount = (scrollFromTop / 20) - 50;
-        console.log(moveAmount);
         entry.target.style.transform = `translateY(${moveAmount}px)`;
       };
     })
