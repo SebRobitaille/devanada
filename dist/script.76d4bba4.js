@@ -255,7 +255,36 @@ function initializeText() {
 
   new TypeWriter(txtElement, words, wait);
 } // parralax effect on main page titles
-// will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect.
+// will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect. 
+// Our services section phone parallax effect
+
+
+var servicesPageObserverOption = {
+  rootMargin: "0px",
+  threshold: 0
+};
+var servicesPagePhone = document.querySelector('.servicesPage-phone');
+
+function moveServicePagePhone() {
+  var servicesPagePhoneObserver = new IntersectionObserver(function (entries, servicesPagePhone) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var windowHeight = window.innerHeight;
+        var boundingClient = entry.target.getBoundingClientRect();
+        var boundingClientY = boundingClient.y;
+        var scrollFromTop = windowHeight - boundingClientY;
+        var moveAmount = scrollFromTop / 20 - 50;
+        console.log(moveAmount);
+        entry.target.style.transform = "translateY(".concat(moveAmount, "px)");
+      }
+
+      ;
+    });
+  }, servicesPageObserverOption);
+  servicesPagePhoneObserver.observe(servicesPagePhone);
+}
+
+window.addEventListener('scroll', moveServicePagePhone);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -284,7 +313,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62437" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54158" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

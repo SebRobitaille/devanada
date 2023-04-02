@@ -435,10 +435,61 @@ section {
   opacity: 0.3;
 }
 
+//current Section Kevin
 .sec3 {
   display: none;
   transform: translateY(0) scale(1);
   background-color: $light-bg-color;
+  .section-info {
+    margin: 0 auto;
+    max-width: 900px;
+    .service-section {
+      margin-bottom: 5em;
+      margin-top: 7em;
+    }
+    .services-section-1 {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+      margin-top: 6rem;
+      @media screen and (max-width: 780px) {
+        & {
+          flex-direction: column;
+        }
+      }
+      .services-section-1-text {
+        width: 100%;
+        h3 {
+          font-size: calc(12px + 5vmin);
+          text-align: left;
+          span {
+            color: $highlight-color;
+          }
+        }
+      }
+      .services-section-1-svg {
+        width: 100%;
+        position: relative;
+        height: 100%;
+        min-height: 400px;
+        img {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding-top: 2rem;
+        }
+        .servicesPage-phone {
+          transition: 1s;
+          transform: translateY(-50px);
+        }
+      }
+    }
+    .services-section-2 {
+      min-height: 400px;
+    }
+  }
 }
 
 .sec4 {

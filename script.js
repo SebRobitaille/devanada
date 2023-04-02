@@ -148,3 +148,30 @@ function initializeText() {
 
 // parralax effect on main page titles
 // will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect. 
+
+
+
+// Our services section phone parallax effect
+const servicesPageObserverOption = {
+  rootMargin: "0px",
+  threshold: 0
+};
+const servicesPagePhone = document.querySelector('.servicesPage-phone');
+function moveServicePagePhone() {
+  const servicesPagePhoneObserver = new IntersectionObserver(function(entries, servicesPagePhone) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const windowHeight = window.innerHeight;
+        let boundingClient = entry.target.getBoundingClientRect();
+        let boundingClientY = boundingClient.y;
+        let scrollFromTop = windowHeight - boundingClientY;
+        let moveAmount = (scrollFromTop / 20) - 50;
+        console.log(moveAmount);
+        entry.target.style.transform = `translateY(${moveAmount}px)`;
+      };
+    })
+  }, servicesPageObserverOption);
+  servicesPagePhoneObserver.observe(servicesPagePhone);
+
+}
+window.addEventListener('scroll', moveServicePagePhone);
