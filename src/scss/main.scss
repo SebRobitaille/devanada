@@ -666,8 +666,6 @@ section {
         height: 80%;
         width: 75%;
         object-fit: cover;
-        filter: grayscale(1);
-        transition: $transition-default;
         box-shadow: $box-shadow;
         // Hover test
         &:hover {

@@ -649,8 +649,6 @@ section .section-title .section-title-background {
   height: 80%;
   width: 75%;
   object-fit: cover;
-  filter: grayscale(1);
-  transition: all 0.4s ease-in-out;
   box-shadow: 3px 3px 15px 0px black;
 }
 .header-content .left-header .image .imageEl:hover {

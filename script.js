@@ -62,6 +62,7 @@ function PageTransitions() {
 PageTransitions();
 
   // TYPEWRITER FEATURE --  TYPEWRITER FEATURE -- TYPEWRITER FEATURE
+
 // Start of the typing animation within the header
 const TypeWriter = function (txtElement, words, wait = 3000) {
   this.txtElement = txtElement; //the span for the element holding the word
@@ -145,6 +146,17 @@ function initializeText() {
   new TypeWriter(txtElement, words, wait);
 }
 
+// Homepage Image Tilt:
+const homepageSection = document.querySelector('.sec1');
+homepageSection.addEventListener('mousemove', (event) => {
+  
+  const clientX = event.clientX;
+  const clientY = event.clientY;
+
+  const homepageImage = document.querySelector('.homepageImage');
+  homepageImage.style.transform = `perspective(1000px) rotateY(${clientX / 50}deg) rotateX(${clientY / 50}deg) scale3d(1, 1, 1)`;
+
+});
 
 // parralax effect on main page titles
 // will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect. 

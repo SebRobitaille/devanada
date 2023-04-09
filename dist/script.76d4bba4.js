@@ -254,10 +254,18 @@ function initializeText() {
   var wait = txtElement.getAttribute("data-wait"); //initialize the typewriter function
 
   new TypeWriter(txtElement, words, wait);
-} // parralax effect on main page titles
+} // Homepage Image Tilt:
+
+
+var homepageSection = document.querySelector('.sec1');
+homepageSection.addEventListener('mousemove', function (event) {
+  var clientX = event.clientX;
+  var clientY = event.clientY;
+  var homepageImage = document.querySelector('.homepageImage');
+  homepageImage.style.transform = "perspective(1000px) rotateY(".concat(clientX / 50, "deg) rotateX(").concat(clientY / 50, "deg) scale3d(1, 1, 1)");
+}); // parralax effect on main page titles
 // will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect. 
 // Our services section phone parallax effect
-
 
 var servicesPageObserverOption = {
   rootMargin: "0px",
@@ -312,7 +320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50056" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54953" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
