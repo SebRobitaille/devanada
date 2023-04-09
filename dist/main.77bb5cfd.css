@@ -648,33 +648,35 @@ html {
 }
 
 /* Contact section */
-#contact {
+.contact {
   padding-bottom: 3rem;
 }
-#contact .contact-container {
+.contact .contact-container {
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
   margin: 1rem auto;
 }
-@media (min-width: 36em) {
-  #contact .contact-container {
+@media (min-width: 48em) {
+  .contact .contact-container {
     grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: start;
   }
 }
-#contact .contact-container .section-title {
+.contact .contact-container .section-title {
   grid-column: 1/-1;
 }
-#contact .contact-container .contact-header {
+.contact .contact-container .contact-header {
   grid-column: 1/-1;
   margin: 1.5rem;
   font-size: 1.2rem;
   max-width: 40rem;
 }
-#contact .contact-container .contact-header a {
+.contact .contact-container .contact-header a {
   text-decoration: none;
 }
-#contact .contact-container .contact-text {
+.contact .contact-container .contact-text {
   margin: 1.5rem auto 4rem;
   background-color: #b2becd;
   color: #1d3557;
@@ -683,18 +685,19 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: max(390px, clamp(15em, min(30em, 90vw), 90vw));
-  width: clamp(15em, min(30em, 90vw), 90vw);
+  max-width: max(390px, clamp(15em, 45vw, 50vw));
+  width: clamp(15em, 45vw, 50vw);
   margin: 1em;
   padding: 1em;
   z-index: 5;
 }
-@media (min-width: 36em) {
-  #contact .contact-container .contact-text {
-    max-width: 50%;
+@media (min-width: 48em) {
+  .contact .contact-container .contact-text {
+    max-width: 100%;
+    padding: 2rem;
   }
 }
-#contact .contact-container .contact-text .triangle {
+.contact .contact-container .contact-text .triangle {
   position: absolute;
   color: white;
   right: 0;
@@ -702,26 +705,26 @@ html {
   translate: 50% 50%;
   border-color: transparent;
   border-bottom-color: #b2becd;
-  border-width: calc(clamp(15em, min(30em, 90vw), 90vw) / 6);
+  border-width: calc(clamp(15em, 45vw, 50vw) / 6);
   border-style: solid;
   rotate: 45deg;
   z-index: 1;
   filter: drop-shadow(8px 8px #e63946);
 }
-#contact .contact-container .contact-text .dots {
+.contact .contact-container .contact-text .dots {
   position: absolute;
   background-image: url(/triangleDots.699c8879.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 3;
-  right: calc(clamp(15em, min(30em, 90vw), 90vw) / 50);
-  bottom: calc(clamp(15em, min(30em, 90vw), 90vw) / -50);
-  width: calc(clamp(15em, min(30em, 90vw), 90vw) / 6);
-  height: calc(clamp(15em, min(30em, 90vw), 90vw) / 6);
+  right: calc(clamp(15em, 45vw, 50vw) / 50);
+  bottom: calc(clamp(15em, 45vw, 50vw) / -50);
+  width: calc(clamp(15em, 45vw, 50vw) / 6);
+  height: calc(clamp(15em, 45vw, 50vw) / 6);
   translate: 0 100%;
 }
-#contact .contact-container .contact-text .social-p {
+.contact .contact-container .contact-text .social-p {
   position: absolute;
   bottom: -1rem;
   display: flex;
@@ -730,7 +733,12 @@ html {
   translate: -10% 100%;
   color: #f8f8f8;
 }
-#contact .contact-container .contact-text .icon-container {
+@media (min-width: 36em) {
+  .contact .contact-container .contact-text .social-p {
+    translate: -20% 100%;
+  }
+}
+.contact .contact-container .contact-text .icon-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -741,35 +749,38 @@ html {
   bottom: -5%;
   rotate: 45deg;
   translate: 25% 125%;
-  width: calc(clamp(15em, min(30em, 90vw), 90vw) / 4);
-  height: calc(clamp(15em, min(30em, 90vw), 90vw) / 4);
+  width: calc(clamp(15em, 45vw, 50vw) / 4);
+  height: calc(clamp(15em, 45vw, 50vw) / 4);
 }
-#contact .contact-container .contact-text .icon-container i {
+.contact .contact-container .contact-text .icon-container i {
   margin-top: 1rem;
   rotate: -45deg;
   cursor: pointer;
   font-size: calc(15px + 0.390625vw);
   transition: all 0.4s ease-in-out;
+  border-radius: 50%;
 }
-#contact .contact-container .contact-text .icon-container i:hover {
+.contact .contact-container .contact-text .icon-container i:hover {
   color: #e63946;
+  outline: 1px solid #e63946;
+  outline-offset: 0.5rem;
 }
-#contact .contact-container #contact-form {
+.contact .contact-container #contact-form {
   /* reset */
   /* border, padding, margin, width */
   position: relative;
   width: min(80%, 500px);
-  margin: calc(clamp(15em, min(30em, 90vw), 90vw) / 3) 1rem 3rem 1rem;
+  margin: calc(clamp(15em, 45vw, 50vw) / 3) 1rem 3rem 1rem;
   background-color: #b2becd;
   padding: 1rem;
 }
-#contact .contact-container #contact-form form input,
-#contact .contact-container #contact-form form select,
-#contact .contact-container #contact-form form textarea,
-#contact .contact-container #contact-form form fieldset,
-#contact .contact-container #contact-form form optgroup,
-#contact .contact-container #contact-form form label,
-#contact .contact-container #contact-form .StripeElement {
+.contact .contact-container #contact-form form input,
+.contact .contact-container #contact-form form select,
+.contact .contact-container #contact-form form textarea,
+.contact .contact-container #contact-form form fieldset,
+.contact .contact-container #contact-form form optgroup,
+.contact .contact-container #contact-form form label,
+.contact .contact-container #contact-form .StripeElement {
   font-family: inherit;
   font-size: 100%;
   color: inherit;
@@ -783,54 +794,59 @@ html {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-#contact .contact-container #contact-form form label,
-#contact .contact-container #contact-form form legend {
+.contact .contact-container #contact-form form label,
+.contact .contact-container #contact-form form legend {
   font-size: 0.825rem;
   margin-bottom: 0.5rem;
 }
-#contact .contact-container #contact-form form input,
-#contact .contact-container #contact-form form select,
-#contact .contact-container #contact-form form textarea,
-#contact .contact-container #contact-form .StripeElement {
+.contact .contact-container #contact-form form input,
+.contact .contact-container #contact-form form select,
+.contact .contact-container #contact-form form textarea,
+.contact .contact-container #contact-form .StripeElement {
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: rgba(255, 255, 255, 0.9);
   padding: 0.75em 1rem;
   margin-bottom: 1.5rem;
 }
-#contact .contact-container #contact-form form input:focus,
-#contact .contact-container #contact-form form select:focus,
-#contact .contact-container #contact-form form textarea:focus,
-#contact .contact-container #contact-form .StripeElement:focus {
+.contact .contact-container #contact-form form input:focus,
+.contact .contact-container #contact-form form select:focus,
+.contact .contact-container #contact-form form textarea:focus,
+.contact .contact-container #contact-form .StripeElement:focus {
   background-color: white;
   outline-style: solid;
   outline-width: thin;
   outline-color: gray;
   outline-offset: -1px;
 }
-#contact .contact-container #contact-form form [type=text],
-#contact .contact-container #contact-form form [type=email],
-#contact .contact-container #contact-form .StripeElement {
+.contact .contact-container #contact-form form [type=text],
+.contact .contact-container #contact-form form [type=email],
+.contact .contact-container #contact-form .StripeElement {
   width: 100%;
 }
-#contact .contact-container #contact-form form [type=button],
-#contact .contact-container #contact-form form [type=submit],
-#contact .contact-container #contact-form form [type=reset] {
+.contact .contact-container #contact-form form [type=button],
+.contact .contact-container #contact-form form [type=submit],
+.contact .contact-container #contact-form form [type=reset] {
   width: auto;
   cursor: pointer;
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
 }
-#contact .contact-container #contact-form form [type=button]:focus,
-#contact .contact-container #contact-form form [type=submit]:focus,
-#contact .contact-container #contact-form form [type=reset]:focus {
+.contact .contact-container #contact-form form [type=button]:focus,
+.contact .contact-container #contact-form form [type=submit]:focus,
+.contact .contact-container #contact-form form [type=reset]:focus {
   outline: none;
 }
-#contact .contact-container #contact-form form select {
+.contact .contact-container #contact-form form select {
   text-transform: none;
 }
-#contact .contact-container #contact-form::after {
+@media (min-width: 48em) {
+  .contact .contact-container #contact-form {
+    margin: 1rem auto 1rem 1rem;
+  }
+}
+.contact .contact-container #contact-form::after {
   position: absolute;
   content: "";
   inset: 0;
@@ -840,39 +856,39 @@ html {
   z-index: -1;
   background-color: #e63946;
 }
-#contact .contact-container #contact-form fieldset legend {
+.contact .contact-container #contact-form fieldset legend {
   font-size: 1.4rem;
   font-weight: bold;
   text-transform: uppercase;
   color: #454e56;
 }
-#contact .contact-container #contact-form ul {
+.contact .contact-container #contact-form ul {
   list-style: none;
 }
-#contact .contact-container #contact-form ul label {
+.contact .contact-container #contact-form ul label {
   font-weight: bold;
   display: block;
   margin-bottom: 0.5rem;
 }
-#contact .contact-container #contact-form ul textarea {
+.contact .contact-container #contact-form ul textarea {
   min-height: 15rem;
 }
-#contact .contact-container #contact-form ul textarea,
-#contact .contact-container #contact-form ul input {
+.contact .contact-container #contact-form ul textarea,
+.contact .contact-container #contact-form ul input {
   font-size: 1.2rem;
   font-family: "Montserrat", sans-serif;
 }
-#contact .contact-container #contact-form ul li + li {
+.contact .contact-container #contact-form ul li + li {
   margin-top: 1em;
 }
-#contact .contact-container #contact-form ul input:focus,
-#contact .contact-container #contact-form ul textarea:focus {
+.contact .contact-container #contact-form ul input:focus,
+.contact .contact-container #contact-form ul textarea:focus {
   border: 2px solid #000;
 }
-#contact .contact-container #contact-form ul .btn {
+.contact .contact-container #contact-form ul .btn {
   font-size: larger;
 }
-#contact .contact-container #contact-form ul .btn button {
+.contact .contact-container #contact-form ul .btn button {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -884,30 +900,30 @@ html {
   border-radius: 50px;
   transition: all 0.4s ease-in-out;
 }
-#contact .contact-container #contact-form ul .btn button:hover {
+.contact .contact-container #contact-form ul .btn button:hover {
   background-color: #e63946;
   border: 2px solid #000;
 }
-#contact .contact-container #contact-form ul .btn button:hover .cta-text {
+.contact .contact-container #contact-form ul .btn button:hover .cta-text {
   color: #000;
 }
-#contact .contact-container #contact-form ul .btn button:hover .arrow {
+.contact .contact-container #contact-form ul .btn button:hover .arrow {
   transform: translateX(0);
   opacity: 1;
 }
-#contact .contact-container #contact-form ul .btn button:hover .cta-icon {
+.contact .contact-container #contact-form ul .btn button:hover .cta-icon {
   transform: rotate(1440deg);
   background-color: #000;
   color: white;
 }
-#contact .contact-container #contact-form ul .btn button .cta-text {
+.contact .contact-container #contact-form ul .btn button .cta-text {
   padding: 0.3em 0.3em;
   font-weight: bolder;
   color: #e63946;
   transition: all 0.4s ease-in-out;
   z-index: 10;
 }
-#contact .contact-container #contact-form ul .btn button .arrow {
+.contact .contact-container #contact-form ul .btn button .arrow {
   transition: all 0.4s ease-in-out;
   display: inline-block;
   font-size: 2rem;
@@ -916,7 +932,7 @@ html {
   z-index: 0;
   opacity: 0;
 }
-#contact .contact-container #contact-form ul .btn button .cta-icon {
+.contact .contact-container #contact-form ul .btn button .cta-icon {
   font-size: 1.4rem;
   border: 1px solid #e63946;
   border-radius: 50%;
