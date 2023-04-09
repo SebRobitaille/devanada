@@ -771,7 +771,7 @@ html {
   /* border, padding, margin, width */
   position: relative;
   width: min(80%, 500px);
-  margin: calc(clamp(15em, 45vw, 50vw) / 3) 1rem 3rem 1rem;
+  margin: calc(clamp(15em, 45vw, 50vw) / 3) auto 3rem auto;
   background-color: #b2becd;
   padding: 1rem;
 }
@@ -871,8 +871,12 @@ html {
   display: block;
   margin-bottom: 0.5rem;
 }
+.contact .contact-container #contact-form ul input,
 .contact .contact-container #contact-form ul textarea {
-  min-height: 15rem;
+  width: 90%;
+}
+.contact .contact-container #contact-form ul textarea {
+  min-height: 10rem;
 }
 .contact .contact-container #contact-form ul textarea,
 .contact .contact-container #contact-form ul input {
@@ -882,9 +886,9 @@ html {
 .contact .contact-container #contact-form ul li + li {
   margin-top: 1em;
 }
-.contact .contact-container #contact-form ul input:focus,
-.contact .contact-container #contact-form ul textarea:focus {
-  border: 2px solid #000;
+.contact .contact-container #contact-form ul input:focus-visible,
+.contact .contact-container #contact-form ul textarea:focus-visible {
+  outline: 2px solid #e63946;
 }
 .contact .contact-container #contact-form ul .btn {
   font-size: larger;

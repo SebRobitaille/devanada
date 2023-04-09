@@ -894,7 +894,7 @@ html {
 
       position: relative;
       width: min(80%, 500px);
-      margin: calc($width-box / 3) 1rem 3rem 1rem;
+      margin: calc($width-box / 3) auto 3rem auto;
       @media (min-width: $mq-med) {
         margin: 1rem auto 1rem 1rem;
       }
@@ -926,8 +926,12 @@ html {
           display: block;
           margin-bottom: 0.5rem;
         }
+        input,
         textarea {
-          min-height: 15rem;
+          width: 90%;
+        }
+        textarea {
+          min-height: 10rem;
         }
         textarea,
         input {
@@ -938,9 +942,9 @@ html {
         & li + li {
           margin-top: 1em;
         }
-        input:focus,
-        textarea:focus {
-          border: 2px solid #000;
+        input:focus-visible,
+        textarea:focus-visible {
+          outline: 2px solid $highlight-color;
         }
         .btn {
           font-size: larger;
