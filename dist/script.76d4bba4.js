@@ -257,21 +257,21 @@ function initializeText() {
 } // Homepage Image Tilt:
 
 
-var homepageSection = document.querySelector('.sec1');
-homepageSection.addEventListener('mousemove', function (event) {
+var homepageSection = document.querySelector(".sec1");
+homepageSection.addEventListener("mousemove", function (event) {
   var clientX = event.clientX;
   var clientY = event.clientY;
-  var homepageImage = document.querySelector('.homepageImage');
+  var homepageImage = document.querySelector(".homepageImage");
   homepageImage.style.transform = "perspective(1000px) rotateY(".concat(clientX / 50, "deg) rotateX(").concat(clientY / 50, "deg) scale3d(1, 1, 1)");
 }); // parralax effect on main page titles
-// will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect. 
+// will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect.
 // Our services section phone parallax effect
 
 var servicesPageObserverOption = {
   rootMargin: "0px",
   threshold: 0
 };
-var servicesPagePhone = document.querySelector('.servicesPage-phone');
+var servicesPagePhone = document.querySelector(".servicesPage-phone");
 
 function moveServicePagePhone() {
   var servicesPagePhoneObserver = new IntersectionObserver(function (entries, servicesPagePhone) {
@@ -284,14 +284,45 @@ function moveServicePagePhone() {
         var moveAmount = scrollFromTop / 20 - 50;
         entry.target.style.transform = "translateY(".concat(moveAmount, "px)");
       }
-
-      ;
     });
   }, servicesPageObserverOption);
   servicesPagePhoneObserver.observe(servicesPagePhone);
 }
 
-window.addEventListener('scroll', moveServicePagePhone);
+window.addEventListener("scroll", moveServicePagePhone); // Form script
+
+var formSubmit = document.getElementById("form-submit");
+var inputSubmit = document.getElementById("input-submit");
+
+function sendMail() {
+  var params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    message: document.getElementById("message").value
+  };
+  var serviceID = "service_cz2czxg";
+  var templateID = "template_g39s1td";
+  emailjs.send(serviceID, templateID, params).then(function (res) {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("message").value = "";
+    console.log(res);
+    alert("Thank you, your message has been successfully submitted");
+  }).catch(function (error) {
+    return console.log(error);
+  });
+}
+
+formSubmit.addEventListener("click", function (event) {
+  event.preventDefault();
+  sendMail();
+});
+inputSubmit.addEventListener("submit", function (event) {
+  event.preventDefault();
+  sendMail();
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -320,7 +351,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54953" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49852" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

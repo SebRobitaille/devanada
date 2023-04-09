@@ -18,6 +18,24 @@ $transition-default: all 0.4s ease-in-out;
 $box-shadow: 3px 3px 15px 0px black;
 $box-shadow-on-hover: 5px 5px 15px 0px black;
 
+// Media query breakpoints
+
+// Small Devices (576px)
+$mq-small: 36em;
+// Med Devices (768px)
+$mq-med: 48em;
+// Lg Devices (992px)
+$mq-lg: 62em;
+// XL Devices (1200px)
+$mq-xl: 75em;
+// XXL Devices (1400px)
+$mq-xxl: 87.5em;
+
+// Custom classes
+.highlight {
+  color: $highlight-color;
+}
+
 /* Main CSS for Homepage */
 * {
   margin: 0;
@@ -259,7 +277,7 @@ section {
             right: 89px;
             padding: 10px;
             .background {
-              content: '';
+              content: "";
               position: absolute;
               height: 0rem;
               width: 0rem;
@@ -271,7 +289,7 @@ section {
               border-bottom: 80px solid transparent;
               border-left: 80px solid transparent;
               transform: rotate(225deg);
-              box-shadow:  -6px -6px 0px 5px $highlight-color;
+              box-shadow: -6px -6px 0px 5px $highlight-color;
             }
             .backgroundTwo {
               border-top: 80px solid transparent;
@@ -314,11 +332,11 @@ section {
           .about-mobile-background {
             height: 0rem;
             @media screen and (max-width: 780px) {
-              content: '';
+              content: "";
               height: 9rem;
               width: 100%;
               z-index: 0;
-              box-shadow:  5px 5px 0px 5px $highlight-color;
+              box-shadow: 5px 5px 0px 5px $highlight-color;
               margin-top: -3rem;
             }
           }
@@ -345,7 +363,7 @@ section {
               top: 50px;
             }
             .background-sec2 {
-              content: '';
+              content: "";
               position: absolute;
               height: 0rem;
               width: 0rem;
@@ -358,7 +376,7 @@ section {
               border-bottom: 80px solid transparent;
               border-left: 80px solid transparent;
               transform: rotate(135deg);
-              box-shadow:  6px -6px 0px 5px $highlight-color;
+              box-shadow: 6px -6px 0px 5px $highlight-color;
             }
             .backgroundTwo-sec2 {
               border-top: 80px solid transparent;
@@ -372,7 +390,7 @@ section {
               box-shadow: 6px 6px 0px 5px $dark-bg-color;
             }
             .backgroundThree-sec2 {
-              content: '';
+              content: "";
               height: 120px;
               width: 50px;
               left: 7px;
@@ -410,7 +428,8 @@ section {
         gap: 2rem;
         justify-content: center;
         background-color: $color-grey-2;
-        box-shadow: 10px -10px 0px 0px $highlight-color, -10px 10px 0px 0px $highlight-color;
+        box-shadow: 10px -10px 0px 0px $highlight-color,
+          -10px 10px 0px 0px $highlight-color;
         p {
           color: $dark-bg-color;
           font-weight: bolder;
@@ -782,70 +801,328 @@ section {
 }
 
 /* Contact section */
-
-.main-contact-con {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.contact-left {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  padding: 3rem 1rem;
-  flex: 2;
-}
-
-.contact-left-header {
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  text-transform: uppercase;
-}
-
-.contact-left-text {
-  margin: 1rem 0;
-  line-height: 2rem;
-}
-
-.contact-right {
-  display: flex;
-  flex: 3;
-  margin-left: 3rem;
-  margin-top: 3rem;
-}
-
-.input-control {
-  margin: 1.5rem 0;
-}
-
-.input-control textarea,
-.input-control input {
-  border-radius: 30px;
-  font-weight: inherit;
-  font-size: inherit;
-  font-family: inherit;
-  padding: 1.1rem 1.1rem;
-  margin: 0.1rem 0.3rem;
-  outline: none;
-  border: none;
-  background-color: $color-grey-4;
-  width: 100%;
-  color: rgba(255, 255, 255, 0.8);
-  resize: none;
-}
-
-.input-control-2 {
-  display: flex;
-  // nth child test
-  &:last-child {
-    margin-left: 1.5rem;
+.contact {
+  &.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
+  $width-box: clamp(15em, min(30em, 90vw), 100vw);
+  @media (min-width: $mq-med) {
+    $width-box: clamp(15em, 45vw, 50vw);
+  }
+  $offset-x-left: calc(-10px - 0.390625vw);
+  $offset-x-right: calc(10px + 0.390625vw);
+  $offset-y-down: calc(10px + 0.390625vw);
+  $offset-y-up: calc(-10px - 0.390625vw);
+  padding: 0 1rem;
+  padding-bottom: 3rem;
+  width: 100%;
+  margin: auto;
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 0 2rem;
+    @media (min-width: $mq-med) {
+      grid-template-columns: 45% 45%;
+      gap: 1rem;
+      justify-items: center;
+      align-items: start;
+    }
 
-.contact-form ::placeholder {
-  color: var(--color-grey-2);
-  opacity: 0.9;
+    .section-title {
+      grid-column: 1 / -1;
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    .contact-header {
+      grid-column: 1 / -1;
+      margin: 1.5rem;
+      font-size: 1.2rem;
+      max-width: 40rem;
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .contact-text {
+      margin: 1.5rem auto 4rem;
+      background-color: $color-grey-2;
+      color: $light-main-text-color;
+      box-shadow: $offset-x-left $offset-y-down $highlight-color;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: max(390px, $width-box);
+      width: $width-box;
+      margin: 1em;
+      padding: 1em;
+      z-index: 5;
+      font-size: 1.5rem;
+      @media (min-width: $mq-med) {
+        max-width: 100%;
+        padding: 2rem;
+      }
+      .triangle {
+        position: absolute;
+        color: white;
+        right: 0;
+        bottom: 1px;
+        translate: 50% 50%;
+
+        border-color: transparent;
+        border-bottom-color: $color-grey-2;
+        border-width: calc($width-box / 6);
+        border-style: solid;
+
+        rotate: 45deg;
+        z-index: 1;
+
+        filter: drop-shadow(8px 8px $highlight-color);
+      }
+      .dots {
+        position: absolute;
+        background-image: url(../assets/triangleDots.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 3;
+        right: calc($width-box / 50);
+        bottom: calc($width-box / -50);
+        width: calc($width-box / 6);
+        height: calc($width-box / 6);
+        translate: 0 100%;
+      }
+      .social-p {
+        position: absolute;
+        bottom: -1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        translate: -15% 100%;
+        color: $color-grey0;
+        @media (min-width: $mq-small) {
+          translate: -20% 100%;
+        }
+      }
+      .icon-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        color: white;
+        right: 6%;
+        z-index: 1000;
+        bottom: -5%;
+        rotate: 45deg;
+        translate: 25% 125%;
+        width: calc($width-box / 4);
+        height: calc($width-box / 4);
+        i {
+          margin-top: 1rem;
+          rotate: -45deg;
+          cursor: pointer;
+          font-size: calc(15px + 0.390625vw);
+          transition: $transition-default;
+          border-radius: 50%;
+          &:hover {
+            color: $highlight-color;
+            outline: 1px solid $highlight-color;
+            outline-offset: 0.5rem;
+          }
+        }
+      }
+    }
+
+    #contact-form {
+      /* reset */
+      form input,
+      form select,
+      form textarea,
+      form fieldset,
+      form optgroup,
+      form label,
+      .StripeElement {
+        font-family: inherit;
+        font-size: 100%;
+        color: inherit;
+        border: none;
+        border-radius: 0;
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      form label,
+      form legend {
+        font-size: 0.825rem;
+        margin-bottom: 0.5rem;
+      }
+      /* border, padding, margin, width */
+      form input,
+      form select,
+      form textarea,
+      .StripeElement {
+        box-sizing: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 0.75em 1rem;
+        margin-bottom: 1.5rem;
+      }
+      form input:focus,
+      form select:focus,
+      form textarea:focus,
+      .StripeElement:focus {
+        background-color: white;
+        outline-style: solid;
+        outline-width: thin;
+        outline-color: gray;
+        outline-offset: -1px;
+      }
+      form [type="text"],
+      form [type="email"],
+      .StripeElement {
+        width: 100%;
+      }
+      form [type="button"],
+      form [type="submit"],
+      form [type="reset"] {
+        width: auto;
+        cursor: pointer;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+      }
+      form [type="button"]:focus,
+      form [type="submit"]:focus,
+      form [type="reset"]:focus {
+        outline: none;
+      }
+
+      form select {
+        text-transform: none;
+      }
+      // end of reset
+
+      position: relative;
+      width: 90%;
+      margin: calc($width-box / 3 + 2rem) 0 3rem 0;
+      @media (min-width: $mq-med) {
+        margin: 1rem auto 1rem 1rem;
+      }
+      background-color: $color-grey-2;
+      padding: 1rem;
+      &::after {
+        position: absolute;
+        content: "";
+        inset: 0;
+        translate: $offset-x-right $offset-y-down;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: $highlight-color;
+      }
+      fieldset {
+        legend {
+          font-size: 1.4rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: $color-grey-4;
+        }
+      }
+
+      ul {
+        list-style: none;
+        label {
+          font-weight: bold;
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+        input,
+        textarea {
+          width: 90%;
+        }
+        textarea {
+          min-height: 10rem;
+        }
+        textarea,
+        input {
+          font-size: 1.2rem;
+          font-family: $paragraph-font;
+        }
+
+        & li + li {
+          margin-top: 1em;
+        }
+        input:focus-visible,
+        textarea:focus-visible {
+          outline: 2px solid $highlight-color;
+        }
+        .btn {
+          font-size: larger;
+          button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem auto;
+            width: min(80%, 300px);
+            padding: 0.5rem 1rem;
+            background-color: $dark-bg-color;
+            border: 2px solid $highlight-color;
+            border-radius: 50px;
+            transition: $transition-default;
+            &:hover {
+              background-color: $highlight-color;
+              border: 2px solid #000;
+              .cta-text {
+                color: #000;
+              }
+              .arrow {
+                transform: translateX(0);
+                opacity: 1;
+              }
+              .cta-icon {
+                transform: rotate(1440deg);
+                background-color: #000;
+                color: white;
+              }
+            }
+            .cta-text {
+              padding: 0.3em 0.3em;
+              font-weight: bolder;
+              color: $highlight-color;
+              transition: $transition-default;
+              z-index: 10;
+            }
+            .arrow {
+              transition: $transition-default;
+              display: inline-block;
+              font-size: 2rem;
+              transform: translateX(-100%);
+              color: black;
+              z-index: 0;
+              opacity: 0;
+            }
+            .cta-icon {
+              font-size: 1.4rem;
+              border: 1px solid $highlight-color;
+              border-radius: 50%;
+              padding: 0.4em 0.6em;
+              background-color: $highlight-color;
+              color: $secondary-bg-color;
+              transition: $transition-default;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Submit Btn */
