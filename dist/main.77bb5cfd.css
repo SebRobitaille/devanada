@@ -690,6 +690,7 @@ html {
   margin: 1em;
   padding: 1em;
   z-index: 5;
+  font-size: 1.5rem;
 }
 @media (min-width: 48em) {
   .contact .contact-container .contact-text {
