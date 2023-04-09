@@ -436,7 +436,7 @@ section .section-title .section-title-background {
   height: 100%;
   margin-top: 6rem;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 1000px) {
   .sec3 .section-info .services-section-1 {
     flex-direction: column;
   }
