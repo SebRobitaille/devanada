@@ -486,7 +486,51 @@ section {
       }
     }
     .services-section-2 {
-      min-height: 400px;
+      .servicesContainer {
+        min-height: 400px;
+        .serviceContainer {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          margin-bottom: 2rem;
+          &:nth-child(even) {
+            flex-direction: row-reverse;
+          }
+          @media screen and (max-width: 1000px) {
+            & {
+              flex-direction: column;
+            }
+            &:nth-child(even) {
+              flex-direction: column;
+            }
+          }
+          .iconContainer {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+          }
+          .textContainer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-self: center;
+            text-align: left;
+            @media screen and (max-width: 1000px) {
+              text-align: center;
+            }
+            h3 {
+              font-size: calc(12px + 3vmin);
+              span {
+                color: $highlight-color;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
