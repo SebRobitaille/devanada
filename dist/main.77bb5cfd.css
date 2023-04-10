@@ -1,4 +1,17 @@
 /* CSS Custom Properties */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
 .highlight {
   color: #e63946;
 }
@@ -533,6 +546,7 @@ section .section-title .section-title-background {
   width: 100%;
   justify-content: center;
   padding-top: 5em;
+  list-style: none;
 }
 .sec4 .section-info .approach-steps i {
   align-self: center;
@@ -546,6 +560,28 @@ section .section-title .section-title-background {
 .sec4 .section-info .approach-step h1 {
   margin-bottom: 0.2em;
   color: #e63946;
+}
+.sec4 .section-info .card {
+  position: relative;
+  border-radius: 0.5em;
+  background-color: #1d3557;
+  transition: all 0.4s ease-in-out;
+}
+.sec4 .section-info .card:hover::before, .sec4 .section-info .card:hover::after {
+  animation: rotation 3s linear infinite;
+}
+.sec4 .section-info .card::before,
+.sec4 .section-info .card::after {
+  content: "";
+  position: absolute;
+  inset: -0.2em;
+  z-index: -1;
+  background-color: red;
+  border-radius: inherit;
+  background: conic-gradient(from var(--gradient-angle), #e63946, #f3a2a8, #fff, #f3a2a8, #e63946);
+}
+.sec4 .section-info .card::after {
+  filter: blur(2.5rem);
 }
 .sec4 .section-info .approach-descriptions {
   max-width: 50em;
@@ -791,8 +827,8 @@ section .section-title .section-title-background {
 }
 .contact .contact-container .section-title {
   grid-column: 1/-1;
-  font-size: 2rem;
-  margin-top: 1rem;
+  font-size: 2.5rem;
+  margin-top: 2rem;
 }
 .contact .contact-container .contact-header {
   grid-column: 1/-1;

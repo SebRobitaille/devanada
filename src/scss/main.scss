@@ -18,6 +18,27 @@ $transition-default: all 0.4s ease-in-out;
 $box-shadow: 3px 3px 15px 0px black;
 $box-shadow-on-hover: 5px 5px 15px 0px black;
 
+// Card glowing border custom properties
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+$color-gradient-1: #e63946;
+$color-gradient-2: #f3a2a8;
+$color-gradient-3: #fff;
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
 // Media query breakpoints
 
 // Small Devices (576px)
@@ -565,6 +586,7 @@ section {
       width: 100%;
       justify-content: center;
       padding-top: 5em;
+      list-style: none;
       i {
         align-self: center;
         font-size: xxx-large;
@@ -578,6 +600,40 @@ section {
         margin-bottom: 0.2em;
         color: $highlight-color;
       }
+    }
+    .card {
+      position: relative;
+      border-radius: 0.5em;
+      background-color: $dark-bg-color;
+      transition: $transition-default;
+    }
+
+    .card:hover {
+      &::before,
+      &::after {
+        animation: rotation 3s linear infinite;
+      }
+    }
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -0.2em;
+      z-index: -1;
+      background-color: red;
+      border-radius: inherit;
+      background: conic-gradient(
+        from var(--gradient-angle),
+        $color-gradient-1,
+        $color-gradient-2,
+        $color-gradient-3,
+        $color-gradient-2,
+        $color-gradient-1
+      );
+      // animation: rotation 15s linear infinite;
+    }
+    .card::after {
+      filter: blur(2.5rem);
     }
     .approach-descriptions {
       max-width: 50em;
@@ -818,7 +874,6 @@ section {
   $offset-y-up: calc(-10px - 0.390625vw);
   padding: 0 1rem;
   padding-bottom: 3rem;
-  // width: 100%;
   margin: auto;
   .contact-container {
     display: grid;
@@ -834,8 +889,8 @@ section {
 
     .section-title {
       grid-column: 1 / -1;
-      font-size: 2rem;
-      margin-top: 1rem;
+      font-size: 2.5rem;
+      margin-top: 2rem;
     }
 
     .contact-header {
