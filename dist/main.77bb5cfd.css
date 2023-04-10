@@ -765,9 +765,9 @@ section .section-title .section-title-background {
 
 /* Contact section */
 .contact {
+  font-size: calc(15px + 0.390625vw);
   padding: 0 1rem;
   padding-bottom: 3rem;
-  width: 100%;
   margin: auto;
 }
 .contact.active {
@@ -783,7 +783,7 @@ section .section-title .section-title-background {
 }
 @media (min-width: 48em) {
   .contact .contact-container {
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 49% 49%;
     gap: 1rem;
     justify-items: center;
     align-items: start;
@@ -1004,6 +1004,7 @@ section .section-title .section-title-background {
 }
 .contact .contact-container #contact-form ul textarea {
   min-height: 10rem;
+  resize: none;
 }
 .contact .contact-container #contact-form ul textarea,
 .contact .contact-container #contact-form ul input {

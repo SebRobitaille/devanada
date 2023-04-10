@@ -802,6 +802,7 @@ section {
 
 /* Contact section */
 .contact {
+  font-size: calc(15px + 0.390625vw);
   &.active {
     display: flex;
     justify-content: center;
@@ -817,7 +818,7 @@ section {
   $offset-y-up: calc(-10px - 0.390625vw);
   padding: 0 1rem;
   padding-bottom: 3rem;
-  width: 100%;
+  // width: 100%;
   margin: auto;
   .contact-container {
     display: grid;
@@ -825,7 +826,7 @@ section {
     place-items: center;
     padding: 0 2rem;
     @media (min-width: $mq-med) {
-      grid-template-columns: 45% 45%;
+      grid-template-columns: 49% 49%;
       gap: 1rem;
       justify-items: center;
       align-items: start;
@@ -1050,6 +1051,7 @@ section {
         }
         textarea {
           min-height: 10rem;
+          resize: none;
         }
         textarea,
         input {
