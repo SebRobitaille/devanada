@@ -1,17 +1,4 @@
 /* CSS Custom Properties */
-@property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes rotation {
-  0% {
-    --gradient-angle: 0deg;
-  }
-  100% {
-    --gradient-angle: 360deg;
-  }
-}
 .highlight {
   color: #e63946;
 }
@@ -538,94 +525,50 @@ section .section-title .section-title-background {
   transform: translateY(0) scale(1);
   background-color: #f1faee;
 }
-.sec4 .section-info {
-  padding-top: 6em;
+.sec4 .section-desc {
+  margin: 1rem auto;
+  padding: 0.5rem;
 }
-.sec4 .section-info .approach-steps {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  padding-top: 5em;
-  list-style: none;
+.sec4 .gallery-wrapper {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr;
 }
-.sec4 .section-info .approach-steps i {
-  align-self: center;
-  font-size: xxx-large;
-  color: #e63946;
+.sec4 .gallery-wrapper .gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  padding: 0 1rem;
+  gap: 0.5rem;
+  width: 100vw;
 }
-.sec4 .section-info .approach-step {
-  padding: 0.2em 2em;
-  margin: 0em 1em;
+@media (min-width: 48em) {
+  .sec4 .gallery-wrapper .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-.sec4 .section-info .approach-step h1 {
-  margin-bottom: 0.2em;
-  color: #e63946;
-}
-.sec4 .section-info .card {
+.sec4 .gallery-wrapper .gallery .gallery-item {
+  border: 1px solid #f1faee;
+  border-radius: 1rem;
+  display: grid;
+  place-content: center;
   position: relative;
-  border-radius: 0.5em;
-  background-color: #1d3557;
+  overflow: hidden;
+}
+.sec4 .gallery-wrapper .gallery .gallery-item img {
+  max-width: 100%;
+  height: auto;
+  scale: 1;
   transition: all 0.4s ease-in-out;
 }
-.sec4 .section-info .card:hover::before, .sec4 .section-info .card:hover::after {
-  animation: rotation 3s linear infinite;
+.sec4 .gallery-wrapper .gallery .gallery-item img:hover {
+  scale: 1.1;
 }
-.sec4 .section-info .card::before,
-.sec4 .section-info .card::after {
-  content: "";
+.sec4 .gallery-wrapper .gallery .gallery-item .gallery-item-title {
   position: absolute;
-  inset: -0.2em;
-  z-index: -1;
-  background-color: red;
-  border-radius: inherit;
-  background: conic-gradient(from var(--gradient-angle), #e63946, #f3a2a8, #fff, #f3a2a8, #e63946);
-}
-.sec4 .section-info .card::after {
-  filter: blur(2.5rem);
-}
-.sec4 .section-info .approach-descriptions {
-  max-width: 50em;
-  margin: 0 auto;
-  margin-bottom: 5em;
-}
-.sec4 .section-info .approach-desc {
-  display: flex;
-  margin-bottom: 2em;
-  padding: 1em;
-  transition: all 0.4s ease-in-out;
-  border-radius: 5px;
-  outline: 1px solid #1d3557;
-}
-.sec4 .section-info .approach-desc:hover {
-  outline: 1px solid #e63946;
-}
-.sec4 .section-info .approach-desc .steps-arrow {
-  width: 3em;
-}
-.sec4 .section-info .approach-desc .steps-arrow h1 {
-  width: 2em;
-  height: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: #dbe1e8;
-  margin: 0 auto;
-  color: #1d3557;
-  margin-bottom: 1em;
-}
-.sec4 .section-info .approach-desc .steps-arrow i {
-  color: #e63946;
-  font-size: 3em;
-  height: 100%;
-}
-.sec4 .section-info .approach-desc .desc {
-  text-align: left;
-  margin-left: 1.5em;
-  padding: 0.5em 1em 1em 1em;
-}
-.sec4 .section-info .approach-desc .desc h1 {
-  color: #e63946;
+  bottom: 2%;
+  left: 2%;
 }
 
 .sec5 {
@@ -1170,12 +1113,6 @@ section .section-title .section-title-background {
 }
 
 /* Mobile View Start */
-@media only screen and (max-width: 1100px) {
-  /* Our approach */
-  .sec4 .section-info .approach-steps {
-    display: none;
-  }
-}
 @media only screen and (max-width: 650px) {
   /* Header section */
   .header-content {
