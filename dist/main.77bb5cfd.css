@@ -563,7 +563,7 @@ section .section-title .section-title-background {
   transition: all 0.4s ease-in-out;
 }
 .sec4 .gallery-wrapper .gallery .gallery-item img:hover {
-  scale: 1.1;
+  scale: 1.075;
 }
 .sec4 .gallery-wrapper .gallery .gallery-item .gallery-item-title {
   position: absolute;
