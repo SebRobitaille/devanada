@@ -629,7 +629,7 @@ section {
       }
       margin-top: 2rem;
       margin-bottom: 5rem;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
       gap: 0.5rem;
       width: 100vw;
       .gallery-item {
@@ -639,20 +639,28 @@ section {
         place-content: center;
         position: relative;
         overflow: hidden;
-        // aspect-ratio: 3 / 2;
+        &:hover {
+          img {
+            scale: 1.075;
+          }
+          .gallery-item-title {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
         img {
           max-width: 100%;
           height: auto;
           scale: 1;
           transition: $transition-default;
-          &:hover {
-            scale: 1.075;
-          }
         }
         .gallery-item-title {
           position: absolute;
-          bottom: 2%;
+          bottom: 2.5%;
           left: 2%;
+          transform: translateY(100%);
+          opacity: 0;
+          transition: $transition-default;
         }
       }
     }

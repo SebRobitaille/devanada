@@ -539,7 +539,7 @@ section .section-title .section-title-background {
   grid-template-columns: 1fr;
   margin-top: 2rem;
   margin-bottom: 5rem;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   gap: 0.5rem;
   width: 100vw;
 }
@@ -556,19 +556,26 @@ section .section-title .section-title-background {
   position: relative;
   overflow: hidden;
 }
+.sec4 .gallery-wrapper .gallery .gallery-item:hover img {
+  scale: 1.075;
+}
+.sec4 .gallery-wrapper .gallery .gallery-item:hover .gallery-item-title {
+  opacity: 1;
+  transform: translateY(0);
+}
 .sec4 .gallery-wrapper .gallery .gallery-item img {
   max-width: 100%;
   height: auto;
   scale: 1;
   transition: all 0.4s ease-in-out;
 }
-.sec4 .gallery-wrapper .gallery .gallery-item img:hover {
-  scale: 1.075;
-}
 .sec4 .gallery-wrapper .gallery .gallery-item .gallery-item-title {
   position: absolute;
-  bottom: 2%;
+  bottom: 2.5%;
   left: 2%;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
 }
 
 .sec5 {
