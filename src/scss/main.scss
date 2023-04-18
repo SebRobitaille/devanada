@@ -617,6 +617,9 @@ section {
     margin: 1rem auto;
     padding: 0.5rem;
     max-width: 30em;
+    @media (min-width: $mq-med) {
+      font-size: 2rem;
+    }
   }
   .gallery-wrapper {
     display: grid;
@@ -640,9 +643,16 @@ section {
         place-content: center;
         position: relative;
         overflow: hidden;
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 1.75rem;
+          font-weight: bold;
+        }
         &:hover {
           img {
             scale: 1.05;
+            opacity: 1;
           }
           .gallery-item-title {
             opacity: 1;
@@ -654,6 +664,7 @@ section {
           height: auto;
           scale: 1;
           transition: $transition-default;
+          opacity: 0.8;
         }
         .gallery-item-title {
           position: absolute;
@@ -663,12 +674,19 @@ section {
           opacity: 0;
           transition: $transition-default;
           font-size: 1.5rem;
+          text-shadow: 0 0 8px black;
           @media (max-width: $mq-med) {
             opacity: 1;
             transform: translate(0);
             font-size: 1rem;
           }
         }
+      }
+      .gi-4 {
+        background-color: black;
+      }
+      .gi-5 {
+        background-color: white;
       }
     }
   }
