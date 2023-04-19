@@ -123,6 +123,7 @@ var sectBtns = document.querySelectorAll(".controls");
 var sectBtn = document.querySelectorAll(".control");
 var allSections = document.querySelector(".main-content");
 var ctaBtn = document.querySelector(".cta-btn");
+var ctaBtns = document.querySelectorAll(".cta-btn");
 var contactSec = document.getElementById("contact");
 var contactBtn = document.querySelector(".control-5"); // CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION -- CHANGE PAGE TRANSITION
 
@@ -153,16 +154,18 @@ function PageTransitions() {
       var element = document.getElementById(id);
       element.classList.add("active");
     }
-  }); // Makes clicking the CTA button switch to contact screen
-
-  ctaBtn.addEventListener("click", function (e) {
-    sections.forEach(function (section) {
-      section.classList.remove("active");
+  });
+  ctaBtns.forEach(function (button) {
+    button.addEventListener("click", function (e) {
+      sections.forEach(function (section) {
+        section.classList.remove("active");
+      });
+      contactSec.classList.add("active");
+      var currentBtn = document.querySelector(".active-btn");
+      console.log(currentBtn);
+      currentBtn.classList.remove("active-btn");
+      contactBtn.classList.add("active-btn");
     });
-    contactSec.classList.add("active");
-    var currentBtn = document.querySelectorAll(".active-btn");
-    currentBtn[0].className = currentBtn[0].className.replace("active-btn", "");
-    contactBtn.classList += " active-btn";
   }); // // Toggle theme
   // const themeBtn = document.querySelector(".theme-btn");
   // themeBtn.addEventListener("click", () => {

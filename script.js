@@ -3,6 +3,7 @@ const sectBtns = document.querySelectorAll(".controls")
 const sectBtn = document.querySelectorAll(".control")
 const allSections = document.querySelector(".main-content")
 const ctaBtn = document.querySelector(".cta-btn")
+const ctaBtns = document.querySelectorAll(".cta-btn")
 const contactSec = document.getElementById("contact")
 const contactBtn = document.querySelector(".control-5")
 
@@ -40,16 +41,19 @@ function PageTransitions() {
     }
   })
 
-  // Makes clicking the CTA button switch to contact screen
-  ctaBtn.addEventListener("click", (e) => {
-    sections.forEach((section) => {
-      section.classList.remove("active")
-    })
-    contactSec.classList.add("active")
 
-    let currentBtn = document.querySelectorAll(".active-btn")
-    currentBtn[0].className = currentBtn[0].className.replace("active-btn", "")
-    contactBtn.classList += " active-btn"
+  ctaBtns.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      sections.forEach((section) => {
+        section.classList.remove("active")
+      })
+      contactSec.classList.add("active")
+
+      let currentBtn = document.querySelector(".active-btn")
+      console.log(currentBtn)
+      currentBtn.classList.remove("active-btn")
+      contactBtn.classList.add("active-btn")
+    })
   })
 
   // // Toggle theme
