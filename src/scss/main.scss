@@ -641,6 +641,64 @@ section {
       }
     }
   }
+  .cta {
+    margin-top: 1.8em;
+    margin-inline: auto;
+    width: 15em;
+    border: 1px solid $highlight-color;
+    border-radius: 50px;
+    transition: $transition-default;
+    cursor: pointer;
+    .cta-btn {
+      display: flex;
+      justify-content: space-between;
+      font-size: larger;
+      text-decoration: none;
+    }
+    .cta-txt {
+      padding: 0.3em 0.3em;
+      margin-left: 1em;
+      font-weight: bolder;
+      color: $highlight-color;
+      transition: $transition-default;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .arrow {
+        opacity: 0;
+        color: $secondary-bg-color;
+        margin-left: 0em;
+        transition: $transition-default;
+      }
+    }
+    .cta-icon {
+      font-size: 1.4rem;
+      border: 1px solid $highlight-color;
+      border-radius: 50%;
+      padding: 0.5em 0.6em;
+      background-color: $highlight-color;
+      color: $secondary-bg-color;
+      transition: $transition-default;
+      transform: rotate(0deg) scale(1.03);
+    }
+    //   Hover test
+    &:hover {
+      background-color: $highlight-color;
+      padding-left: 0.2em;
+      .cta-txt {
+        color: $secondary-bg-color;
+      }
+      .cta-icon {
+        background-color: $secondary-bg-color;
+        color: $highlight-color;
+        transform: rotate(1080deg) scale(1.03);
+      }
+      .arrow {
+        opacity: 1;
+        margin-left: 0.8em;
+      }
+    }
+  }
 }
 
 .sec5 {
