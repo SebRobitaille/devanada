@@ -1,5 +1,6 @@
 /* CSS Custom Properties */
 $highlight-color: #e63946;
+$highlight-color-reduced-opacity: rgba(230, 57, 70, 0.7);
 $light-main-text-color: #1d3557;
 $dark-main-text-color: #f1faee;
 $color-grey0: #f8f8f8;
@@ -588,6 +589,7 @@ section {
         place-content: center;
         position: relative;
         overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.8);
         a {
           text-decoration: none;
           color: white;
@@ -595,6 +597,7 @@ section {
           font-weight: bold;
         }
         &:hover {
+          box-shadow: 0 0 12px $dark-bg-color, 0 0 16px rgba(255, 255, 255, 0.8);
           img {
             scale: 1.05;
             opacity: 1;
@@ -632,6 +635,9 @@ section {
       }
       .gi-5 {
         background-color: white;
+      }
+      .gi-6 {
+        background-color: rgba(0, 0, 0, 0.5);
       }
     }
   }
