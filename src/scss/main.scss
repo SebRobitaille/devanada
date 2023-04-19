@@ -18,61 +18,6 @@ $transition-default: all 0.4s ease-in-out;
 $box-shadow: 3px 3px 15px 0px black;
 $box-shadow-on-hover: 5px 5px 15px 0px black;
 
-// Card glowing border custom properties
-
-// @property --gradient-angle {
-//   syntax: "<angle>";
-//   initial-value: 0deg;
-//   inherits: false;
-// }
-
-// $color-gradient-1: #e63946;
-// $color-gradient-2: #f3a2a8;
-// $color-gradient-3: #fff;
-
-// @keyframes rotation {
-//   0% {
-//     --gradient-angle: 0deg;
-//   }
-//   100% {
-//     --gradient-angle: 360deg;
-//   }
-// }
-
-// .card {
-//   position: relative;
-//   border-radius: 1em;
-//   background-color: $dark-bg-color;
-//   transition: $transition-default;
-// }
-
-// .card:hover {
-//   &::before,
-//   &::after {
-//     animation: rotation 3s linear infinite;
-//   }
-// }
-// .card::before,
-// .card::after {
-//   content: "";
-//   position: absolute;
-//   inset: -0.5em;
-//   z-index: -1;
-//   // background-color: red;
-//   border-radius: inherit;
-//   background: conic-gradient(
-//     from var(--gradient-angle),
-//     $color-gradient-1,
-//     $color-gradient-2,
-//     $color-gradient-3,
-//     $color-gradient-2,
-//     $color-gradient-1
-//   );
-//   // animation: rotation 15s linear infinite;
-// }
-// .card::after {
-//   filter: blur(2.5rem);
-// }
 // Media query breakpoints
 
 // Small Devices (576px)
