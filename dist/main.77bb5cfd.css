@@ -524,6 +524,12 @@ section .section-title .section-title-background {
   display: none;
   transform: translateY(0) scale(1);
   background-color: #f1faee;
+  padding-bottom: 8rem;
+}
+@media (min-width: 48em) {
+  .sec4 {
+    padding-bottom: 4rem;
+  }
 }
 .sec4 .section-desc {
   margin: 1rem auto;

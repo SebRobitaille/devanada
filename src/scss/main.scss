@@ -559,6 +559,10 @@ section {
   display: none;
   transform: translateY(0) scale(1);
   background-color: $light-bg-color;
+  padding-bottom: 8rem;
+  @media (min-width: $mq-med) {
+    padding-bottom: 4rem;
+  }
   .section-desc {
     margin: 1rem auto;
     padding: 0.5rem;
