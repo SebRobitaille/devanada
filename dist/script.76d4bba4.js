@@ -268,7 +268,58 @@ homepageSection.addEventListener("mousemove", function (event) {
   homepageImage.style.transform = "perspective(1000px) rotateY(".concat(clientX / 50, "deg) rotateX(").concat(clientY / 50, "deg) scale3d(1, 1, 1)");
 }); // parralax effect on main page titles
 // will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect.
-// Our services section phone parallax effect
+
+var mainSectionTitles = document.querySelectorAll('.section-title-main');
+var mainSectionTitleOptions = {
+  rootMargin: "0px",
+  threshold: 0
+};
+var mainSectionTitleobserver = new IntersectionObserver(function (entries, mainSectionTitleobserver) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      var parallaxEffect = function parallaxEffect() {
+        var clientRect = entry.target.getBoundingClientRect();
+        var fromTop = clientRect.y / 10;
+        entry.target.style.transform = "translateY(".concat(fromTop, "px)");
+      };
+
+      ;
+      document.addEventListener('scroll', parallaxEffect);
+    }
+
+    ;
+  });
+}, mainSectionTitleOptions);
+mainSectionTitles.forEach(function (title) {
+  mainSectionTitleobserver.observe(title);
+}); // About Us headshot Animation
+
+document.addEventListener('scroll', function () {
+  // for the first headshot
+  var headshotImgOne = document.querySelector('.headshotImgOne');
+  var headShotOneBoundClientRect = headshotImgOne.getBoundingClientRect();
+  var headshotOneFromTop = headShotOneBoundClientRect.y - 30;
+  headshotImgOne.style.transform = "perspective(1000px) rotateY(".concat(headshotOneFromTop / 10, "deg) scale3d(1, 1, 1)"); // for the second headshot
+
+  var headshotImageTwo = document.querySelector('.headshotImgTwo');
+  var headShotTwoBoundClientRect = headshotImageTwo.getBoundingClientRect();
+  var headshotTwoFromTop = (headShotTwoBoundClientRect.y - 30) * -1;
+  headshotImageTwo.style.transform = "perspective(1000px) rotateY(".concat(headshotTwoFromTop / 10, "deg) scale3d(1, 1, 1)"); // for bottom text section
+
+  var aboutUsTextContainer = document.querySelector('.about-section-3-text-container');
+  var aboutUsTextContainerClientRect = aboutUsTextContainer.getBoundingClientRect();
+  var aboutUsTextContainerY = aboutUsTextContainerClientRect.y;
+  var maxBoxShadowSize = 20;
+  var boxShadowValue = maxBoxShadowSize - aboutUsTextContainerY / 35;
+
+  if (boxShadowValue < 0) {
+    return;
+  } else if (boxShadowValue > 0 && boxShadowValue < 30) {
+    aboutUsTextContainer.style.boxShadow = "".concat(boxShadowValue, "px -").concat(boxShadowValue, "px 0px 0px #e63946, -").concat(boxShadowValue, "px ").concat(boxShadowValue, "px 0px 0px #e63946");
+  } else {
+    aboutUsTextContainer.style.boxShadow = "10px -10px 0px 0px #e63946, -10px 10px 0px 0px #e63946";
+  }
+}); // Our services section phone parallax effect
 
 var servicesPageObserverOption = {
   rootMargin: "0px",
@@ -316,7 +367,8 @@ function sendMail() {
   }).catch(function (error) {
     return console.log(error);
   });
-}
+} // this code here is causing issues for some reason:
+
 
 formSubmit.addEventListener("click", function (event) {
   event.preventDefault();
@@ -354,7 +406,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57738" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54014" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -58,6 +58,9 @@ section .section-title .section-title-background {
   margin-top: -0.15em;
   line-height: 80%;
 }
+section .section-title .section-title-main {
+  transition-duration: 0.2s;
+}
 
 /* Controls */
 .controls {
@@ -310,7 +313,7 @@ section .section-title .section-title-background {
     height: 9rem;
     width: 100%;
     z-index: 0;
-    box-shadow: 5px 5px 0px 5px #e63946;
+    box-shadow: 5px -5px -1px 5px #e63946;
     margin-top: -3rem;
   }
 }
@@ -378,7 +381,7 @@ section .section-title .section-title-background {
 }
 @media screen and (max-width: 780px) {
   .sec2 .section-info .about-section-2 .about-sec2-img div .about-sec2-mobile-background {
-    box-shadow: -5px 5px 0px 5px #e63946;
+    box-shadow: -8px 5px 0px 5px #1d3557;
   }
 }
 .sec2 .section-info .about-section-2 .about-sec2-img div img {
@@ -398,7 +401,6 @@ section .section-title .section-title-background {
   gap: 2rem;
   justify-content: center;
   background-color: #b2becd;
-  box-shadow: 10px -10px 0px 0px #e63946, -10px 10px 0px 0px #e63946;
 }
 .sec2 .section-info .about-section-3 .about-section-3-text-container p {
   color: #1d3557;

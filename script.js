@@ -160,10 +160,62 @@ homepageSection.addEventListener("mousemove", (event) => {
   homepageImage.style.transform = `perspective(1000px) rotateY(${
     clientX / 50
   }deg) rotateX(${clientY / 50}deg) scale3d(1, 1, 1)`
-})
+});
 
 // parralax effect on main page titles
 // will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect.
+const mainSectionTitles = document.querySelectorAll('.section-title-main');
+const mainSectionTitleOptions = {
+  rootMargin: "0px",
+  threshold: 0
+};
+const mainSectionTitleobserver = new IntersectionObserver(function(entries, mainSectionTitleobserver) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      function parallaxEffect() {
+        let clientRect = entry.target.getBoundingClientRect();
+        let fromTop = (clientRect.y) / 10;
+        entry.target.style.transform = `translateY(${fromTop}px)`;
+      };
+      document.addEventListener('scroll', parallaxEffect);
+    };
+  })
+}, mainSectionTitleOptions);
+mainSectionTitles.forEach(title => {
+  mainSectionTitleobserver.observe(title);
+});
+
+// About Us headshot Animation
+document.addEventListener('scroll', () => {
+  // for the first headshot
+  const headshotImgOne = document.querySelector('.headshotImgOne');
+  let headShotOneBoundClientRect = headshotImgOne.getBoundingClientRect();
+  let headshotOneFromTop = (headShotOneBoundClientRect.y) - 30;
+  headshotImgOne.style.transform = `perspective(1000px) rotateY(${headshotOneFromTop / 10 }deg) scale3d(1, 1, 1)`;
+  
+  // for the second headshot
+  const headshotImageTwo = document.querySelector('.headshotImgTwo');
+  let headShotTwoBoundClientRect = headshotImageTwo.getBoundingClientRect();
+  let headshotTwoFromTop = ((headShotTwoBoundClientRect.y) - 30) * -1;
+  headshotImageTwo.style.transform = `perspective(1000px) rotateY(${headshotTwoFromTop / 10 }deg) scale3d(1, 1, 1)`;
+  
+  // for bottom text section
+  const aboutUsTextContainer = document.querySelector('.about-section-3-text-container');
+  let aboutUsTextContainerClientRect = aboutUsTextContainer.getBoundingClientRect();
+  const aboutUsTextContainerY = aboutUsTextContainerClientRect.y;
+  const maxBoxShadowSize = 20;
+  let boxShadowValue = maxBoxShadowSize - (aboutUsTextContainerY / 35);
+  if (boxShadowValue < 0) {
+    return
+  } else if (boxShadowValue > 0 && boxShadowValue < 30) {
+    aboutUsTextContainer.style.boxShadow = `${boxShadowValue}px -${boxShadowValue}px 0px 0px #e63946, -${boxShadowValue}px ${boxShadowValue}px 0px 0px #e63946`;
+  } else {
+    aboutUsTextContainer.style.boxShadow = `10px -10px 0px 0px #e63946, -10px 10px 0px 0px #e63946`;
+  }
+});
+
+
+
 
 // Our services section phone parallax effect
 const servicesPageObserverOption = {
@@ -220,6 +272,7 @@ function sendMail() {
     .catch((error) => console.log(error))
 }
 
+// this code here is causing issues for some reason:
 formSubmit.addEventListener("click", function (event) {
   event.preventDefault()
   sendMail()
