@@ -17,6 +17,7 @@ $header-font: "Roboto Condensed", sans-serif, arial;
 $paragraph-font: "Montserrat", sans-serif;
 $transition-default: all 0.4s ease-in-out;
 $transition-contact: all 1.5s ease-in-out;
+$transition-portfolio: all 1.2s ease-in-out;
 $box-shadow: 3px 3px 15px 0px black;
 $box-shadow-on-hover: 5px 5px 15px 0px black;
 
@@ -596,6 +597,11 @@ section {
         position: relative;
         overflow: hidden;
         background-color: rgba(0, 0, 0, 0.8);
+        transition: $transition-portfolio;
+        opacity: 0;
+        &.visible {
+          opacity: 1;
+        }
         a {
           text-decoration: none;
           color: white;

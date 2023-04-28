@@ -570,6 +570,11 @@ section .section-title .section-title-main {
   position: relative;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.8);
+  transition: all 1.2s ease-in-out;
+  opacity: 0;
+}
+.sec4 .gallery-wrapper .gallery .gallery-item.visible {
+  opacity: 1;
 }
 .sec4 .gallery-wrapper .gallery .gallery-item a {
   text-decoration: none;

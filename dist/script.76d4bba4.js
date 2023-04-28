@@ -370,13 +370,6 @@ formSubmit.addEventListener("click", function (event) {
   sendMail();
 }); // Intersection observer
 
-var inputs = document.querySelectorAll("input");
-var textarea = document.querySelector("textarea");
-var contactForm = document.getElementById("contact-form");
-var contactText = document.querySelector(".contact-text");
-var triangle = document.querySelector(".triangle");
-var dots = document.querySelector(".dots");
-var contactEls = [textarea, contactForm, contactText, triangle, dots];
 var observer = new IntersectionObserver(function (entries, observer) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
@@ -385,7 +378,20 @@ var observer = new IntersectionObserver(function (entries, observer) {
       entry.target.classList.remove("visible");
     }
   });
-});
+}); // Portfolio section
+
+var galleryItems = document.querySelectorAll(".gallery-item");
+galleryItems.forEach(function (item) {
+  observer.observe(item);
+}); // contact section
+
+var inputs = document.querySelectorAll("input");
+var textarea = document.querySelector("textarea");
+var contactForm = document.getElementById("contact-form");
+var contactText = document.querySelector(".contact-text");
+var triangle = document.querySelector(".triangle");
+var dots = document.querySelector(".dots");
+var contactEls = [textarea, contactForm, contactText, triangle, dots];
 contactEls.forEach(function (el) {
   observer.observe(el);
 });

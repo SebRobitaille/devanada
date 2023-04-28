@@ -284,15 +284,6 @@ formSubmit.addEventListener("click", function (event) {
 })
 
 // Intersection observer
-const inputs = document.querySelectorAll("input")
-const textarea = document.querySelector("textarea")
-const contactForm = document.getElementById("contact-form")
-const contactText = document.querySelector(".contact-text")
-const triangle = document.querySelector(".triangle")
-const dots = document.querySelector(".dots")
-
-const contactEls = [textarea, contactForm, contactText, triangle, dots]
-
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -302,6 +293,22 @@ const observer = new IntersectionObserver((entries, observer) => {
     }
   })
 })
+// Portfolio section
+
+const galleryItems = document.querySelectorAll(".gallery-item")
+galleryItems.forEach((item) => {
+  observer.observe(item)
+})
+
+// contact section
+const inputs = document.querySelectorAll("input")
+const textarea = document.querySelector("textarea")
+const contactForm = document.getElementById("contact-form")
+const contactText = document.querySelector(".contact-text")
+const triangle = document.querySelector(".triangle")
+const dots = document.querySelector(".dots")
+
+const contactEls = [textarea, contactForm, contactText, triangle, dots]
 
 contactEls.forEach((el) => {
   observer.observe(el)
