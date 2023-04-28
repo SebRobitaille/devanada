@@ -894,7 +894,7 @@ section .section-title .section-title-main {
   margin: 1.5rem auto 4rem;
   background-color: #b2becd;
   color: #1d3557;
-  box-shadow: calc(-10px - 0.390625vw) calc(10px + 0.390625vw) #e63946;
+  transition: all 1.5s ease-in-out;
   position: relative;
   display: flex;
   justify-content: center;
@@ -905,6 +905,9 @@ section .section-title .section-title-main {
   padding: 1em;
   z-index: 5;
   font-size: 1.5rem;
+}
+.contact .contact-container .contact-text.visible {
+  box-shadow: calc(-10px - 0.390625vw) calc(10px + 0.390625vw) #e63946;
 }
 @media (min-width: 48em) {
   .contact .contact-container .contact-text {
@@ -918,12 +921,18 @@ section .section-title .section-title-main {
   right: 0;
   bottom: 1px;
   translate: 50% 50%;
+  opacity: 0;
   border-color: transparent;
   border-bottom-color: #b2becd;
   border-width: calc(clamp(15em, 45vw, 50vw) / 6);
   border-style: solid;
   rotate: 45deg;
   z-index: 1;
+  transition: all 1.5s ease-in-out;
+  filter: drop-shadow(0px 0px transparent);
+}
+.contact .contact-container .contact-text .triangle.visible {
+  opacity: 1;
   filter: drop-shadow(8px 8px #e63946);
 }
 .contact .contact-container .contact-text .dots {
@@ -937,6 +946,11 @@ section .section-title .section-title-main {
   bottom: calc(clamp(15em, 45vw, 50vw) / -50);
   width: calc(clamp(15em, 45vw, 50vw) / 6);
   height: calc(clamp(15em, 45vw, 50vw) / 6);
+  translate: 0% 0%;
+  transition: all 1.5s ease-in-out;
+}
+.contact .contact-container .contact-text .dots.visible {
+  opacity: 1;
   translate: 0 100%;
 }
 .contact .contact-container .contact-text .social-p {
@@ -950,7 +964,7 @@ section .section-title .section-title-main {
 }
 @media (min-width: 36em) {
   .contact .contact-container .contact-text .social-p {
-    translate: -20% 100%;
+    translate: -20% calc(100% + 1vh);
   }
 }
 .contact .contact-container .contact-text .icon-container {
@@ -1065,11 +1079,17 @@ section .section-title .section-title-main {
   position: absolute;
   content: "";
   inset: 0;
+  translate: 0;
+  width: 80%;
+  height: 80%;
+  z-index: -1;
+  background-color: #e63946;
+  transition: all 1.5s ease-in-out;
+}
+.contact .contact-container #contact-form.visible::after {
   translate: calc(10px + 0.390625vw) calc(10px + 0.390625vw);
   width: 100%;
   height: 100%;
-  z-index: -1;
-  background-color: #e63946;
 }
 .contact .contact-container #contact-form fieldset legend {
   font-size: 1.4rem;
@@ -1100,6 +1120,17 @@ section .section-title .section-title-main {
 }
 .contact .contact-container #contact-form ul li + li {
   margin-top: 1em;
+}
+.contact .contact-container #contact-form ul input,
+.contact .contact-container #contact-form ul textarea {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 1.5s ease-in-out;
+}
+.contact .contact-container #contact-form ul input.visible,
+.contact .contact-container #contact-form ul textarea.visible {
+  transform: translate(0);
+  opacity: 1;
 }
 .contact .contact-container #contact-form ul input:focus-visible,
 .contact .contact-container #contact-form ul textarea:focus-visible {
@@ -1160,6 +1191,11 @@ section .section-title .section-title-main {
   background-color: #e63946;
   color: black;
   transition: all 0.4s ease-in-out;
+}
+
+#contact.visible .contact-container #contact-form ul input input {
+  transform: translate(0);
+  opacity: 1;
 }
 
 /* Submit Btn */

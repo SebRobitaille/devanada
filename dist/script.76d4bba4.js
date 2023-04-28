@@ -269,7 +269,7 @@ homepageSection.addEventListener("mousemove", function (event) {
 }); // parralax effect on main page titles
 // will be adding a slight parallax effect on Intersection Observer > getBoundingClientRect.
 
-var mainSectionTitles = document.querySelectorAll('.section-title-main');
+var mainSectionTitles = document.querySelectorAll(".section-title-main");
 var mainSectionTitleOptions = {
   rootMargin: "0px",
   threshold: 0
@@ -283,30 +283,27 @@ var mainSectionTitleobserver = new IntersectionObserver(function (entries, mainS
         entry.target.style.transform = "translateY(".concat(fromTop, "px)");
       };
 
-      ;
-      document.addEventListener('scroll', parallaxEffect);
+      document.addEventListener("scroll", parallaxEffect);
     }
-
-    ;
   });
 }, mainSectionTitleOptions);
 mainSectionTitles.forEach(function (title) {
   mainSectionTitleobserver.observe(title);
 }); // About Us headshot Animation
 
-document.addEventListener('scroll', function () {
+document.addEventListener("scroll", function () {
   // for the first headshot
-  var headshotImgOne = document.querySelector('.headshotImgOne');
+  var headshotImgOne = document.querySelector(".headshotImgOne");
   var headShotOneBoundClientRect = headshotImgOne.getBoundingClientRect();
   var headshotOneFromTop = headShotOneBoundClientRect.y - 30;
   headshotImgOne.style.transform = "perspective(1000px) rotateY(".concat(headshotOneFromTop / 10, "deg) scale3d(1, 1, 1)"); // for the second headshot
 
-  var headshotImageTwo = document.querySelector('.headshotImgTwo');
+  var headshotImageTwo = document.querySelector(".headshotImgTwo");
   var headShotTwoBoundClientRect = headshotImageTwo.getBoundingClientRect();
   var headshotTwoFromTop = (headShotTwoBoundClientRect.y - 30) * -1;
   headshotImageTwo.style.transform = "perspective(1000px) rotateY(".concat(headshotTwoFromTop / 10, "deg) scale3d(1, 1, 1)"); // for bottom text section
 
-  var aboutUsTextContainer = document.querySelector('.about-section-3-text-container');
+  var aboutUsTextContainer = document.querySelector(".about-section-3-text-container");
   var aboutUsTextContainerClientRect = aboutUsTextContainer.getBoundingClientRect();
   var aboutUsTextContainerY = aboutUsTextContainerClientRect.y;
   var maxBoxShadowSize = 20;
@@ -346,7 +343,6 @@ function moveServicePagePhone() {
 window.addEventListener("scroll", moveServicePagePhone); // Form script
 
 var formSubmit = document.getElementById("form-submit");
-var inputSubmit = document.getElementById("input-submit");
 
 function sendMail() {
   var params = {
@@ -367,16 +363,34 @@ function sendMail() {
   }).catch(function (error) {
     return console.log(error);
   });
-} // this code here is causing issues for some reason:
-
+}
 
 formSubmit.addEventListener("click", function (event) {
   event.preventDefault();
   sendMail();
+}); // Intersection observer
+
+var inputs = document.querySelectorAll("input");
+var textarea = document.querySelector("textarea");
+var contactForm = document.getElementById("contact-form");
+var contactText = document.querySelector(".contact-text");
+var triangle = document.querySelector(".triangle");
+var dots = document.querySelector(".dots");
+var contactEls = [textarea, contactForm, contactText, triangle, dots];
+var observer = new IntersectionObserver(function (entries, observer) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    } else {
+      entry.target.classList.remove("visible");
+    }
+  });
 });
-inputSubmit.addEventListener("submit", function (event) {
-  event.preventDefault();
-  sendMail();
+contactEls.forEach(function (el) {
+  observer.observe(el);
+});
+inputs.forEach(function (input) {
+  observer.observe(input);
 });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -406,7 +420,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54014" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61362" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

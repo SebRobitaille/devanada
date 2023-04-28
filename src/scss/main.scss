@@ -16,6 +16,7 @@ $secondary-bg-color: black;
 $header-font: "Roboto Condensed", sans-serif, arial;
 $paragraph-font: "Montserrat", sans-serif;
 $transition-default: all 0.4s ease-in-out;
+$transition-contact: all 1.5s ease-in-out;
 $box-shadow: 3px 3px 15px 0px black;
 $box-shadow-on-hover: 5px 5px 15px 0px black;
 
@@ -930,7 +931,10 @@ section {
       margin: 1.5rem auto 4rem;
       background-color: $color-grey-2;
       color: $light-main-text-color;
-      box-shadow: $offset-x-left $offset-y-down $highlight-color;
+      transition: $transition-contact;
+      &.visible {
+        box-shadow: $offset-x-left $offset-y-down $highlight-color;
+      }
       position: relative;
       display: flex;
       justify-content: center;
@@ -951,6 +955,7 @@ section {
         right: 0;
         bottom: 1px;
         translate: 50% 50%;
+        opacity: 0;
 
         border-color: transparent;
         border-bottom-color: $color-grey-2;
@@ -959,8 +964,12 @@ section {
 
         rotate: 45deg;
         z-index: 1;
-
-        filter: drop-shadow(8px 8px $highlight-color);
+        transition: $transition-contact;
+        filter: drop-shadow(0px 0px transparent);
+        &.visible {
+          opacity: 1;
+          filter: drop-shadow(8px 8px $highlight-color);
+        }
       }
       .dots {
         position: absolute;
@@ -973,7 +982,12 @@ section {
         bottom: calc($width-box / -50);
         width: calc($width-box / 6);
         height: calc($width-box / 6);
-        translate: 0 100%;
+        translate: 0% 0%;
+        transition: $transition-contact;
+        &.visible {
+          opacity: 1;
+          translate: 0 100%;
+        }
       }
       .social-p {
         position: absolute;
@@ -984,7 +998,7 @@ section {
         translate: -15% 100%;
         color: $color-grey0;
         @media (min-width: $mq-small) {
-          translate: -20% 100%;
+          translate: -20% calc(100% + 1vh);
         }
       }
       .icon-container {
@@ -1101,11 +1115,17 @@ section {
         position: absolute;
         content: "";
         inset: 0;
+        translate: 0;
+        width: 80%;
+        height: 80%;
+        z-index: -1;
+        background-color: $highlight-color;
+        transition: $transition-contact;
+      }
+      &.visible::after {
         translate: $offset-x-right $offset-y-down;
         width: 100%;
         height: 100%;
-        z-index: -1;
-        background-color: $highlight-color;
       }
       fieldset {
         legend {
@@ -1136,14 +1156,25 @@ section {
           font-size: 1.2rem;
           font-family: $paragraph-font;
         }
-
         & li + li {
           margin-top: 1em;
+        }
+        input,
+        textarea {
+          transform: translateX(100%);
+          opacity: 0;
+          transition: $transition-contact;
+        }
+        input.visible,
+        textarea.visible {
+          transform: translate(0);
+          opacity: 1;
         }
         input:focus-visible,
         textarea:focus-visible {
           outline: 2px solid $highlight-color;
         }
+
         .btn {
           font-size: larger;
           button {
@@ -1201,6 +1232,15 @@ section {
           }
         }
       }
+    }
+  }
+}
+
+#contact.visible {
+  .contact-container #contact-form ul input {
+    input {
+      transform: translate(0);
+      opacity: 1;
     }
   }
 }
