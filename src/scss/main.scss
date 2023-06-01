@@ -647,6 +647,9 @@ section {
       }
       .gi-5 {
         background-color: white;
+        img {
+          transform: translateY(-6%);
+        }
       }
       .gi-6 {
         background-color: rgba(0, 0, 0, 0.5);

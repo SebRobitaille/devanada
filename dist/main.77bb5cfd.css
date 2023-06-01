@@ -623,6 +623,9 @@ section .section-title .section-title-main {
 .sec4 .gallery-wrapper .gallery .gi-5 {
   background-color: white;
 }
+.sec4 .gallery-wrapper .gallery .gi-5 img {
+  transform: translateY(-6%);
+}
 .sec4 .gallery-wrapper .gallery .gi-6 {
   background-color: rgba(0, 0, 0, 0.5);
 }
